@@ -11,8 +11,8 @@ export default function RootLayout({
       <body>
         <Navbar />
 
-        {/* offset navbar fixed */}
-        <main>
+        {/* 🔥 OFFSET NAVBAR */}
+        <main className="pt-14 md:pt-20">
           {children}
         </main>
 

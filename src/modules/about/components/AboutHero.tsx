@@ -60,12 +60,39 @@ export default function AboutHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="mt-8 flex gap-6 text-sm text-gray-500"
-          >
-            <span>✔ 100+ Client</span>
-            <span>✔ 99.9% Uptime</span>
-            <span>✔ 24/7 Support</span>
-          </motion.div>
+            className="mt-8 flex flex-wrap gap-3"
+            >
+            {[
+                "100+ Client",
+                "99.9% Uptime",
+                "24/7 Support",
+            ].map((item, i) => (
+                <motion.span
+                key={i}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 + i * 0.1 }}
+                className="
+                    relative inline-flex items-center gap-2
+                    px-4 py-2 rounded-full text-xs font-semibold
+                    bg-gradient-to-r from-yellow-400 via-amber-500 to-yellow-500
+                    text-black
+                    shadow-[0_8px_25px_rgba(251,191,36,0.5)]
+                    hover:scale-[1.08]
+                    transition-all duration-300
+                "
+                >
+                {/* glow layer */}
+                <span className="absolute inset-0 rounded-full bg-yellow-400/30 blur-md opacity-0 hover:opacity-100 transition" />
+
+                {/* dot */}
+                <span className="relative w-1.5 h-1.5 bg-black rounded-full" />
+
+                {/* text */}
+                <span className="relative">{item}</span>
+                </motion.span>
+            ))}
+            </motion.div>
 
         </div>
 
