@@ -29,7 +29,7 @@ export default function Hero() {
 
       {/* BACKGROUND IMAGE */}
       <Image
-        src="/assets/premium_photo-1764695549917-da546c7254a2.avif"
+        src="/assets/premium_photo-1764705618971-bf125023ac6e.avif"
         alt="IT Infrastructure"
         fill
         priority
