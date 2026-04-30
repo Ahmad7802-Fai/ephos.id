@@ -24,7 +24,7 @@ export default function AboutHero() {
             text-blue-600
             mb-6
           ">
-            About Ephos
+            About Ephostech.id
           </span>
 
           {/* HEADLINE */}

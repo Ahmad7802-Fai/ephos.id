@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { Button, Container } from "@/components";
 import { Menu, X } from "lucide-react";
 
@@ -18,6 +18,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
 
   const isHome = pathname === "/";
 
@@ -31,6 +32,32 @@ export default function Navbar() {
       return () => window.removeEventListener("scroll", handleScroll);
     }
   }, [isHome]);
+
+  // 🔥 HANDLE NAVIGATION (INI KUNCI UTAMA)
+  const handleNavigate = (href: string) => {
+    setOpen(false);
+
+    if (href.startsWith("/#")) {
+      // ke section di homepage
+      if (pathname !== "/") {
+        router.push("/");
+        setTimeout(() => {
+          const id = href.replace("/#", "");
+          document.getElementById(id)?.scrollIntoView({
+            behavior: "smooth",
+          });
+        }, 300);
+      } else {
+        const id = href.replace("/#", "");
+        document.getElementById(id)?.scrollIntoView({
+          behavior: "smooth",
+        });
+      }
+    } else {
+      router.push(href);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
 
   return (
     <nav
@@ -50,15 +77,15 @@ export default function Navbar() {
       <Container className="h-16 flex items-center justify-between">
 
         {/* LOGO */}
-        <Link
-          href="/"
+        <button
+          onClick={() => handleNavigate("/")}
           className={`
             font-semibold text-lg tracking-tight
             ${isHome ? "text-white" : "text-gray-900"}
           `}
         >
           ephostech<span className="text-blue-500">.id</span>
-        </Link>
+        </button>
 
         {/* DESKTOP MENU */}
         <div className="hidden md:flex items-center gap-8 text-sm">
@@ -70,9 +97,9 @@ export default function Navbar() {
                 : pathname.startsWith(item.href.replace("/#", ""));
 
             return (
-              <Link
+              <button
                 key={i}
-                href={item.href}
+                onClick={() => handleNavigate(item.href)}
                 className={`
                   relative group transition
                   ${
@@ -95,7 +122,7 @@ export default function Navbar() {
                     ${isActive ? "w-full" : "w-0 group-hover:w-full"}
                   `}
                 />
-              </Link>
+              </button>
             );
           })}
 
@@ -128,14 +155,13 @@ export default function Navbar() {
         <div className="bg-white border-t border-gray-200 px-6 py-6 space-y-5">
 
           {menus.map((item, i) => (
-            <Link
+            <button
               key={i}
-              href={item.href}
-              className="block text-gray-700 hover:text-gray-900 transition"
-              onClick={() => setOpen(false)}
+              onClick={() => handleNavigate(item.href)}
+              className="block w-full text-left text-gray-700 hover:text-gray-900 transition"
             >
               {item.name}
-            </Link>
+            </button>
           ))}
 
           <Button fullWidth>
