@@ -3,11 +3,7 @@
 import Image from "next/image";
 import { Container } from "@/components";
 import { motion } from "framer-motion";
-import {
-  Server,
-  Cloud,
-  Layers,
-} from "lucide-react";
+import { Server, Cloud, Layers } from "lucide-react";
 
 const highlights = [
   {
@@ -18,7 +14,7 @@ const highlights = [
   {
     icon: Cloud,
     title: "Cloud Services",
-    desc: "Solusi fleksibel untuk operasional",
+    desc: "Operasional lebih fleksibel & efisien",
   },
   {
     icon: Layers,
@@ -29,22 +25,22 @@ const highlights = [
 
 export default function Hero() {
   return (
-    <section className="relative py-32 overflow-hidden">
+    <section className="relative py-28 overflow-hidden">
 
       {/* BACKGROUND IMAGE */}
       <Image
         src="/assets/premium_photo-1764695549917-da546c7254a2.avif"
-        alt="Background"
+        alt="IT Infrastructure"
         fill
         priority
-        className="object-cover opacity-30 scale-105"
+        className="object-cover opacity-25 scale-105"
       />
 
       {/* DARK OVERLAY */}
-      <div className="absolute inset-0 bg-[#0B0F14]/40" />
+      <div className="absolute inset-0 bg-[#0B0F14]/70" />
 
       {/* BLUE GLOW */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(37,99,235,0.2),transparent_40%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(37,99,235,0.25),transparent_50%)]" />
 
       <Container className="relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -52,37 +48,33 @@ export default function Hero() {
           {/* LEFT */}
           <div>
 
-            {/* BADGE */}
+            {/* BADGE (UPGRADED) */}
             <span className="
               inline-flex items-center gap-2
-              px-4 py-1.5
-              text-xs font-medium
+              px-4 py-1.5 text-xs font-medium
               rounded-full
-
-              bg-gradient-to-r from-white/20 to-white/5
-              border border-white/20
-              text-white
-
+              bg-blue-500/15
+              border border-blue-400/30
+              text-blue-200
               backdrop-blur-md
-              shadow-[0_4px_20px_rgba(0,0,0,0.3)]
+              shadow-[0_4px_20px_rgba(37,99,235,0.25)]
               mb-5
             ">
               <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
               Enterprise IT Solution
             </span>
 
-            {/* HEADLINE */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white leading-[1.15] tracking-tight">
-              Solusi Digital yang
-              <span className="block text-blue-400">
-                Mendorong Pertumbuhan Bisnis
+            {/* 🔥 HEADLINE (FIXED) */}
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white leading-[1.1] tracking-tight">
+              Bangun Infrastruktur & Sistem IT
+              <span className="block bg-gradient-to-r from-blue-300 to-blue-500 bg-clip-text text-transparent">
+                yang Stabil, Scalable, dan Siap Tumbuh
               </span>
             </h1>
 
             {/* DESC */}
             <p className="mt-5 text-white/60 max-w-md leading-relaxed">
-              Kami membantu bisnis berkembang melalui teknologi, infrastruktur,
-              dan sistem digital yang scalable, aman, dan efisien.
+              Kami membantu bisnis meningkatkan performa operasional dengan solusi IT end-to-end — dari infrastruktur, cloud, hingga sistem enterprise.
             </p>
 
             {/* HIGHLIGHTS */}
@@ -105,26 +97,68 @@ export default function Hero() {
               })}
             </div>
 
-            {/* CTA */}
-            <button className="
-              mt-8
-              px-6 py-3
-              rounded-xl
-              bg-gradient-to-r from-blue-500 to-blue-600
-              text-white font-medium
-              shadow-[0_10px_30px_rgba(37,99,235,0.4)]
-              hover:scale-[1.04]
-              hover:shadow-[0_20px_50px_rgba(37,99,235,0.5)]
-              transition-all duration-300
-            ">
-              Konsultasi Gratis →
-            </button>
+            {/* CTA (UPGRADED) */}
+            <div className="mt-8 flex gap-4">
+              <button className="
+                px-6 py-3 rounded-xl
+                bg-gradient-to-r from-blue-500 to-blue-600
+                text-white font-medium
+                shadow-[0_10px_30px_rgba(37,99,235,0.4)]
+                hover:scale-[1.04]
+                hover:shadow-[0_20px_50px_rgba(37,99,235,0.5)]
+                transition-all duration-300
+              ">
+                Konsultasi Gratis →
+              </button>
+
+              <button className="
+                px-6 py-3 rounded-xl
+                border border-white/15
+                text-white/80
+                hover:bg-white/10
+                transition
+              ">
+                Lihat Portfolio
+              </button>
+            </div>
 
             {/* TRUST */}
-            <div className="mt-5 flex gap-5 text-[11px] text-white/40">
-              <span>✔ 100+ Client</span>
-              <span>✔ 99.9% Uptime</span>
-              <span>✔ 24/7 Support</span>
+            <div className="mt-6 flex flex-wrap gap-3">
+
+              {[
+                "100+ Client",
+                "99.9% Uptime",
+                "24/7 Support",
+              ].map((item, i) => (
+                <span
+                  key={i}
+                  className="
+                    flex items-center gap-2
+
+                    px-4 py-2
+                    rounded-full
+                    text-xs font-semibold
+
+                    bg-gradient-to-r from-yellow-400 to-amber-500
+                    text-black
+
+                    shadow-[0_8px_25px_rgba(251,191,36,0.6)]
+
+                    border border-white/30
+
+                    backdrop-blur-md
+
+                    hover:scale-[1.07]
+                    transition-all duration-300
+                  "
+                >
+                  <span className="w-1.5 h-1.5 bg-black rounded-full" />
+                  {item}
+                </span>
+              ))}
+
+            </div>
+
             </div>
 
           </div>
@@ -134,9 +168,9 @@ export default function Hero() {
 
             <motion.div
               initial={{ y: 20, opacity: 0 }}
-              animate={{ y: [0, -12, 0], opacity: 1 }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              className="relative w-[520px]"
+              animate={{ y: [0, -10, 0], opacity: 1 }}
+              transition={{ duration: 6, repeat: Infinity }}
+              className="relative w-[500px]"
             >
 
               {/* IMAGE */}
@@ -148,7 +182,7 @@ export default function Hero() {
               {/* OVERLAY */}
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
 
-              {/* GLASS CARD */}
+              {/* MAIN CARD */}
               <motion.div
                 animate={{ y: [0, -6, 0] }}
                 transition={{ duration: 5, repeat: Infinity }}
@@ -166,9 +200,9 @@ export default function Hero() {
                 </div>
               </motion.div>
 
-              {/* FLOAT MINI */}
+              {/* FLOAT */}
               <motion.div
-                animate={{ y: [0, -10, 0] }}
+                animate={{ y: [0, -12, 0] }}
                 transition={{ duration: 4, repeat: Infinity }}
                 className="absolute -bottom-8 left-0
                            bg-white/10 backdrop-blur-md border border-white/10
