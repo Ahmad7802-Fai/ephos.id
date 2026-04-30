@@ -16,19 +16,17 @@ export default function Button({
   const base =
     "inline-flex items-center justify-center rounded-xl font-medium transition-all duration-200 active:scale-95 disabled:opacity-50 disabled:pointer-events-none";
 
-  // 🎯 SIZE RESPONSIVE
   const sizes = {
     sm: "px-3 py-1.5 text-xs",
     md: "px-5 py-2 text-sm md:text-base",
     lg: "px-6 py-3 text-base md:text-lg",
   };
 
-  // 🎯 VARIANT
   const variants = {
     primary:
-      "bg-blue-500 text-white hover:bg-blue-600 shadow-md hover:shadow-lg shadow-blue-500/20",
+      "text-white bg-[linear-gradient(135deg,#2563EB,#1D4ED8)] shadow-md hover:shadow-[0_10px_40px_rgba(37,99,235,0.5)] hover:scale-[1.03]",
     outline:
-      "border border-white/40 text-white hover:bg-white/10 backdrop-blur",
+      "border border-white/20 text-white hover:bg-white/10 backdrop-blur",
   };
 
   return (

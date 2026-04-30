@@ -1,26 +1,126 @@
 @import "tailwindcss";
 
+/* =========================
+   THEME TOKENS
+========================= */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #0B0F1A;
+  --bg-secondary: #111827;
+  --card: #1F2937;
+
+  --primary: #2563EB;
+  --primary-hover: #1D4ED8;
+
+  --accent: #3B82F6;
+  --border: #374151;
+
+  --text: #E5E7EB;
+  --text-muted: #9CA3AF;
+
+  --radius: 12px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* =========================
+   BASE (RESET + GLOBAL)
+========================= */
+@layer base {
+  * {
+    @apply box-border;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  body {
+    @apply bg-[var(--bg)] text-[var(--text)] antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1 {
+    @apply text-4xl font-semibold tracking-tight;
+  }
+
+  h2 {
+    @apply text-3xl font-semibold tracking-tight;
+  }
+
+  h3 {
+    @apply text-2xl font-semibold;
+  }
+
+  p {
+    @apply text-[var(--text-muted)];
+  }
+
+  a {
+    @apply transition-colors;
+  }
+
+  a:hover {
+    color: var(--primary);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* =========================
+   COMPONENTS
+========================= */
+@layer components {
+  .container-custom {
+    @apply max-w-6xl mx-auto px-6;
+  }
+
+  .section {
+    @apply py-20;
+  }
+
+  .card {
+    @apply bg-[var(--card)] border border-[var(--border)] rounded-xl p-6 transition;
+  }
+
+  .card:hover {
+    @apply -translate-y-1;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  }
+
+  .btn {
+    @apply px-6 py-3 rounded-lg font-medium transition;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #2563EB, #1D4ED8);
+    @apply text-white;
+  }
+
+  .btn-primary:hover {
+    @apply opacity-90 -translate-y-[2px];
+  }
+
+  .btn-outline {
+    @apply border border-[var(--border)] text-white;
+  }
+
+  .btn-outline:hover {
+    @apply bg-[var(--card)];
+  }
+
+  .badge {
+    @apply text-xs px-3 py-1 rounded-full;
+    background: rgba(37, 99, 235, 0.15);
+    color: var(--primary);
+  }
+
+  .navbar {
+    @apply backdrop-blur border-b border-[var(--border)];
+    background: rgba(11, 15, 26, 0.8);
+  }
+}
+
+/* =========================
+   UTILITIES (OPTIONAL)
+========================= */
+@layer utilities {
+  .text-muted {
+    color: var(--text-muted);
+  }
+
+  .bg-card {
+    background: var(--card);
+  }
 }
