@@ -1,55 +1,108 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button, Container } from "@/components";
+import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  // detect scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <nav className="fixed top-0 left-0 w-full h-16 z-50 bg-transparent">
-      
-      <Container className="h-full flex items-center justify-between text-white">
-        
-        {/* Logo */}
-        <h1 className="font-bold text-lg">
-          ephos.id
+    <nav
+      className={`
+        fixed top-0 left-0 w-full z-50 transition-all duration-300
+        ${scrolled
+          ? "bg-[#0B0F14]/80 backdrop-blur-xl border-b border-white/10 shadow-lg"
+          : "bg-transparent"}
+      `}
+    >
+      <Container className="h-16 flex items-center justify-between text-white">
+
+        {/* LOGO */}
+        <h1 className="font-semibold text-lg tracking-tight">
+          ephos<span className="text-blue-400">.id</span>
         </h1>
 
-        {/* Desktop Menu */}
-        <div className="hidden md:flex gap-6 text-sm">
-          <a href="#" className="hover:text-blue-300 transition">Home</a>
-          <a href="#" className="hover:text-blue-300 transition">Services</a>
-          <a href="#" className="hover:text-blue-300 transition">Portfolio</a>
-          <a href="#" className="hover:text-blue-300 transition">Contact</a>
+        {/* MENU DESKTOP */}
+        <div className="hidden md:flex items-center gap-8 text-sm text-white/70">
+
+          {["Home", "About", "Services", "Portfolio", "Contact"].map((item, i) => (
+            <a
+              key={i}
+              href="#"
+              className="
+                relative
+                hover:text-white
+                transition
+              "
+            >
+              {item}
+
+              {/* underline hover */}
+              <span className="
+                absolute left-0 -bottom-1 h-[2px] w-0
+                bg-blue-400
+                transition-all duration-300
+                group-hover:w-full
+              " />
+            </a>
+          ))}
+
         </div>
 
-        {/* Desktop CTA */}
+        {/* CTA DESKTOP */}
         <div className="hidden md:block">
-          <Button size="sm">Konsultasi</Button>
+          <Button size="sm">
+            Konsultasi
+          </Button>
         </div>
 
-        {/* Mobile Button */}
+        {/* MOBILE BUTTON */}
         <button
-          className="md:hidden"
+          className="md:hidden text-white"
           onClick={() => setOpen(!open)}
         >
-          ☰
+          {open ? <X size={22} /> : <Menu size={22} />}
         </button>
 
       </Container>
 
-      {/* Mobile Menu */}
-      {open && (
-        <div className="md:hidden bg-black/90 backdrop-blur text-white px-6 py-6 space-y-4">
-          <a href="#" className="block">Home</a>
-          <a href="#" className="block">Services</a>
-          <a href="#" className="block">Portfolio</a>
-          <a href="#" className="block">Contact</a>
+      {/* MOBILE MENU */}
+      <div
+        className={`
+          md:hidden overflow-hidden transition-all duration-300
+          ${open ? "max-h-[400px]" : "max-h-0"}
+        `}
+      >
+        <div className="bg-[#0B0F14]/95 backdrop-blur-xl border-t border-white/10 px-6 py-6 space-y-5 text-white">
 
-          <Button fullWidth>Konsultasi</Button>
+          {["Home", "About", "Services", "Portfolio", "Contact"].map((item, i) => (
+            <a
+              key={i}
+              href="#"
+              className="block text-white/80 hover:text-white transition"
+              onClick={() => setOpen(false)}
+            >
+              {item}
+            </a>
+          ))}
+
+          <Button fullWidth>
+            Konsultasi Gratis
+          </Button>
+
         </div>
-      )}
+      </div>
     </nav>
   );
 }
