@@ -1,66 +1,107 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Button, Container } from "@/components";
 import { Menu, X } from "lucide-react";
+
+const menus = [
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+  { name: "Services", href: "/#services" },
+  { name: "Portfolio", href: "/#portfolio" },
+  { name: "Contact", href: "/#contact" },
+];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
-  // detect scroll
+  const isHome = pathname === "/";
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+
+    if (isHome) {
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+    }
+  }, [isHome]);
 
   return (
     <nav
       className={`
-        fixed top-0 left-0 w-full z-50 transition-all duration-300
-        ${scrolled
-          ? "bg-[#0B0F14]/80 backdrop-blur-xl border-b border-white/10 shadow-lg"
-          : "bg-transparent"}
+        fixed top-0 left-0 w-full z-[999]
+        transition-all duration-300
+        
+        ${
+          isHome
+            ? scrolled
+              ? "bg-[#0B0F14]/80 backdrop-blur-xl border-b border-white/10"
+              : "bg-transparent"
+            : "bg-white border-b border-gray-200 shadow-sm"
+        }
       `}
     >
-      <Container className="h-16 flex items-center justify-between text-white">
+      <Container className="h-16 flex items-center justify-between">
 
         {/* LOGO */}
-        <h1 className="font-semibold text-lg tracking-tight">
-          ephos<span className="text-blue-400">.id</span>
-        </h1>
+        <Link
+          href="/"
+          className={`
+            font-semibold text-lg tracking-tight
+            ${isHome ? "text-white" : "text-gray-900"}
+          `}
+        >
+          ephostech<span className="text-blue-500">.id</span>
+        </Link>
 
-        {/* MENU DESKTOP */}
-        <div className="hidden md:flex items-center gap-8 text-sm text-white/70">
+        {/* DESKTOP MENU */}
+        <div className="hidden md:flex items-center gap-8 text-sm">
 
-          {["Home", "About", "Services", "Portfolio", "Contact"].map((item, i) => (
-            <a
-              key={i}
-              href="#"
-              className="
-                relative
-                hover:text-white
-                transition
-              "
-            >
-              {item}
+          {menus.map((item, i) => {
+            const isActive =
+              item.href === "/"
+                ? pathname === "/"
+                : pathname.startsWith(item.href.replace("/#", ""));
 
-              {/* underline hover */}
-              <span className="
-                absolute left-0 -bottom-1 h-[2px] w-0
-                bg-blue-400
-                transition-all duration-300
-                group-hover:w-full
-              " />
-            </a>
-          ))}
+            return (
+              <Link
+                key={i}
+                href={item.href}
+                className={`
+                  relative group transition
+                  ${
+                    isHome
+                      ? isActive
+                        ? "text-white"
+                        : "text-white/60 hover:text-white"
+                      : isActive
+                      ? "text-gray-900"
+                      : "text-gray-500 hover:text-gray-900"
+                  }
+                `}
+              >
+                {item.name}
+
+                <span
+                  className={`
+                    absolute left-0 -bottom-1 h-[2px]
+                    bg-blue-500 transition-all duration-300
+                    ${isActive ? "w-full" : "w-0 group-hover:w-full"}
+                  `}
+                />
+              </Link>
+            );
+          })}
 
         </div>
 
-        {/* CTA DESKTOP */}
+        {/* CTA */}
         <div className="hidden md:block">
           <Button size="sm">
             Konsultasi
@@ -69,7 +110,7 @@ export default function Navbar() {
 
         {/* MOBILE BUTTON */}
         <button
-          className="md:hidden text-white"
+          className={`md:hidden ${isHome ? "text-white" : "text-gray-900"}`}
           onClick={() => setOpen(!open)}
         >
           {open ? <X size={22} /> : <Menu size={22} />}
@@ -84,17 +125,17 @@ export default function Navbar() {
           ${open ? "max-h-[400px]" : "max-h-0"}
         `}
       >
-        <div className="bg-[#0B0F14]/95 backdrop-blur-xl border-t border-white/10 px-6 py-6 space-y-5 text-white">
+        <div className="bg-white border-t border-gray-200 px-6 py-6 space-y-5">
 
-          {["Home", "About", "Services", "Portfolio", "Contact"].map((item, i) => (
-            <a
+          {menus.map((item, i) => (
+            <Link
               key={i}
-              href="#"
-              className="block text-white/80 hover:text-white transition"
+              href={item.href}
+              className="block text-gray-700 hover:text-gray-900 transition"
               onClick={() => setOpen(false)}
             >
-              {item}
-            </a>
+              {item.name}
+            </Link>
           ))}
 
           <Button fullWidth>

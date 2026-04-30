@@ -15,18 +15,21 @@ const mainServices = [
   {
     icon: Server,
     title: "IT Infrastructure",
-    desc: "Jaringan stabil, cepat, dan scalable untuk mendukung operasional bisnis modern.",
+    desc: "Bangun jaringan stabil & scalable untuk operasional bisnis tanpa downtime.",
+    impact: "99.9% uptime • Zero bottleneck",
     featured: true,
   },
   {
     icon: Cloud,
     title: "Cloud & Managed Services",
-    desc: "Solusi cloud fleksibel dengan monitoring dan pengelolaan penuh.",
+    desc: "Optimasi cloud dengan monitoring & management penuh.",
+    impact: "Lebih hemat biaya hingga 40%",
   },
   {
     icon: Layers,
     title: "Enterprise System",
-    desc: "ERP, CRM, dan automation untuk meningkatkan efisiensi bisnis.",
+    desc: "ERP, CRM, dan automation untuk efisiensi bisnis.",
+    impact: "Operasional lebih cepat & terstruktur",
   },
 ];
 
@@ -40,7 +43,7 @@ export default function Services() {
   return (
     <section className="relative py-32 bg-white overflow-hidden">
 
-      {/* subtle gradient background */}
+      {/* BACKGROUND */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(37,99,235,0.08),transparent_50%)]" />
 
       <Container>
@@ -64,8 +67,8 @@ export default function Services() {
           </p>
         </div>
 
-        {/* 🔥 TOP SERVICES */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        {/* 🔥 SERVICES */}
+        <div className="grid lg:grid-cols-3 gap-6 mb-16">
 
           {mainServices.map((item, i) => {
             const Icon = item.icon;
@@ -77,16 +80,16 @@ export default function Services() {
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 viewport={{ once: true }}
-                className={`group relative rounded-3xl p-7 transition-all duration-300
+                className={`group relative rounded-3xl p-7 transition-all duration-500
                 ${item.featured
-                  ? "bg-gradient-to-br from-blue-600 to-blue-700 text-white shadow-[0_20px_60px_rgba(37,99,235,0.4)] scale-[1.02]"
+                  ? "lg:col-span-2 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 text-white shadow-[0_30px_80px_rgba(37,99,235,0.5)]"
                   : "bg-white border border-gray-200 shadow-sm hover:shadow-xl"
                 }`}
               >
 
-                {/* glow effect */}
+                {/* GLOW */}
                 <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition
-                                bg-[radial-gradient(circle_at_top,rgba(37,99,235,0.12),transparent)]" />
+                                bg-[radial-gradient(circle_at_top,rgba(37,99,235,0.15),transparent)]" />
 
                 <div className="relative z-10">
 
@@ -115,6 +118,15 @@ export default function Services() {
                     {item.desc}
                   </p>
 
+                  {/* 🔥 IMPACT (NEW) */}
+                  <div className={`mt-5 inline-block px-3 py-1 text-xs rounded-full font-medium
+                    ${item.featured
+                      ? "bg-white/20 text-white"
+                      : "bg-blue-50 text-blue-600"
+                    }`}>
+                    {item.impact}
+                  </div>
+
                   {/* CTA */}
                   <p className={`mt-6 text-sm font-medium opacity-0 group-hover:opacity-100 transition ${
                     item.featured ? "text-white" : "text-blue-600"
@@ -123,13 +135,14 @@ export default function Services() {
                   </p>
 
                 </div>
+
               </motion.div>
             );
           })}
 
         </div>
 
-        {/* ➕ SECONDARY (PREMIUM PILLS) */}
+        {/* ➕ SECONDARY */}
         <div className="flex flex-wrap justify-center gap-4">
           {secondaryServices.map((item, i) => {
             const Icon = item.icon;

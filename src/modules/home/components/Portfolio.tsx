@@ -7,19 +7,22 @@ const projects = [
   {
     title: "Enterprise Network Infrastructure",
     desc: "Implementasi jaringan high-availability untuk perusahaan skala besar.",
+    result: "99.9% uptime • Zero downtime",
     image: "/assets/premium_photo-1682146029185-198922bd8350.avif",
     tags: ["Infrastructure", "Networking"],
     featured: true,
   },
   {
     title: "Cloud Migration System",
-    desc: "Migrasi sistem bisnis ke cloud dengan zero downtime.",
+    desc: "Migrasi sistem bisnis ke cloud tanpa gangguan operasional.",
+    result: "Downtime 0% • Cost -40%",
     image: "/assets/premium_photo-1764695549917-da546c7254a2.avif",
     tags: ["Cloud", "DevOps"],
   },
   {
     title: "ERP Automation System",
-    desc: "Automasi proses bisnis menggunakan sistem ERP terintegrasi.",
+    desc: "Automasi proses bisnis untuk meningkatkan efisiensi operasional.",
+    result: "Efficiency +60%",
     image: "/assets/premium_photo-1682146029185-198922bd8350.avif",
     tags: ["ERP", "Automation"],
   },
@@ -28,6 +31,9 @@ const projects = [
 export default function Portfolio() {
   return (
     <section className="relative py-32 bg-white overflow-hidden">
+
+      {/* subtle bg */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(37,99,235,0.08),transparent_50%)]" />
 
       <Container>
 
@@ -45,8 +51,7 @@ export default function Portfolio() {
           </h2>
 
           <p className="mt-4 text-gray-600">
-            Kami membantu berbagai bisnis membangun sistem yang stabil, scalable,
-            dan siap berkembang.
+            Bukan sekadar implementasi, tapi hasil nyata untuk performa dan efisiensi bisnis.
           </p>
         </div>
 
@@ -69,17 +74,21 @@ export default function Portfolio() {
               {/* IMAGE */}
               <img
                 src={item.image}
-                className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                className="w-full h-full object-cover group-hover:scale-110 transition duration-700"
               />
 
               {/* OVERLAY */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent" />
+
+              {/* GLOW */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition
+                              bg-gradient-to-br from-blue-500/20 via-transparent to-transparent" />
 
               {/* CONTENT */}
               <div className="absolute bottom-6 left-6 right-6 text-white">
 
                 {/* TAG */}
-                <div className="flex gap-2 mb-3">
+                <div className="flex flex-wrap gap-2 mb-3">
                   {item.tags.map((tag, idx) => (
                     <span
                       key={idx}
@@ -100,6 +109,16 @@ export default function Portfolio() {
                   {item.desc}
                 </p>
 
+                {/* 🔥 RESULT (NEW - PENTING) */}
+                <div className="mt-4 inline-block px-3 py-1 text-xs rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-200">
+                  {item.result}
+                </div>
+
+                {/* CTA */}
+                <p className="mt-4 text-sm opacity-0 group-hover:opacity-100 transition">
+                  Lihat studi kasus →
+                </p>
+
               </div>
 
             </motion.div>
@@ -110,9 +129,12 @@ export default function Portfolio() {
         {/* CTA */}
         <div className="text-center mt-16">
           <button className="
-            px-6 py-3 rounded-xl
-            bg-blue-600 text-white font-medium
-            hover:bg-blue-700 transition
+            px-7 py-3 rounded-xl
+            bg-gradient-to-r from-blue-500 to-blue-600
+            text-white font-medium
+            shadow-[0_10px_30px_rgba(37,99,235,0.3)]
+            hover:scale-[1.05]
+            transition
           ">
             Lihat Semua Portfolio →
           </button>
