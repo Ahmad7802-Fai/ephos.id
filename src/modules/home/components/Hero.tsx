@@ -25,7 +25,7 @@ const highlights = [
 
 export default function Hero() {
   return (
-    <section className="relative py-20 lg:py-24 overflow-hidden">
+    <section className="relative py-16 lg:py-24 overflow-hidden">
 
       {/* BACKGROUND IMAGE */}
       <Image
@@ -33,29 +33,25 @@ export default function Hero() {
         alt="IT Infrastructure"
         fill
         priority
-        className="object-cover opacity-80 scale-105"
+        className="object-cover opacity-70 scale-105"
       />
 
-      {/* DARK BASE */}
+      {/* DARK OVERLAY */}
       <div className="absolute inset-0 bg-[#0B0F14]/80" />
 
       {/* BLUE GLOW */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(37,99,235,0.25),transparent_50%)]" />
 
-      {/* EXTRA DEPTH */}
-      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-black/30 via-transparent to-black/60" />
-
       <Container className="relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
           {/* ================= LEFT ================= */}
-          <div className="max-w-[560px]">
+          <div className="max-w-[560px] mx-auto lg:mx-0">
 
             {/* BADGE */}
             <motion.span
               initial={{ y: 10, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.4 }}
               className="
                 inline-flex items-center gap-2
                 px-4 py-1.5 text-xs font-medium
@@ -63,7 +59,6 @@ export default function Hero() {
                 bg-blue-500/15 border border-blue-400/30
                 text-blue-200
                 backdrop-blur-md
-                shadow-[0_4px_20px_rgba(37,99,235,0.25)]
                 mb-5
               "
             >
@@ -75,7 +70,6 @@ export default function Hero() {
             <motion.h1
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.6 }}
               className="
                 text-3xl md:text-4xl lg:text-5xl
                 font-semibold text-white
@@ -99,11 +93,10 @@ export default function Hero() {
 
             {/* DESC */}
             <motion.p
-              initial={{ y: 15, opacity: 0 }}
+              initial={{ y: 10, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.1 }}
               className="
-                mt-5 text-white/65 text-[15px]
+                mt-5 text-white/60 text-[14px] md:text-[15px]
                 leading-relaxed max-w-[480px]
               "
             >
@@ -137,7 +130,7 @@ export default function Hero() {
             </div>
 
             {/* CTA */}
-            <div className="mt-8 flex flex-wrap gap-4">
+            <div className="mt-8 flex flex-col sm:flex-row gap-4">
 
               <button className="
                 px-6 py-3 rounded-xl
@@ -145,8 +138,7 @@ export default function Hero() {
                 text-white font-medium
                 shadow-[0_10px_30px_rgba(37,99,235,0.4)]
                 hover:scale-[1.05]
-                hover:shadow-[0_20px_50px_rgba(37,99,235,0.5)]
-                transition-all duration-300
+                transition
               ">
                 Konsultasi Gratis →
               </button>
@@ -165,7 +157,6 @@ export default function Hero() {
 
             {/* TRUST BADGE */}
             <div className="mt-6 flex flex-wrap gap-3">
-
               {["100+ Client", "99.9% Uptime", "24/7 Support"].map((item, i) => (
                 <span
                   key={i}
@@ -174,124 +165,98 @@ export default function Hero() {
                     px-4 py-2 rounded-full text-xs font-semibold
                     bg-gradient-to-r from-yellow-400 to-amber-500
                     text-black
-                    shadow-[0_8px_25px_rgba(251,191,36,0.6)]
-                    hover:scale-[1.07]
-                    transition-all duration-300
+                    shadow-[0_8px_20px_rgba(251,191,36,0.5)]
                   "
                 >
                   <span className="w-1.5 h-1.5 bg-black rounded-full" />
                   {item}
                 </span>
               ))}
-
             </div>
 
           </div>
-{/* ================= RIGHT ================= */}
-<div className="relative flex justify-end">
 
-  <motion.div
-    initial={{ y: 40, opacity: 0 }}
-    animate={{ y: [0, -12, 0], opacity: 1 }}
-    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-    className="relative w-[520px]"
-  >
+          {/* ================= RIGHT ================= */}
+          <div className="relative flex justify-center lg:justify-end mt-10 lg:mt-0">
 
-    {/* MAIN IMAGE */}
-    <img
-      src="/assets/premium_photo-1682146029185-198922bd8350.avif"
-      className="
-        rounded-2xl
-        object-cover
-        shadow-[0_40px_120px_rgba(0,0,0,0.8)]
-      "
-    />
+            <motion.div
+              initial={{ y: 40, opacity: 0 }}
+              animate={{ y: [0, -10, 0], opacity: 1 }}
+              transition={{ duration: 6, repeat: Infinity }}
+              className="relative w-full max-w-[420px] lg:max-w-[520px]"
+            >
 
-    {/* GLOW LAYER */}
-    <div className="
-      absolute inset-0 rounded-2xl
-      bg-gradient-to-br from-blue-500/10 via-transparent to-transparent
-    " />
+              {/* IMAGE */}
+              <img
+                src="/assets/premium_photo-1682146029185-198922bd8350.avif"
+                className="w-full rounded-2xl object-cover shadow-[0_30px_80px_rgba(0,0,0,0.8)]"
+              />
 
-    {/* DARK OVERLAY */}
-    <div className="
-      absolute inset-0 rounded-2xl
-      bg-gradient-to-t from-black/70 via-black/20 to-transparent
-    " />
+              {/* OVERLAY */}
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
 
-    {/* ================= MAIN GLASS CARD ================= */}
-    <motion.div
-      animate={{ y: [0, -6, 0] }}
-      transition={{ duration: 5, repeat: Infinity }}
-      className="
-        absolute bottom-6 left-6 right-6
-        bg-white/10 backdrop-blur-xl
-        border border-white/10
-        rounded-xl p-5
-        shadow-[0_10px_40px_rgba(0,0,0,0.5)]
-      "
-    >
-      <p className="text-sm text-white/70 mb-2">
-        Infrastruktur Aktif
-      </p>
+              {/* MAIN CARD */}
+              <motion.div
+                animate={{ y: [0, -6, 0] }}
+                transition={{ duration: 5, repeat: Infinity }}
+                className="
+                  absolute bottom-4 left-4 right-4
+                  bg-white/10 backdrop-blur-xl
+                  border border-white/10
+                  rounded-xl p-4
+                "
+              >
+                <p className="text-xs text-white/70 mb-1">
+                  Infrastruktur Aktif
+                </p>
 
-      <div className="flex justify-between text-white text-sm">
-        <span>120 Mbps</span>
-        <span>300+ Users</span>
-      </div>
-    </motion.div>
+                <div className="flex justify-between text-white text-sm">
+                  <span>120 Mbps</span>
+                  <span>300+ Users</span>
+                </div>
+              </motion.div>
 
-    {/* ================= FLOAT CARD 1 ================= */}
-    <motion.div
-      animate={{ y: [0, -10, 0] }}
-      transition={{ duration: 4, repeat: Infinity }}
-      className="
-        absolute -bottom-8 left-0
-        bg-white/10 backdrop-blur-md
-        border border-white/10
-        px-4 py-3 rounded-xl
-        shadow-[0_8px_25px_rgba(0,0,0,0.4)]
-      "
-    >
-      <p className="text-xs text-white/60">Latency</p>
-      <p className="text-white font-semibold">12 ms</p>
-    </motion.div>
+              {/* FLOAT MOBILE */}
+              <motion.div
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 4, repeat: Infinity }}
+                className="
+                  absolute -bottom-6 left-2
+                  bg-white/10 backdrop-blur-md
+                  border border-white/10
+                  px-3 py-2 rounded-xl
+                "
+              >
+                <p className="text-[10px] text-white/60">Latency</p>
+                <p className="text-white text-sm font-semibold">12 ms</p>
+              </motion.div>
 
-    {/* ================= FLOAT CARD 2 ================= */}
-    <motion.div
-      animate={{ y: [0, -14, 0] }}
-      transition={{ duration: 6, repeat: Infinity }}
-      className="
-        absolute top-6 right-6
-        bg-white/10 backdrop-blur-md
-        border border-white/10
-        px-4 py-3 rounded-xl
-        shadow-[0_8px_25px_rgba(0,0,0,0.4)]
-      "
-    >
-      <p className="text-xs text-white/60">Uptime</p>
-      <p className="text-white font-semibold">99.9%</p>
-    </motion.div>
+              {/* FLOAT DESKTOP ONLY */}
+              <div className="hidden lg:block">
 
-    {/* ================= FLOAT CARD 3 ================= */}
-    <motion.div
-      animate={{ y: [0, -8, 0] }}
-      transition={{ duration: 5.5, repeat: Infinity }}
-      className="
-        absolute top-1/2 -right-8
-        bg-white/10 backdrop-blur-md
-        border border-white/10
-        px-4 py-3 rounded-xl
-        shadow-[0_8px_25px_rgba(0,0,0,0.4)]
-      "
-    >
-      <p className="text-xs text-white/60">Traffic</p>
-      <p className="text-white font-semibold">+45%</p>
-    </motion.div>
+                <motion.div
+                  animate={{ y: [0, -14, 0] }}
+                  transition={{ duration: 6, repeat: Infinity }}
+                  className="absolute top-6 right-6 bg-white/10 backdrop-blur-md border border-white/10 px-4 py-3 rounded-xl"
+                >
+                  <p className="text-xs text-white/60">Uptime</p>
+                  <p className="text-white font-semibold">99.9%</p>
+                </motion.div>
 
-  </motion.div>
+                <motion.div
+                  animate={{ y: [0, -8, 0] }}
+                  transition={{ duration: 5 }}
+                  className="absolute top-1/2 -right-8 bg-white/10 backdrop-blur-md border border-white/10 px-4 py-3 rounded-xl"
+                >
+                  <p className="text-xs text-white/60">Traffic</p>
+                  <p className="text-white font-semibold">+45%</p>
+                </motion.div>
 
-</div>
+              </div>
+
+            </motion.div>
+
+          </div>
 
         </div>
       </Container>
