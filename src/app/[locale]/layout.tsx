@@ -15,16 +15,20 @@ export default async function RootLayout({
 
   return (
     <html lang={locale}>
-      <body>
+      <body className="overflow-x-hidden bg-[var(--bg)] text-[var(--text)]">
+
         <NextIntlClientProvider locale={locale} messages={messages}>
+          
           <Navbar />
 
-          <main className="pt-16 md:pt-20">
+          <main className="pt-16 md:pt-20 overflow-x-hidden">
             {children}
           </main>
 
           <Footer />
+
         </NextIntlClientProvider>
+
       </body>
     </html>
   );
