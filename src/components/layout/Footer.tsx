@@ -17,7 +17,7 @@ export default function Footer() {
           {/* BRAND */}
           <div>
             <h2 className="text-2xl font-semibold tracking-tight">
-              ephostech.id
+              EphosTech
             </h2>
 
             {/* 🔥 COMPANY NAME */}

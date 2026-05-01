@@ -18,7 +18,7 @@
     "cloudTitle": "Cloud Services",
     "cloudDesc": "More flexible & efficient operations",
     "enterpriseTitle": "Enterprise System",
-    "enterpriseDesc": "ERP & AI-powered HCM automation"
+    "enterpriseDesc": "ERP & AI-HCM Software automation"
   },
 
   "Services": {
@@ -127,8 +127,8 @@
 
   "Clients": {
     "badge": "Trusted by Businesses",
-    "title1": "Trusted by Companies",
-    "title2": "That Are Serious About Growth",
+    "title1": "Trusted by",
+    "title2": "Clients and Partners",
     "desc": "Our IT infrastructure and systems are used by businesses with high demands for stability and performance.",
     "trustLine": "Used by IT teams, startups, and enterprise companies",
 
@@ -263,6 +263,32 @@
 
   },
 
+  "OrganizationStructure": {
+
+    "badge": "Organization",
+
+    "title": "Company Organizational Structure",
+
+    "ceoName": "Bill Afriyanto",
+
+    "ceoRole": "Chief Executive Officer",
+
+    "cfoName": "Gregorius Yudhistira",
+
+    "cfoRole": "Chief Financial Officer",
+
+    "directorName": "Aris Prio Sudarwo",
+
+    "directorRole": "Director",
+
+    "dept1": "Sales & Marketing",
+
+    "dept2": "HRGA & Finance",
+
+    "dept3": "Tech & Operation"
+
+  },
+
   "ServicesHero": {
     "badge": "Enterprise IT Services",
     "title1": "IT Services",
@@ -296,7 +322,7 @@
 
     "enterpriseTitle": "Enterprise System",
 
-    "enterpriseDesc": "ERP & AI-powered HCM automation",
+    "enterpriseDesc": "ERP & AI-HCM Software automation",
 
     "securityTitle": "IT Security",
 

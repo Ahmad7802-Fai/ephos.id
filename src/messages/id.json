@@ -18,7 +18,7 @@
     "cloudTitle": "Cloud Services",
     "cloudDesc": "Operasional lebih fleksibel & efisien",
     "enterpriseTitle": "Enterprise System",
-    "enterpriseDesc": "ERP & AI-powered HCM automation terintegrasi"
+    "enterpriseDesc": "ERP & AI-HCM Software automation terintegrasi"
   },
 
 
@@ -143,8 +143,8 @@
 
   "Clients": {
     "badge": "Dipercaya Banyak Bisnis",
-    "title1": "Dipercaya oleh Perusahaan",
-    "title2": "yang Serius Bertumbuh",
+    "title1": "Dipercaya oleh",
+    "title2": "Klien & Partner Kami",
     "desc": "Infrastruktur dan sistem IT kami digunakan oleh bisnis dengan kebutuhan tinggi akan stabilitas dan performa.",
     "trustLine": "Digunakan oleh tim IT, startup, hingga perusahaan enterprise",
 
@@ -249,6 +249,7 @@
     "sTitle": "Scalability & Sustainability",
     "sDesc": "Solusi fleksibel yang berkembang bersama bisnis dan berkelanjutan jangka panjang."
   },
+
   "Organization": {
 
     "badge": "Leadership",
@@ -276,6 +277,32 @@
     "cfoRole": "Chief Financial Officer",
 
     "cfoDesc": "Mengelola strategi keuangan dan stabilitas pertumbuhan perusahaan."
+
+  },
+
+  "OrganizationStructure": {
+
+    "badge": "Struktur Organisasi",
+
+    "title": "Struktur Organisasi Perusahaan",
+
+    "ceoName": "Bill Afriyanto",
+
+    "ceoRole": "Chief Executive Officer",
+
+    "cfoName": "Gregorius Yudhistira",
+
+    "cfoRole": "Chief Financial Officer",
+
+    "directorName": "Aris Prio Sudarwo",
+
+    "directorRole": "Director",
+
+    "dept1": "Sales & Marketing",
+
+    "dept2": "HRGA & Finance",
+
+    "dept3": "Tech & Operation"
 
   },
 
@@ -321,7 +348,7 @@
 
     "enterpriseTitle": "Enterprise System",
 
-    "enterpriseDesc": "ERP & AI-powered HCM automation terintegrasi",
+    "enterpriseDesc": "ERP & AI-HCM Software automation terintegrasi",
 
     "securityTitle": "IT Security",
 
