@@ -5,10 +5,10 @@ import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 
 const logos = [
-  "/assets/logo/telkom.svg",
-  "/assets/logo/pln.svg",
-  "/assets/logo/pertamina.svg",
-  "/assets/logo/bca.svg",
+  "/assets/clients/aihcm.png",
+  "/assets/clients/claws.jpeg",
+  "/assets/clients/perumnas.png",
+  "/assets/clients/coffe.png",
 ];
 
 export default function Clients() {
@@ -18,10 +18,17 @@ export default function Clients() {
     <section className="relative py-32 bg-[var(--bg)] overflow-hidden">
 
       {/* ================= BACKGROUND ================= */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(59,130,246,0.15),transparent_40%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,rgba(99,102,241,0.12),transparent_50%)]" />
+      <div className="
+        absolute inset-0 pointer-events-none
+        bg-[radial-gradient(circle_at_20%_20%,rgba(59,130,246,0.15),transparent_40%)]
+      " />
 
-      <Container>
+      <div className="
+        absolute inset-0 pointer-events-none
+        bg-[radial-gradient(circle_at_80%_80%,rgba(99,102,241,0.12),transparent_50%)]
+      " />
+
+      <Container className="relative z-10">
 
         {/* ================= HEADER ================= */}
         <div className="text-center max-w-2xl mx-auto mb-16">
@@ -58,10 +65,18 @@ export default function Clients() {
         <div className="relative overflow-hidden mb-24">
 
           {/* blur kiri */}
-          <div className="absolute left-0 top-0 h-full w-32 bg-gradient-to-r from-[var(--bg)] to-transparent z-10" />
+          <div className="
+            absolute left-0 top-0 h-full w-32
+            bg-gradient-to-r from-[var(--bg)] to-transparent
+            z-10 pointer-events-none
+          " />
 
           {/* blur kanan */}
-          <div className="absolute right-0 top-0 h-full w-32 bg-gradient-to-l from-[var(--bg)] to-transparent z-10" />
+          <div className="
+            absolute right-0 top-0 h-full w-32
+            bg-gradient-to-l from-[var(--bg)] to-transparent
+            z-10 pointer-events-none
+          " />
 
           <motion.div
             animate={{ x: ["0%", "-50%"] }}
@@ -77,6 +92,7 @@ export default function Clients() {
                   border border-[var(--border)]
                   backdrop-blur
                   hover:bg-[var(--accent-soft)]
+                  hover:shadow-lg
                   transition-all duration-300
                 "
               >
@@ -85,9 +101,9 @@ export default function Clients() {
                   alt="client logo"
                   className="
                     h-8 object-contain
-                    opacity-50 grayscale
-                    hover:opacity-100 hover:grayscale-0
-                    transition-all duration-500
+                    brightness-95 contrast-110
+                    hover:brightness-110 hover:scale-105
+                    transition-all duration-300
                   "
                 />
               </div>
@@ -139,8 +155,11 @@ export default function Clients() {
         {/* ================= TESTIMONIAL ================= */}
         <div className="relative max-w-4xl mx-auto">
 
-          {/* glow background */}
-          <div className="absolute inset-0 bg-blue-500/20 blur-[120px] opacity-40" />
+          {/* glow */}
+          <div className="
+            absolute inset-0 pointer-events-none
+            bg-blue-500/20 blur-[120px] opacity-40
+          " />
 
           <motion.div
             initial={{ scale: 0.95, opacity: 0 }}
@@ -154,12 +173,10 @@ export default function Clients() {
             "
           >
 
-            {/* quote */}
             <p className="text-xl leading-relaxed text-white/90 text-center">
               {t("testimonial")}
             </p>
 
-            {/* user */}
             <div className="mt-8 flex items-center gap-4 justify-center">
 
               <img
