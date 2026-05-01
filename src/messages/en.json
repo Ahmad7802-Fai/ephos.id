@@ -49,15 +49,10 @@
   "Why": {
 
     "badge": "Why Choose Us",
-
     "title1": "Technology Partner that",
-
     "title2": "Delivers Real Results",
-
     "desc": "Not just IT implementation. We focus on business outcomes: system stability, cost efficiency, and long-term scalability.",
-
     "chip1": "Clear & measurable SLA",
-
     "chip2": "Response < 5 minutes",
 
     "chip3": "Real-time monitoring",
@@ -195,7 +190,7 @@
 
       "stat1": "100+ Clients",
 
-      "stat2": "99.9% Uptime",
+      "stat2": "99% Uptime",
 
       "stat3": "24/7 Support"
 
@@ -264,27 +259,16 @@
   },
 
   "OrganizationStructure": {
-
     "badge": "Organization",
-
     "title": "Company Organizational Structure",
-
     "ceoName": "Bill Afriyanto",
-
     "ceoRole": "Chief Executive Officer",
-
     "cfoName": "Gregorius Yudhistira",
-
     "cfoRole": "Chief Financial Officer",
-
     "directorName": "Aris Prio Sudarwo",
-
     "directorRole": "Director",
-
     "dept1": "Sales & Marketing",
-
     "dept2": "HRGA & Finance",
-
     "dept3": "Tech & Operation"
 
   },
@@ -300,7 +284,7 @@
     "cta2": "View Portfolio",
 
     "stat1": "100+ Clients",
-    "stat2": "99.9% Uptime",
+    "stat2": "99% Uptime",
     "stat3": "24/7 Support",
 
     "waMessage": "Hello Ephos Tech, I want to consult about IT services."
@@ -606,7 +590,7 @@
 
     "b1": "100+ Clients",
 
-    "b2": "99.9% Uptime",
+    "b2": "99% Uptime",
 
     "b3": "24/7 Support",
 
@@ -658,7 +642,7 @@
 
     "stat1": "100+ Clients",
 
-    "stat2": "99.9% Uptime",
+    "stat2": "99% Uptime",
 
     "stat3": "24/7 Support",
 

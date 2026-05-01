@@ -33,7 +33,7 @@ export default function Footer() {
             {/* SOCIAL / TRUST */}
             <div className="mt-6 flex gap-3 text-xs text-white/40">
               <span>✔ 100+ Client</span>
-              <span>✔ 99.9% Uptime</span>
+              <span>✔ 99% Uptime</span>
             </div>
           </div>
 
