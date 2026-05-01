@@ -2,22 +2,45 @@
 
 import { Container } from "@/components";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 const WHATSAPP_NUMBER = "6285285579492";
 
 export default function ServicesCTA() {
-  const message = encodeURIComponent(
-    "Halo EphosTech, saya ingin konsultasi terkait layanan IT Infrastructure, Cloud, dan System."
-  );
+  const t = useTranslations("ServicesCTA");
 
+  const message = encodeURIComponent(t("waMessage"));
   const waLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
 
   return (
-    <section className="relative py-32 bg-[#0B0F14] text-white overflow-hidden">
+    <section className="relative py-32 bg-[var(--bg)] overflow-hidden">
 
-      {/* 🔥 BACKGROUND GLOW */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(37,99,235,0.2),transparent_60%)]" />
-      <div className="absolute w-[500px] h-[500px] bg-blue-500/20 blur-[140px] rounded-full top-[-100px] left-[-100px]" />
+      {/* 🔥 PREMIUM BACKGROUND (BEDA DARI SECTION LAIN) */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+
+        {/* glow kiri */}
+        <div className="
+          absolute -top-40 -left-40
+          w-[600px] h-[600px]
+          bg-[var(--primary)]/20
+          rounded-full blur-[140px]
+        " />
+
+        {/* glow kanan */}
+        <div className="
+          absolute bottom-[-200px] right-[-150px]
+          w-[500px] h-[500px]
+          bg-indigo-500/15
+          rounded-full blur-[140px]
+        " />
+
+        {/* radial center */}
+        <div className="
+          absolute inset-0
+          bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.18),transparent_60%)]
+        " />
+
+      </div>
 
       <Container>
         <div className="relative z-10 max-w-3xl mx-auto text-center">
@@ -26,24 +49,31 @@ export default function ServicesCTA() {
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-3xl md:text-5xl font-semibold leading-tight"
+            className="
+              text-3xl md:text-5xl font-semibold
+              text-[var(--text)]
+              leading-tight
+            "
           >
-            Siap Upgrade Infrastruktur IT Bisnis Anda?
+            {t("title")}
           </motion.h2>
 
-          {/* DESC (SEO KEYWORD MASUK DI SINI) */}
+          {/* DESC */}
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.1 }}
-            className="mt-5 text-white/60 text-base md:text-lg leading-relaxed"
+            className="
+              mt-5 text-[var(--text-muted)]
+              text-base md:text-lg
+              leading-relaxed
+            "
           >
-            Konsultasikan kebutuhan{" "}
-            <span className="text-blue-400">
-              IT Infrastructure, Cloud Computing, dan Enterprise System
+            {t("desc1")}{" "}
+            <span className="text-[var(--primary)] font-medium">
+              {t("highlight")}
             </span>{" "}
-            Anda bersama tim kami. Kami siap membantu meningkatkan performa,
-            keamanan, dan skalabilitas bisnis Anda.
+            {t("desc2")}
           </motion.p>
 
           {/* CTA */}
@@ -58,14 +88,14 @@ export default function ServicesCTA() {
               target="_blank"
               className="
                 px-7 py-3 rounded-xl
-                bg-gradient-to-r from-green-500 to-green-600
+                bg-gradient-to-r from-[var(--primary)] to-blue-600
                 text-white font-medium
-                shadow-[0_10px_30px_rgba(34,197,94,0.4)]
+                shadow-[0_10px_30px_rgba(59,130,246,0.4)]
                 hover:scale-[1.05]
                 transition
               "
             >
-              Konsultasi via WhatsApp →
+              {t("cta")} →
             </a>
           </motion.div>
 
@@ -76,19 +106,15 @@ export default function ServicesCTA() {
             transition={{ delay: 0.3 }}
             className="mt-8 flex justify-center flex-wrap gap-3"
           >
-            {[
-              "100+ Client",
-              "99.9% Uptime",
-              "24/7 Support",
-              "Enterprise Ready",
-            ].map((item, i) => (
+            {[t("stat1"), t("stat2"), t("stat3"), t("stat4")].map((item, i) => (
               <span
                 key={i}
                 className="
                   px-4 py-2 rounded-full text-xs font-semibold
-                  bg-gradient-to-r from-yellow-400 to-amber-500
+                  bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500
                   text-black
                   shadow-[0_6px_20px_rgba(251,191,36,0.5)]
+                  hover:scale-105 transition
                 "
               >
                 {item}

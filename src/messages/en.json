@@ -1,0 +1,645 @@
+{
+  "Hero": {
+    "badge": "Enterprise IT Solution",
+    "title1": "Build IT Infrastructure & Systems",
+    "title2": "that are Stable, Scalable,",
+    "title3": "and Ready to Grow",
+    "desc": "We help businesses improve operational performance with end-to-end IT solutions — from infrastructure and cloud to enterprise systems.",
+
+    "cta1": "Free Consultation",
+    "cta2": "View Portfolio",
+
+    "stats1": "100+ Clients",
+    "stats2": "99% Uptime",
+    "stats3": "24/7 Support",
+
+    "infraTitle": "IT Infrastructure",
+    "infraDesc": "Stable, fast, and scalable network",
+    "cloudTitle": "Cloud Services",
+    "cloudDesc": "More flexible & efficient operations",
+    "enterpriseTitle": "Enterprise System",
+    "enterpriseDesc": "ERP & AI-powered HCM automation"
+  },
+
+  "Services": {
+    "badge": "Our Services",
+    "title1": "End-to-End Solutions for",
+    "title2": "Infrastructure & Business Systems",
+    "desc": "From infrastructure to enterprise systems, we help businesses grow faster, more efficiently, and scalable.",
+
+    "infraTitle": "IT Infrastructure",
+    "infraDesc": "Build stable & scalable networks for business operations without downtime.",
+    "infraImpact": "99.9% uptime • Zero bottleneck",
+
+    "cloudTitle": "Cloud & Managed Services",
+    "cloudDesc": "Optimize cloud with full monitoring & management.",
+    "cloudImpact": "Save up to 40% cost",
+
+    "enterpriseTitle": "Enterprise System",
+    "enterpriseDesc": "ERP, CRM, and automation for business efficiency.",
+    "enterpriseImpact": "Faster & structured operations",
+
+    "learnMore": "Learn more →",
+
+    "sec1": "Security & Compliance",
+    "sec2": "Collaboration Tools",
+    "sec3": "IT Consulting"
+  },
+
+  "Why": {
+
+    "badge": "Why Choose Us",
+
+    "title1": "Technology Partner that",
+
+    "title2": "Delivers Real Results",
+
+    "desc": "Not just IT implementation. We focus on business outcomes: system stability, cost efficiency, and long-term scalability.",
+
+    "chip1": "Clear & measurable SLA",
+
+    "chip2": "Response < 5 minutes",
+
+    "chip3": "Real-time monitoring",
+
+    "r1Title": "Enterprise-grade Security",
+
+    "r1Desc": "Firewall, monitoring, and access control with industry best practices",
+
+    "r2Title": "High Performance & Scalable",
+
+    "r2Desc": "Optimized architecture for high traffic without bottlenecks",
+
+    "r3Title": "Fast & Responsive Support",
+
+    "r3Desc": "Technical team ready with measurable response time",
+
+    "r4Title": "End-to-End Solution",
+
+    "r4Desc": "From infrastructure to system, all in one partner",
+
+    "cta": "Infrastructure Consultation →",
+
+    "perf": "Performance Overview",
+
+    "uptime": "Uptime Guarantee",
+
+    "p1": "System Stability",
+
+    "p2": "Response Speed",
+
+    "p3": "Client Satisfaction",
+
+    "support": "Support",
+
+    "active": "24/7 Active"
+
+  },
+
+  "Portfolio": {
+    "badge": "Portfolio",
+    "title1": "Real Projects That",
+    "title2": "Deliver Impact",
+    "desc": "Not just implementation, but real results for performance and efficiency.",
+
+    "p1Title": "Enterprise Network Infrastructure",
+    "p1Desc": "High-availability network implementation for large-scale enterprise.",
+    "p1Result": "99.9% uptime • Zero downtime",
+
+    "p2Title": "Cloud Migration System",
+    "p2Desc": "Seamless migration to cloud without operational disruption.",
+    "p2Result": "0% downtime • -40% cost",
+
+    "p3Title": "ERP Automation System",
+    "p3Desc": "Business process automation for higher efficiency.",
+    "p3Result": "+60% efficiency",
+
+    "tagInfra": "Infrastructure",
+    "tagNetwork": "Networking",
+    "tagCloud": "Cloud",
+    "tagDevops": "DevOps",
+    "tagERP": "ERP",
+    "tagAutomation": "Automation",
+
+    "cta": "View case study",
+    "ctaAll": "View all portfolio"
+  },
+
+  "Clients": {
+    "badge": "Trusted by Businesses",
+    "title1": "Trusted by Companies",
+    "title2": "That Are Serious About Growth",
+    "desc": "Our IT infrastructure and systems are used by businesses with high demands for stability and performance.",
+    "trustLine": "Used by IT teams, startups, and enterprise companies",
+
+    "stat1": "Clients",
+    "stat2": "Uptime",
+    "stat3": "Support",
+
+    "testimonial": "EphosTech helped us significantly improve system stability. Downtime is almost zero and their team is very responsive.",
+    "name": "Budi Santoso",
+    "role": "IT Manager, Enterprise Company"
+  },
+
+  "Process": {
+    "badge": "How We Work",
+    "title1": "A Process That is",
+    "title2": "Structured & Proven",
+    "desc": "Every project is executed with a systematic approach to ensure maximum results and minimal risk.",
+
+    "s1Title": "Consultation",
+    "s1Desc": "We understand your business needs and challenges.",
+
+    "s2Title": "Planning",
+    "s2Desc": "Designing scalable and effective IT solutions.",
+
+    "s3Title": "Implementation",
+    "s3Desc": "Building systems with high standards and precision.",
+
+    "s4Title": "Monitoring & Support",
+    "s4Desc": "24/7 monitoring and full support."
+  },
+
+  "FAQ": {
+    "badge": "FAQ",
+    "title1": "Frequently Asked",
+    "title2": "Questions",
+    "desc": "Find answers before starting your project.",
+
+    "q1": "How much does IT service cost?",
+    "a1": "Depends on needs and system complexity.",
+
+    "q2": "Can it be customized?",
+    "a2": "Yes, all solutions are flexible.",
+
+    "q3": "Is support included?",
+    "a3": "We provide 24/7 support.",
+
+    "q4": "How long does it take?",
+    "a4": "From weeks to months.",
+
+    "ctaText": "Still have questions?",
+    "cta1": "Free Consultation",
+    "cta2": "Contact Us"
+  },
+
+   "AboutHero": {
+
+      "badge": "About Ephostech.id",
+
+      "title1": "Building IT Solutions that are",
+
+      "title2": "Stable, Scalable, and Reliable",
+
+      "desc": "Ephostech.id delivers end-to-end technology solutions that help businesses grow through IT infrastructure, cloud, and enterprise systems that are efficient and sustainable.",
+
+      "stat1": "100+ Clients",
+
+      "stat2": "99.9% Uptime",
+
+      "stat3": "24/7 Support"
+
+    },
+
+  "ExecutiveSummary": {
+    "badge": "Company Overview",
+    "title": "Executive Summary",
+    "desc": "The strategic foundation and direction of the company in delivering impactful technology solutions for businesses.",
+
+    "visionTitle": "VISION",
+    "visionDesc": "To become a leading technology company in Indonesia providing end-to-end IT and enterprise solutions, driving digital transformation, enhancing organizational productivity, and creating value for clients and society.",
+
+    "missionTitle": "MISSION",
+    "mission1": "Deliver reliable and scalable end-to-end IT solutions.",
+    "mission2": "Improve client productivity and operational efficiency.",
+    "mission3": "Apply a human-centric approach in every service.",
+    "mission4": "Ensure security, reliability, and operational consistency.",
+    "mission5": "Support sustainable business growth through innovation.",
+
+    "coreTitle": "CORE VALUES — E.P.H.O.S",
+
+    "eTitle": "End-to-End",
+    "eDesc": "Provide comprehensive services from planning to operations with precision and professionalism.",
+
+    "pTitle": "Productivity",
+    "pDesc": "Solutions that enhance efficiency, growth, and performance.",
+
+    "hTitle": "Human-Centric Approach",
+    "hDesc": "Putting people at the center to ensure usability and relevance.",
+
+    "oTitle": "Operational Integrity",
+    "oDesc": "Maintaining reliability, security, and consistency as core principles.",
+
+    "sTitle": "Scalability & Sustainability",
+    "sDesc": "Flexible solutions that grow with business and ensure long-term sustainability."
+  },
+  "Organization": {
+
+    "badge": "Leadership",
+
+    "title1": "Leadership Team",
+
+    "title2": "of the Company",
+
+    "desc": "Led by experienced professionals with strong strategic vision and execution.",
+
+    "ceoName": "BILL AFRIYANTO",
+
+    "ceoRole": "Chief Executive Officer",
+
+    "ceoDesc": "Leads the company's strategic direction and ensures sustainable business growth.",
+
+    "dirName": "ARIS PRIO SUDARWO",
+
+    "dirRole": "Director",
+
+    "dirDesc": "Oversees operations and ensures effective execution of strategies.",
+
+    "cfoName": "GREGORIUS YUDHISTIRA",
+
+    "cfoRole": "Chief Financial Officer",
+
+    "cfoDesc": "Manages financial strategy and company growth stability."
+
+  },
+
+  "ServicesHero": {
+    "badge": "Enterprise IT Services",
+    "title1": "IT Services",
+    "title2": "that are",
+    "highlight": "End-to-End",
+    "desc": "We help businesses build, manage, and scale IT infrastructure that is secure, scalable, and ready for growth.",
+
+    "cta1": "Free Consultation",
+    "cta2": "View Portfolio",
+
+    "stat1": "100+ Clients",
+    "stat2": "99.9% Uptime",
+    "stat3": "24/7 Support",
+
+    "waMessage": "Hello Ephos Tech, I want to consult about IT services."
+  },
+
+  "ServicesGrid": {
+
+    "title": "Our Services",
+
+    "desc": "Comprehensive IT solutions to support your business digital transformation.",
+
+    "infraTitle": "IT Infrastructure",
+
+    "infraDesc": "Stable and scalable networks, servers, and IT systems.",
+
+    "cloudTitle": "Cloud & Managed Service",
+
+    "cloudDesc": "Monitoring, maintenance, and cloud infrastructure.",
+
+    "enterpriseTitle": "Enterprise System",
+
+    "enterpriseDesc": "ERP & AI-powered HCM automation",
+
+    "securityTitle": "IT Security",
+
+    "securityDesc": "Enterprise-grade data and system security.",
+
+    "cta": "Consult →",
+
+    "waMessage": "Hello Ephos Tech, I am interested in your IT services."
+
+  },
+
+
+
+  "ServiceDetail": {
+
+    "title1": "Service Details",
+
+    "title2": "We Provide",
+
+    "desc": "Complete solutions to ensure your IT systems run optimally, securely, and are ready to scale.",
+
+    "infraTitle": "IT Infrastructure",
+
+    "infraDesc": "We build stable and scalable network and server systems to support business growth.",
+
+    "infraPoints1": "Enterprise network design & setup",
+
+    "infraPoints2": "Server & virtualization",
+
+    "infraPoints3": "High availability & redundancy",
+
+    "cloudTitle": "Cloud & Managed Service",
+
+    "cloudDesc": "24/7 monitoring, maintenance, and cloud performance optimization.",
+
+    "cloudPoints1": "Cloud deployment (AWS, GCP, Azure)",
+
+    "cloudPoints2": "Monitoring & alert system",
+
+    "cloudPoints3": "Auto scaling & cost optimization",
+
+    "securityTitle": "Security & Compliance",
+
+    "securityDesc": "Security is our top priority to protect your business data and systems.",
+
+    "securityPoints1": "Firewall & network security",
+
+    "securityPoints2": "Backup & disaster recovery",
+
+    "securityPoints3": "Security audit & hardening",
+
+    "optTitle": "System Optimization",
+
+    "optDesc": "Improve system performance and operational efficiency with the right technology.",
+
+    "optPoints1": "Performance tuning",
+
+    "optPoints2": "Automation system",
+
+    "optPoints3": "Infrastructure scaling",
+
+    "cta": "Consult →",
+
+    "waMessage": "Hello Ephos Tech, I want to consult about IT services."
+
+  },
+
+  "Tech": {
+
+    "badge": "Technology",
+
+    "title": "Technology Stack",
+
+    "desc": "We use the best technologies to ensure your systems are stable, secure, and scalable.",
+
+    "cloudTitle": "Cloud Platform",
+
+    "networkTitle": "Networking",
+
+    "systemTitle": "System & DevOps",
+
+    "securityTitle": "Security"
+
+  },
+
+  "ServicesCTA": {
+
+    "title": "Ready to Upgrade Your IT Infrastructure?",
+
+    "desc1": "Consult your",
+
+    "highlight": "IT Infrastructure, Cloud Computing, and Enterprise System",
+
+    "desc2": "needs with our team to improve performance, security, and scalability.",
+
+    "cta": "Consult via WhatsApp",
+
+    "stat1": "100+ Clients",
+
+    "stat2": "99% Uptime",
+
+    "stat3": "24/7 Support",
+
+    "stat4": "Enterprise Ready",
+
+    "waMessage": "Hello EphosTech, I would like to consult about IT Infrastructure, Cloud, and System services."
+
+  },
+
+  "PortfolioHero": {
+
+    "badge": "Portfolio & Case Study",
+
+    "title1": "Real Solutions",
+
+    "title2": "that",
+
+    "titleHighlight": "Deliver Impact",
+
+    "desc1": "We have helped companies build",
+
+    "highlight": "IT Infrastructure, Cloud Systems, and Enterprise Solutions",
+
+    "desc2": "that are stable, scalable, and ready to grow.",
+
+    "stat1": "100+ Projects Delivered",
+
+    "stat2": "99% Uptime",
+
+    "stat3": "Enterprise Ready"
+
+  },
+
+  "Case": {
+
+    "badge": "Case Studies",
+
+    "title": "Selected Case Studies",
+
+    "desc": "Real case studies on how we help businesses improve performance, stability, and IT efficiency.",
+
+    "cta": "Consult similar solution",
+
+    "problem": "Problem",
+
+    "solution": "Solution",
+
+    "result": "Result",
+
+    "waMessage": "Hello Ephos Tech, I'm interested in solutions like those in your portfolio.",
+
+    "p1Title": "Enterprise Network Infrastructure",
+
+    "p1Problem": "Slow network, frequent downtime, and not scalable.",
+
+    "p1Solution": "Implemented high-availability network with load balancing and monitoring.",
+
+    "p1Result": "99.9% uptime and performance improved up to 3x faster.",
+
+    "p1Tag": "Infrastructure",
+
+    "p2Title": "Cloud Migration System",
+
+    "p2Problem": "Limited and inflexible on-premise servers.",
+
+    "p2Solution": "Migrated to scalable cloud architecture with auto-scaling.",
+
+    "p2Result": "Up to 40% cost efficiency and more flexible system.",
+
+    "p2Tag": "Cloud"
+
+  },
+
+
+
+  "Deliver": {
+
+    "badge": "What We Deliver",
+
+    "title": "Solutions We Deliver",
+
+    "desc": "End-to-end solutions designed to improve performance, security, and operational efficiency.",
+
+    "i1Title": "Infrastructure Design",
+
+    "i1Desc": "Stable and scalable network and server architecture for business growth.",
+
+    "i2Title": "Cloud Deployment",
+
+    "i2Desc": "Modern cloud implementation for flexibility and operational efficiency.",
+
+    "i3Title": "System Integration",
+
+    "i3Desc": "Seamless business system integration for automation and connectivity.",
+
+    "i4Title": "Security Implementation",
+
+    "i4Desc": "Enterprise-grade system and data security."
+
+  },
+
+  "Impact": {
+
+    "title": "Impact & Results",
+
+    "desc": "Real outcomes from our IT solutions in improving business performance and efficiency.",
+
+    "s1": "System Uptime",
+
+    "s2": "Clients Served",
+
+    "s3": "Monitoring & Support"
+
+  },
+
+  "WhyEphos": {
+
+    "badge": "Why Ephos",
+
+    "title": "Why Choose Ephos?",
+
+    "desc": "We deliver IT Infrastructure, Cloud, and Enterprise Systems that create real business impact.",
+
+    "i1Title": "Reliable & Secure",
+
+    "i1Desc": "Enterprise-grade security and system stability.",
+
+    "i2Title": "Scalable Architecture",
+
+    "i2Desc": "Built to grow with your business without bottlenecks.",
+
+    "i3Title": "Fast Implementation",
+
+    "i3Desc": "Rapid deployment with structured and low-risk execution.",
+
+    "i4Title": "Business-Oriented",
+
+    "i4Desc": "Focused on business outcomes, not just technology.",
+
+    "trust": "Trusted by companies to build stable, secure, and scalable IT systems."
+
+  },
+
+  "PortfolioCTA": {
+
+    "title1": "Ready to Upgrade",
+
+    "title2": "Your IT Infrastructure?",
+
+    "desc1": "Consult your needs for",
+
+    "descHighlight": "IT Infrastructure, Cloud Computing, Network Systems, and Enterprise Solutions",
+
+    "desc2": "to improve performance, security, and scalability.",
+
+    "cta": "Free Consultation via WhatsApp",
+
+    "b1": "100+ Projects",
+
+    "b2": "99% Uptime",
+
+    "b3": "Enterprise Ready",
+
+    "waMessage": "Hello Ephos Tech, I would like to consult about IT Infrastructure, Cloud, and Enterprise Systems."
+
+  },
+
+  "ContactHero": {
+
+    "badge": "Contact Us",
+
+    "title1": "Consult Your IT Needs",
+
+    "title2": "with Our Professional Team",
+
+    "desc": "We help businesses build stable, scalable systems ready for growth through end-to-end IT solutions.",
+
+    "cta1": "Chat on WhatsApp",
+
+    "cta2": "View Portfolio",
+
+    "b1": "100+ Clients",
+
+    "b2": "99.9% Uptime",
+
+    "b3": "24/7 Support",
+
+    "waMessage": "Hello EphosTech.id, I would like to consult about my business IT needs."
+
+  },
+
+  
+
+  "ContactSection": {
+
+    "title": "Free Consultation",
+
+    "name": "Full Name",
+
+    "email": "Email",
+
+    "message": "Tell us about your needs...",
+
+    "cta": "Send via WhatsApp",
+
+    "sending": "Sending...",
+
+    "error": "Please fill all fields",
+
+    "infoTitle": "Contact Information",
+
+    "addressLabel": "Address",
+
+    "address": "Epicentrum Walk Building, Jakarta"
+
+  },
+
+
+
+  "ContactCTA": {
+
+    "badge": "Free IT Consultation",
+
+    "title1": "Scale Your Business with",
+
+    "title2": "Best IT & Digital Infrastructure Solutions",
+
+    "desc": "EphosTech provides IT infrastructure, cloud services, and enterprise systems to help your business become more efficient, scalable, and future-ready.",
+
+    "ctaPrimary": "Consult via WhatsApp",
+
+    "ctaSecondary": "Contact Us",
+
+    "stat1": "100+ Clients",
+
+    "stat2": "99.9% Uptime",
+
+    "stat3": "24/7 Support",
+
+    "stat4": "Enterprise Ready",
+
+    "micro": "Fast response • Free consultation • No commitment"
+
+  }
+
+}

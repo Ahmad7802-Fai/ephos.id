@@ -1,0 +1,663 @@
+{
+  "Hero": {
+    "badge": "Enterprise IT Solution",
+    "title1": "Bangun Infrastruktur & Sistem IT",
+    "title2": "yang Stabil, Scalable,",
+    "title3": "dan Siap Tumbuh",
+    "desc": "Kami membantu bisnis meningkatkan performa operasional dengan solusi IT end-to-end — dari infrastruktur, cloud, hingga sistem enterprise.",
+
+    "cta1": "Konsultasi Gratis",
+    "cta2": "Lihat Portfolio",
+
+    "stats1": "100+ Clients",
+    "stats2": "99% Uptime",
+    "stats3": "24/7 Support",
+
+    "infraTitle": "IT Infrastructure",
+    "infraDesc": "Jaringan stabil, cepat, dan scalable",
+    "cloudTitle": "Cloud Services",
+    "cloudDesc": "Operasional lebih fleksibel & efisien",
+    "enterpriseTitle": "Enterprise System",
+    "enterpriseDesc": "ERP & AI-powered HCM automation terintegrasi"
+  },
+
+
+  "Services": {
+
+    "badge": "Layanan Kami",
+
+    "title1": "Solusi End-to-End untuk",
+
+    "title2": "Infrastruktur & Sistem Bisnis",
+
+    "desc": "Dari infrastruktur hingga sistem enterprise, kami membantu bisnis berkembang lebih cepat, efisien, dan scalable.",
+
+    "infraTitle": "IT Infrastructure",
+
+    "infraDesc": "Bangun jaringan stabil & scalable untuk operasional bisnis tanpa downtime.",
+
+    "infraImpact": "99.9% uptime • Zero bottleneck",
+
+    "cloudTitle": "Cloud & Managed Services",
+
+    "cloudDesc": "Optimasi cloud dengan monitoring & management penuh.",
+
+    "cloudImpact": "Lebih hemat biaya hingga 40%",
+
+    "enterpriseTitle": "Enterprise System",
+
+    "enterpriseDesc": "ERP, CRM, dan automation untuk efisiensi bisnis.",
+
+    "enterpriseImpact": "Operasional lebih cepat & terstruktur",
+
+    "learnMore": "Pelajari lebih lanjut →",
+
+    "sec1": "Security & Compliance",
+
+    "sec2": "Collaboration Tools",
+
+    "sec3": "IT Consulting"
+
+  },
+
+
+
+  "Why": {
+
+    "badge": "Kenapa Pilih Kami",
+
+    "title1": "Partner Teknologi yang",
+
+    "title2": "Deliver Hasil Nyata",
+
+    "desc": "Bukan sekadar implementasi IT. Kami fokus pada hasil bisnis: stabilitas sistem, efisiensi biaya, dan skalabilitas jangka panjang.",
+
+    "chip1": "SLA jelas & terukur",
+
+    "chip2": "Response < 5 menit",
+
+    "chip3": "Monitoring real-time",
+
+    "r1Title": "Keamanan Berstandar Enterprise",
+
+    "r1Desc": "Firewall, monitoring, dan kontrol akses dengan praktik terbaik industri",
+
+    "r2Title": "Performa Tinggi & Scalable",
+
+    "r2Desc": "Arsitektur dioptimalkan untuk traffic tinggi tanpa bottleneck",
+
+    "r3Title": "Support Cepat & Responsif",
+
+    "r3Desc": "Tim teknis siap membantu dengan response time terukur",
+
+    "r4Title": "End-to-End Solution",
+
+    "r4Desc": "Dari infrastruktur hingga sistem, semua dalam satu partner",
+
+    "cta": "Konsultasi Infrastruktur →",
+
+    "perf": "Ringkasan Performa",
+
+    "uptime": "Jaminan Uptime",
+
+    "p1": "Stabilitas Sistem",
+
+    "p2": "Kecepatan Respon",
+
+    "p3": "Kepuasan Klien",
+
+    "support": "Support",
+
+    "active": "24/7 Aktif"
+
+  },
+
+  "Portfolio": {
+    "badge": "Portfolio",
+    "title1": "Project Nyata yang",
+    "title2": "Memberikan Dampak",
+    "desc": "Bukan sekadar implementasi, tapi hasil nyata untuk performa dan efisiensi bisnis.",
+
+    "p1Title": "Infrastruktur Jaringan Enterprise",
+    "p1Desc": "Implementasi jaringan high-availability untuk perusahaan besar.",
+    "p1Result": "99.9% uptime • Zero downtime",
+
+    "p2Title": "Migrasi Cloud System",
+    "p2Desc": "Migrasi sistem ke cloud tanpa gangguan operasional.",
+    "p2Result": "0% downtime • -40% biaya",
+
+    "p3Title": "Sistem ERP Automation",
+    "p3Desc": "Automasi proses bisnis untuk efisiensi maksimal.",
+    "p3Result": "+60% efisiensi",
+
+    "tagInfra": "Infrastruktur",
+    "tagNetwork": "Jaringan",
+    "tagCloud": "Cloud",
+    "tagDevops": "DevOps",
+    "tagERP": "ERP",
+    "tagAutomation": "Automation",
+
+    "cta": "Lihat studi kasus",
+    "ctaAll": "Lihat semua portfolio"
+  },
+
+  "Clients": {
+    "badge": "Dipercaya Banyak Bisnis",
+    "title1": "Dipercaya oleh Perusahaan",
+    "title2": "yang Serius Bertumbuh",
+    "desc": "Infrastruktur dan sistem IT kami digunakan oleh bisnis dengan kebutuhan tinggi akan stabilitas dan performa.",
+    "trustLine": "Digunakan oleh tim IT, startup, hingga perusahaan enterprise",
+
+    "stat1": "Clients",
+    "stat2": "Uptime",
+    "stat3": "Support",
+
+    "testimonial": "EphosTech membantu kami meningkatkan stabilitas sistem secara signifikan. Downtime hampir tidak ada dan timnya sangat responsif.",
+    "name": "Budi Santoso",
+    "role": "IT Manager, Perusahaan Enterprise"
+  },
+
+  "Process": {
+    "badge": "Cara Kami Bekerja",
+    "title1": "Proses yang",
+    "title2": "Terstruktur & Terbukti",
+    "desc": "Setiap project dijalankan dengan pendekatan sistematis untuk hasil maksimal dan minim risiko.",
+
+    "s1Title": "Konsultasi",
+    "s1Desc": "Kami memahami kebutuhan dan tantangan bisnis.",
+
+    "s2Title": "Perencanaan",
+    "s2Desc": "Menyusun solusi IT yang scalable dan tepat.",
+
+    "s3Title": "Implementasi",
+    "s3Desc": "Membangun sistem dengan standar tinggi.",
+
+    "s4Title": "Monitoring & Support",
+    "s4Desc": "Pemantauan dan dukungan penuh 24/7."
+  },
+
+  "FAQ": {
+    "badge": "FAQ",
+    "title1": "Pertanyaan yang",
+    "title2": "Sering Ditanyakan",
+    "desc": "Temukan jawaban sebelum memulai project bersama kami.",
+
+    "q1": "Berapa biaya layanan IT di Ephos?",
+    "a1": "Biaya tergantung kebutuhan dan kompleksitas sistem.",
+
+    "q2": "Apakah bisa custom sesuai kebutuhan bisnis?",
+    "a2": "Ya, semua solusi fleksibel dan bisa disesuaikan.",
+
+    "q3": "Apakah ada support setelah project?",
+    "a3": "Kami menyediakan support 24/7.",
+
+    "q4": "Berapa lama pengerjaan?",
+    "a4": "Mulai dari beberapa minggu hingga bulan.",
+
+    "ctaText": "Masih punya pertanyaan?",
+    "cta1": "Konsultasi Gratis",
+    "cta2": "Hubungi Kami"
+  },
+
+  "AboutHero": {
+
+    "badge": "Tentang Ephostech.id",
+
+    "title1": "Membangun Solusi IT yang",
+
+    "title2": "Stabil, Scalable, dan Terpercaya",
+
+    "desc": "Ephostech.id menghadirkan solusi teknologi end-to-end yang membantu bisnis berkembang melalui infrastruktur IT, cloud, dan sistem enterprise yang efisien dan berkelanjutan.",
+
+    "stat1": "100+ Client",
+
+    "stat2": "99.9% Uptime",
+
+    "stat3": "24/7 Support"
+
+  },
+  
+  "ExecutiveSummary": {
+    "badge": "Company Overview",
+    "title": "Executive Summary",
+    "desc": "Fondasi strategi dan arah perusahaan dalam menghadirkan solusi teknologi yang berdampak nyata bagi bisnis.",
+
+    "visionTitle": "VISI",
+    "visionDesc": "Menjadi perusahaan teknologi terkemuka di Indonesia yang menyediakan solusi IT dan enterprise end-to-end, mendorong transformasi digital, meningkatkan produktivitas organisasi, serta menciptakan nilai tambah bagi klien dan masyarakat.",
+
+    "missionTitle": "MISI",
+    "mission1": "Menyediakan solusi IT end-to-end yang handal dan scalable.",
+    "mission2": "Meningkatkan produktivitas dan efisiensi operasional klien.",
+    "mission3": "Mengutamakan pendekatan human-centric dalam setiap layanan.",
+    "mission4": "Menjamin keamanan, keandalan, dan konsistensi operasional.",
+    "mission5": "Mendukung pertumbuhan bisnis berkelanjutan melalui inovasi teknologi.",
+
+    "coreTitle": "CORE VALUES — E.P.H.O.S",
+
+    "eTitle": "End-to-End",
+    "eDesc": "Memberikan layanan menyeluruh dari perencanaan, implementasi hingga operasional dengan presisi dan profesionalisme.",
+
+    "pTitle": "Productivity",
+    "pDesc": "Solusi yang meningkatkan efisiensi, mendorong pertumbuhan, dan memaksimalkan hasil kerja.",
+
+    "hTitle": "Human-Centric Approach",
+    "hDesc": "Menempatkan manusia sebagai pusat inovasi agar solusi mudah digunakan dan relevan.",
+
+    "oTitle": "Operational Integrity",
+    "oDesc": "Menjaga keandalan, keamanan, dan konsistensi operasional sebagai prinsip utama.",
+
+    "sTitle": "Scalability & Sustainability",
+    "sDesc": "Solusi fleksibel yang berkembang bersama bisnis dan berkelanjutan jangka panjang."
+  },
+  "Organization": {
+
+    "badge": "Leadership",
+
+    "title1": "Tim Kepemimpinan",
+
+    "title2": "Perusahaan",
+
+    "desc": "Dipimpin oleh profesional berpengalaman dengan visi strategis dan eksekusi yang kuat.",
+
+    "ceoName": "BILL AFRIYANTO",
+
+    "ceoRole": "Chief Executive Officer",
+
+    "ceoDesc": "Memimpin arah strategis perusahaan dan memastikan pertumbuhan bisnis berkelanjutan.",
+
+    "dirName": "ARIS PRIO SUDARWO",
+
+    "dirRole": "Director",
+
+    "dirDesc": "Mengelola operasional dan memastikan eksekusi strategi berjalan optimal.",
+
+    "cfoName": "GREGORIUS YUDHISTIRA",
+
+    "cfoRole": "Chief Financial Officer",
+
+    "cfoDesc": "Mengelola strategi keuangan dan stabilitas pertumbuhan perusahaan."
+
+  },
+
+  "ServicesHero": {
+
+    "badge": "Layanan IT Enterprise",
+
+    "title1": "Layanan IT",
+
+    "title2": "yang",
+
+    "highlight": "End-to-End",
+
+    "desc": "Kami membantu bisnis membangun, mengelola, dan mengembangkan infrastruktur IT yang scalable, secure, dan siap menghadapi pertumbuhan.",
+
+    "cta1": "Konsultasi Gratis",
+
+    "cta2": "Lihat Portfolio",
+
+    "stat1": "100+ Client",
+
+    "stat2": "99.9% Uptime",
+
+    "stat3": "24/7 Support",
+
+    "waMessage": "Halo Ephos Tech, saya ingin konsultasi terkait layanan IT."
+
+  },
+
+  "ServicesGrid": {
+
+    "title": "Layanan Kami",
+
+    "desc": "Solusi IT lengkap untuk mendukung transformasi digital bisnis Anda.",
+
+    "infraTitle": "IT Infrastructure",
+
+    "infraDesc": "Jaringan, server, dan sistem IT yang stabil dan scalable.",
+
+    "cloudTitle": "Cloud & Managed Service",
+
+    "cloudDesc": "Monitoring, maintenance, dan cloud infrastructure.",
+
+    "enterpriseTitle": "Enterprise System",
+
+    "enterpriseDesc": "ERP & AI-powered HCM automation terintegrasi",
+
+    "securityTitle": "IT Security",
+
+    "securityDesc": "Keamanan data dan sistem perusahaan.",
+
+    "cta": "Konsultasi →",
+
+    "waMessage": "Halo Ephos Tech, saya tertarik dengan layanan IT Anda."
+
+  },
+
+  "ServiceDetail": {
+
+    "title1": "Detail Layanan",
+
+    "title2": "yang Kami Tawarkan",
+
+    "desc": "Solusi lengkap untuk memastikan sistem IT Anda berjalan optimal, aman, dan siap berkembang.",
+
+    "infraTitle": "IT Infrastructure",
+
+    "infraDesc": "Kami membangun sistem jaringan dan server yang stabil, scalable, dan siap mendukung pertumbuhan bisnis.",
+
+    "infraPoints1": "Design & setup network enterprise",
+
+    "infraPoints2": "Server & virtualization",
+
+    "infraPoints3": "High availability & redundancy",
+
+    "cloudTitle": "Cloud & Managed Service",
+
+    "cloudDesc": "Monitoring 24/7, maintenance, dan optimasi performa sistem cloud untuk bisnis Anda.",
+
+    "cloudPoints1": "Cloud deployment (AWS, GCP, Azure)",
+
+    "cloudPoints2": "Monitoring & alert system",
+
+    "cloudPoints3": "Auto scaling & cost optimization",
+
+    "securityTitle": "Security & Compliance",
+
+    "securityDesc": "Keamanan sistem menjadi prioritas utama untuk melindungi data dan operasional bisnis.",
+
+    "securityPoints1": "Firewall & network security",
+
+    "securityPoints2": "Backup & disaster recovery",
+
+    "securityPoints3": "Security audit & hardening",
+
+    "optTitle": "System Optimization",
+
+    "optDesc": "Meningkatkan performa sistem dan efisiensi operasional dengan teknologi yang tepat.",
+
+    "optPoints1": "Performance tuning",
+
+    "optPoints2": "Automation system",
+
+    "optPoints3": "Infrastructure scaling",
+
+    "cta": "Konsultasi →",
+
+    "waMessage": "Halo Ephos Tech, saya ingin konsultasi terkait layanan IT."
+
+  },
+
+  "Tech": {
+
+    "badge": "Teknologi",
+
+    "title": "Technology Stack",
+
+    "desc": "Kami menggunakan teknologi terbaik untuk memastikan sistem Anda stabil, aman, dan scalable.",
+
+    "cloudTitle": "Cloud Platform",
+
+    "networkTitle": "Networking",
+
+    "systemTitle": "System & DevOps",
+
+    "securityTitle": "Security"
+
+  },
+
+  "ServicesCTA": {
+
+    "title": "Siap Upgrade Infrastruktur IT Bisnis Anda?",
+
+    "desc1": "Konsultasikan kebutuhan",
+
+    "highlight": "IT Infrastructure, Cloud Computing, dan Enterprise System",
+
+    "desc2": "Anda bersama tim kami untuk meningkatkan performa, keamanan, dan skalabilitas bisnis.",
+
+    "cta": "Konsultasi via WhatsApp",
+
+    "stat1": "100+ Client",
+
+    "stat2": "99% Uptime",
+
+    "stat3": "24/7 Support",
+
+    "stat4": "Enterprise Ready",
+
+    "waMessage": "Halo EphosTech, saya ingin konsultasi terkait layanan IT Infrastructure, Cloud, dan System."
+
+  },
+
+  "PortfolioHero": {
+
+    "badge": "Portfolio & Studi Kasus",
+
+    "title1": "Solusi Nyata",
+
+    "title2": "yang",
+
+    "titleHighlight": "Memberikan Dampak",
+
+    "desc1": "Kami telah membantu berbagai perusahaan dalam membangun",
+
+    "highlight": "IT Infrastructure, Cloud System, dan Enterprise Solution",
+
+    "desc2": "yang stabil, scalable, dan siap berkembang.",
+
+    "stat1": "100+ Project Delivered",
+
+    "stat2": "99% Uptime",
+
+    "stat3": "Enterprise Ready"
+
+  },
+
+  "Case": {
+
+    "badge": "Studi Kasus",
+
+    "title": "Selected Case Studies",
+
+    "desc": "Studi kasus nyata bagaimana kami membantu bisnis meningkatkan performa, stabilitas, dan efisiensi sistem IT.",
+
+    "cta": "Konsultasi solusi serupa",
+
+    "problem": "Problem",
+
+    "solution": "Solution",
+
+    "result": "Result",
+
+    "waMessage": "Halo Ephos Tech, saya tertarik dengan solusi seperti di portfolio Anda.",
+
+    "p1Title": "Enterprise Network Infrastructure",
+
+    "p1Problem": "Jaringan lambat, sering downtime, dan tidak scalable.",
+
+    "p1Solution": "Implementasi high-availability network dengan load balancing dan monitoring.",
+
+    "p1Result": "Uptime 99.9% dan peningkatan performa hingga 3x lebih cepat.",
+
+    "p1Tag": "Infrastructure",
+
+    "p2Title": "Cloud Migration System",
+
+    "p2Problem": "Server lokal terbatas dan tidak fleksibel.",
+
+    "p2Solution": "Migrasi ke cloud dengan arsitektur scalable dan auto-scaling.",
+
+    "p2Result": "Efisiensi biaya hingga 40% dan sistem lebih fleksibel.",
+
+    "p2Tag": "Cloud"
+
+  },
+
+  "Deliver": {
+
+    "badge": "What We Deliver",
+
+    "title": "Solusi yang Kami Berikan",
+
+    "desc": "Solusi end-to-end yang dirancang untuk meningkatkan performa, keamanan, dan efisiensi operasional bisnis Anda.",
+
+    "i1Title": "Infrastructure Design",
+
+    "i1Desc": "Arsitektur jaringan dan server yang stabil, scalable, dan siap berkembang.",
+
+    "i2Title": "Cloud Deployment",
+
+    "i2Desc": "Implementasi cloud modern untuk fleksibilitas dan efisiensi operasional.",
+
+    "i3Title": "System Integration",
+
+    "i3Desc": "Integrasi sistem bisnis agar berjalan otomatis dan terhubung.",
+
+    "i4Title": "Security Implementation",
+
+    "i4Desc": "Keamanan sistem dan data dengan standar enterprise."
+
+  },
+
+  "Impact": {
+
+    "title": "Impact & Hasil",
+
+    "desc": "Hasil nyata dari implementasi solusi IT kami terhadap performa dan efisiensi bisnis klien.",
+
+    "s1": "System Uptime",
+
+    "s2": "Clients Served",
+
+    "s3": "Monitoring & Support"
+
+  },
+
+  "WhyEphos": {
+
+    "badge": "Why Ephos",
+
+    "title": "Kenapa Memilih Ephos?",
+
+    "desc": "Kami menghadirkan solusi IT Infrastructure, Cloud, dan Enterprise System yang tidak hanya berjalan, tapi memberikan dampak nyata.",
+
+    "i1Title": "Reliable & Secure",
+
+    "i1Desc": "Sistem IT dengan standar keamanan tinggi dan stabilitas enterprise.",
+
+    "i2Title": "Scalable Architecture",
+
+    "i2Desc": "Dirancang untuk tumbuh bersama bisnis tanpa bottleneck.",
+
+    "i3Title": "Fast Implementation",
+
+    "i3Desc": "Deploy cepat dengan metode terstruktur dan minim risiko.",
+
+    "i4Title": "Business-Oriented",
+
+    "i4Desc": "Fokus pada hasil bisnis, bukan hanya teknologi.",
+
+    "trust": "Dipercaya oleh berbagai perusahaan untuk membangun sistem IT yang stabil, aman, dan scalable."
+
+  },
+
+  "PortfolioCTA": {
+
+    "title1": "Siap Upgrade",
+
+    "title2": "Infrastruktur IT Anda?",
+
+    "desc1": "Konsultasikan kebutuhan",
+
+    "descHighlight": "IT Infrastructure, Cloud Computing, Network System, dan Enterprise Solution",
+
+    "desc2": "untuk meningkatkan performa, keamanan, dan skalabilitas bisnis Anda.",
+
+    "cta": "Konsultasi Gratis via WhatsApp",
+
+    "b1": "100+ Project",
+
+    "b2": "99% Uptime",
+
+    "b3": "Enterprise Ready",
+
+    "waMessage": "Halo Ephos Tech, saya ingin konsultasi terkait IT Infrastructure, Cloud, dan Enterprise System."
+
+  },
+
+  "ContactHero": {
+
+    "badge": "Hubungi Kami",
+
+    "title1": "Konsultasikan Kebutuhan IT Bisnis",
+
+    "title2": "dengan Tim Profesional Kami",
+
+    "desc": "Kami membantu bisnis membangun sistem yang stabil, scalable, dan siap berkembang melalui solusi IT end-to-end.",
+
+    "cta1": "Chat WhatsApp",
+
+    "cta2": "Lihat Portfolio",
+
+    "b1": "100+ Client",
+
+    "b2": "99.9% Uptime",
+
+    "b3": "24/7 Support",
+
+    "waMessage": "Halo EphosTech.id, saya ingin konsultasi terkait kebutuhan IT bisnis saya."
+
+  },
+
+  "ContactSection": {
+
+    "title": "Konsultasi Gratis",
+
+    "name": "Nama Lengkap",
+
+    "email": "Email",
+
+    "message": "Ceritakan kebutuhan Anda...",
+
+    "cta": "Kirim via WhatsApp",
+
+    "sending": "Mengirim...",
+
+    "error": "Mohon lengkapi semua data",
+
+    "infoTitle": "Informasi Kontak",
+
+    "addressLabel": "Alamat",
+
+    "address": "Gedung Epicentrum Walk, Jakarta"
+
+  },
+
+
+  "ContactCTA": {
+
+    "badge": "Konsultasi IT Gratis",
+
+    "title1": "Tingkatkan Bisnis Anda dengan",
+
+    "title2": "Solusi IT & Infrastruktur Digital Terbaik",
+
+    "desc": "EphosTech menyediakan layanan IT infrastructure, cloud services, dan enterprise system untuk membantu bisnis Anda lebih efisien, scalable, dan siap berkembang di era digital.",
+
+    "ctaPrimary": "Konsultasi via WhatsApp",
+
+    "ctaSecondary": "Hubungi Kami",
+
+    "stat1": "100+ Client",
+
+    "stat2": "99.9% Uptime",
+
+    "stat3": "24/7 Support",
+
+    "stat4": "Enterprise Ready",
+
+    "micro": "Respon cepat • Konsultasi gratis • Tanpa komitmen"
+
+  }
+  
+}

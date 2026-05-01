@@ -3,31 +3,35 @@
 import { Container } from "@/components";
 import { motion } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
-
-const team = [
-  {
-    name: "BILL AFRIYANTO",
-    role: "Chief Executive Officer",
-    image: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=300",
-    desc: "Memimpin arah strategis perusahaan dan memastikan pertumbuhan bisnis berkelanjutan.",
-  },
-  {
-    name: "ARIS PRIO SUDARWO",
-    role: "Director",
-    image: "https://images.unsplash.com/photo-1556157382-97eda2d62296?w=300",
-    desc: "Mengelola operasional dan memastikan eksekusi strategi berjalan optimal.",
-  },
-  {
-    name: "GREGORIUS YUDHISTIRA",
-    role: "Chief Financial Officer",
-    image: "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?w=300",
-    desc: "Mengelola strategi keuangan dan stabilitas pertumbuhan perusahaan.",
-  },
-];
+import { useTranslations } from "next-intl";
 
 export default function Organization() {
+  const t = useTranslations("Organization");
+
   const [active, setActive] = useState(0);
   const isPaused = useRef(false);
+
+  // 🔥 DATA (SUDAH MULTI LANG)
+  const team = [
+    {
+      name: t("ceoName"),
+      role: t("ceoRole"),
+      image: "/assets/team/ceo.jpg", // nanti tinggal ganti asset
+      desc: t("ceoDesc"),
+    },
+    {
+      name: t("dirName"),
+      role: t("dirRole"),
+      image: "/assets/team/director.jpg",
+      desc: t("dirDesc"),
+    },
+    {
+      name: t("cfoName"),
+      role: t("cfoRole"),
+      image: "/assets/team/cfo.jpg",
+      desc: t("cfoDesc"),
+    },
+  ];
 
   // 🔥 AUTO PLAY
   useEffect(() => {
@@ -35,40 +39,39 @@ export default function Organization() {
       if (!isPaused.current) {
         setActive((prev) => (prev + 1) % team.length);
       }
-    }, 3500); // smooth timing
+    }, 3500);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [team.length]);
 
   return (
-    <section className="relative py-32 bg-white overflow-hidden">
+    <section className="relative py-32 bg-[var(--bg)] overflow-hidden">
 
-      {/* glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(37,99,235,0.06),transparent_60%)]" />
+      {/* BACKGROUND */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(59,130,246,0.08),transparent_60%)]" />
 
       <Container>
         <div className="max-w-6xl mx-auto">
 
           {/* HEADER */}
           <div className="text-center mb-20">
-            <span className="inline-block px-4 py-1 text-xs rounded-full bg-blue-50 text-blue-600 font-medium mb-4">
-              Leadership
+            <span className="inline-block px-4 py-1 text-xs rounded-full bg-[var(--accent-soft)] text-[var(--primary)] font-medium mb-4">
+              {t("badge")}
             </span>
 
-            <h2 className="text-3xl md:text-4xl font-semibold text-gray-900">
-              Tim Kepemimpinan
-              <span className="block text-blue-600">
-                Perusahaan
+            <h2 className="text-3xl md:text-4xl font-semibold text-[var(--text)]">
+              {t("title1")}
+              <span className="block text-[var(--primary)]">
+                {t("title2")}
               </span>
             </h2>
 
-            <p className="mt-4 text-gray-600 max-w-xl mx-auto">
-              Dipimpin oleh profesional berpengalaman dengan visi strategis
-              dan eksekusi yang kuat.
+            <p className="mt-4 text-[var(--text-muted)] max-w-xl mx-auto">
+              {t("desc")}
             </p>
           </div>
 
-          {/* 🔥 COVERFLOW */}
+          {/* COVERFLOW */}
           <div
             className="relative flex justify-center items-center"
             onMouseEnter={() => (isPaused.current = true)}
@@ -84,7 +87,7 @@ export default function Organization() {
                     key={i}
                     onClick={() => {
                       setActive(i);
-                      isPaused.current = true; // pause setelah klik
+                      isPaused.current = true;
                     }}
                     animate={{
                       scale: isActive ? 1 : 0.82,
@@ -97,8 +100,8 @@ export default function Organization() {
                       rounded-2xl p-6 w-[260px]
                       text-center transition-all
                       ${isActive
-                        ? "bg-gradient-to-br from-blue-600 to-blue-700 text-white shadow-[0_30px_80px_rgba(37,99,235,0.4)] z-10"
-                        : "bg-gray-50 border border-gray-200"
+                        ? "bg-gradient-to-br from-[var(--primary)] to-blue-600 text-white shadow-[0_30px_80px_rgba(59,130,246,0.4)] z-10"
+                        : "bg-[var(--card)] border border-[var(--border)]"
                       }
                     `}
                   >
@@ -117,14 +120,14 @@ export default function Organization() {
 
                     {/* NAME */}
                     <h3 className={`font-semibold ${
-                      isActive ? "text-white" : "text-gray-900"
+                      isActive ? "text-white" : "text-[var(--text)]"
                     }`}>
                       {item.name}
                     </h3>
 
                     {/* ROLE */}
                     <p className={`text-xs mt-1 ${
-                      isActive ? "text-white/70" : "text-gray-500"
+                      isActive ? "text-white/70" : "text-[var(--text-muted)]"
                     }`}>
                       {item.role}
                     </p>
@@ -143,7 +146,7 @@ export default function Organization() {
             </div>
           </div>
 
-          {/* DOT */}
+          {/* DOT NAV */}
           <div className="flex justify-center gap-2 mt-8">
             {team.map((_, i) => (
               <button
@@ -154,7 +157,10 @@ export default function Organization() {
                 }}
                 className={`
                   h-2.5 rounded-full transition-all duration-300
-                  ${active === i ? "bg-blue-600 w-6" : "bg-gray-300 w-2.5"}
+                  ${active === i
+                    ? "bg-[var(--primary)] w-6"
+                    : "bg-[var(--border)] w-2.5"
+                  }
                 `}
               />
             ))}

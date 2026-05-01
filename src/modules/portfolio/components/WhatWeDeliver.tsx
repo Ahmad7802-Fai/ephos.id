@@ -8,53 +8,84 @@ import {
   Layers,
   ShieldCheck,
 } from "lucide-react";
-
-const items = [
-  {
-    title: "Infrastructure Design",
-    desc: "Arsitektur jaringan dan server yang stabil, scalable, dan siap berkembang.",
-    icon: Server,
-  },
-  {
-    title: "Cloud Deployment",
-    desc: "Implementasi cloud modern untuk fleksibilitas dan efisiensi operasional.",
-    icon: Cloud,
-  },
-  {
-    title: "System Integration",
-    desc: "Integrasi sistem bisnis agar berjalan otomatis dan terhubung.",
-    icon: Layers,
-  },
-  {
-    title: "Security Implementation",
-    desc: "Keamanan sistem dan data dengan standar enterprise.",
-    icon: ShieldCheck,
-  },
-];
+import { useTranslations } from "next-intl";
 
 export default function WhatWeDeliver() {
-  return (
-    <section className="relative py-28 bg-gray-50 overflow-hidden">
+  const t = useTranslations("Deliver");
 
-      {/* subtle glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(37,99,235,0.06),transparent_60%)]" />
+  const items = [
+    {
+      title: t("i1Title"),
+      desc: t("i1Desc"),
+      icon: Server,
+    },
+    {
+      title: t("i2Title"),
+      desc: t("i2Desc"),
+      icon: Cloud,
+    },
+    {
+      title: t("i3Title"),
+      desc: t("i3Desc"),
+      icon: Layers,
+    },
+    {
+      title: t("i4Title"),
+      desc: t("i4Desc"),
+      icon: ShieldCheck,
+    },
+  ];
+
+  return (
+    <section className="relative py-28 bg-[var(--bg)] overflow-hidden">
+
+      {/* 🔥 PREMIUM BACKGROUND */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+
+        {/* glow kiri */}
+        <div className="
+          absolute -top-32 -left-32
+          w-[500px] h-[500px]
+          bg-[var(--primary)]/15
+          blur-[120px] rounded-full
+        " />
+
+        {/* glow kanan */}
+        <div className="
+          absolute bottom-[-150px] right-[-100px]
+          w-[400px] h-[400px]
+          bg-indigo-500/10
+          blur-[120px] rounded-full
+        " />
+
+      </div>
 
       <Container>
         <div className="max-w-6xl mx-auto">
 
-          {/* HEADER */}
+          {/* ================= HEADER ================= */}
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-semibold text-gray-900">
-              What We Deliver
+
+            <span className="
+              inline-flex px-4 py-1.5 text-xs rounded-full
+              bg-[var(--accent-soft)]
+              text-[var(--primary)]
+              mb-4
+            ">
+              {t("badge")}
+            </span>
+
+            <h2 className="text-3xl md:text-4xl font-semibold text-[var(--text)]">
+              {t("title")}
             </h2>
 
-            <p className="mt-4 text-gray-600 max-w-xl mx-auto">
-              Solusi end-to-end yang dirancang untuk meningkatkan performa,
-              keamanan, dan efisiensi operasional bisnis Anda.
+            <p className="mt-4 text-[var(--text-muted)] max-w-xl mx-auto">
+              {t("desc")}
             </p>
+
           </div>
 
-          {/* GRID */}
+          {/* ================= GRID ================= */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
 
             {items.map((item, i) => {
@@ -65,42 +96,51 @@ export default function WhatWeDeliver() {
                   key={i}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.1 }}
+                  transition={{ delay: i * 0.08 }}
                   viewport={{ once: true }}
                   className="
                     group relative p-6 rounded-2xl
-                    bg-white border border-gray-200
-                    hover:shadow-xl
+                    bg-[var(--card)]
+                    border border-[var(--border)]
+                    backdrop-blur-xl
+                    overflow-hidden
+                    hover:shadow-[0_20px_50px_rgba(59,130,246,0.15)]
                     transition-all duration-300
                   "
                 >
 
-                  {/* glow hover */}
+                  {/* 🔥 HOVER GLOW */}
                   <div className="
                     absolute inset-0 opacity-0 group-hover:opacity-100 transition
-                    bg-[radial-gradient(circle_at_top,rgba(37,99,235,0.08),transparent)]
-                    rounded-2xl
+                    bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.2),transparent)]
                   " />
 
                   {/* ICON */}
                   <div className="
                     relative z-10 w-12 h-12 rounded-xl
-                    bg-blue-50 border border-blue-100
-                    flex items-center justify-center mb-4
-                    group-hover:bg-blue-100 transition
+                    bg-[var(--accent-soft)]
+                    border border-[var(--border)]
+                    flex items-center justify-center mb-5
+                    group-hover:scale-110 transition
                   ">
-                    <Icon className="w-5 h-5 text-blue-600" />
+                    <Icon className="w-5 h-5 text-[var(--primary)]" />
                   </div>
 
                   {/* TITLE */}
-                  <h3 className="relative z-10 font-semibold text-gray-900">
+                  <h3 className="relative z-10 font-semibold text-[var(--text)]">
                     {item.title}
                   </h3>
 
                   {/* DESC */}
-                  <p className="relative z-10 text-sm text-gray-600 mt-2 leading-relaxed">
+                  <p className="relative z-10 text-sm text-[var(--text-muted)] mt-2 leading-relaxed">
                     {item.desc}
                   </p>
+
+                  {/* subtle bottom line */}
+                  <div className="
+                    mt-6 h-[1px]
+                    bg-gradient-to-r from-transparent via-[var(--border)] to-transparent
+                  " />
 
                 </motion.div>
               );

@@ -2,56 +2,65 @@
 
 import { Container } from "@/components";
 import { motion } from "framer-motion";
-
-const projects = [
-  {
-    title: "Enterprise Network Infrastructure",
-    desc: "Implementasi jaringan high-availability untuk perusahaan skala besar.",
-    result: "99.9% uptime • Zero downtime",
-    image: "/assets/premium_photo-1682146029185-198922bd8350.avif",
-    tags: ["Infrastructure", "Networking"],
-    featured: true,
-  },
-  {
-    title: "Cloud Migration System",
-    desc: "Migrasi sistem bisnis ke cloud tanpa gangguan operasional.",
-    result: "Downtime 0% • Cost -40%",
-    image: "/assets/premium_photo-1764695549917-da546c7254a2.avif",
-    tags: ["Cloud", "DevOps"],
-  },
-  {
-    title: "ERP Automation System",
-    desc: "Automasi proses bisnis untuk meningkatkan efisiensi operasional.",
-    result: "Efficiency +60%",
-    image: "/assets/premium_photo-1682146029185-198922bd8350.avif",
-    tags: ["ERP", "Automation"],
-  },
-];
+import { useTranslations } from "next-intl";
 
 export default function Portfolio() {
-  return (
-    <section className="relative py-32 bg-white overflow-hidden">
+  const t = useTranslations("Portfolio");
 
-      {/* subtle bg */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(37,99,235,0.08),transparent_50%)]" />
+  const projects = [
+    {
+      title: t("p1Title"),
+      desc: t("p1Desc"),
+      result: t("p1Result"),
+      image: "/assets/premium_photo-1682146029185-198922bd8350.avif",
+      tags: [t("tagInfra"), t("tagNetwork")],
+      featured: true,
+    },
+    {
+      title: t("p2Title"),
+      desc: t("p2Desc"),
+      result: t("p2Result"),
+      image: "/assets/premium_photo-1764695549917-da546c7254a2.avif",
+      tags: [t("tagCloud"), t("tagDevops")],
+    },
+    {
+      title: t("p3Title"),
+      desc: t("p3Desc"),
+      result: t("p3Result"),
+      image: "/assets/premium_photo-1682146029185-198922bd8350.avif",
+      tags: [t("tagERP"), t("tagAutomation")],
+    },
+  ];
+
+  return (
+    <section className="relative py-32 bg-[var(--bg)] overflow-hidden">
+
+      {/* BACKGROUND PREMIUM */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(59,130,246,0.12),transparent_60%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,rgba(99,102,241,0.10),transparent_60%)]" />
 
       <Container>
 
         {/* HEADER */}
         <div className="text-center max-w-2xl mx-auto mb-20">
-          <span className="inline-block px-4 py-1 text-xs rounded-full bg-blue-50 text-blue-600 font-medium mb-4">
-            Portfolio
+          <span className="
+            inline-block px-4 py-1 text-xs rounded-full
+            bg-[var(--accent-soft)]
+            text-[var(--primary)]
+            font-medium mb-4
+          ">
+            {t("badge")}
           </span>
 
-          <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 leading-tight">
-            Project Nyata yang
-            <span className="block text-blue-600">
-              Memberikan Dampak
+          <h2 className="text-3xl md:text-4xl font-semibold text-[var(--text)] leading-tight">
+            {t("title1")}
+            <span className="block text-[var(--primary)]">
+              {t("title2")}
             </span>
           </h2>
 
-          <p className="mt-4 text-gray-600">
-            Bukan sekadar implementasi, tapi hasil nyata untuk performa dan efisiensi bisnis.
+          <p className="mt-4 text-[var(--text-muted)]">
+            {t("desc")}
           </p>
         </div>
 
@@ -67,6 +76,7 @@ export default function Portfolio() {
               viewport={{ once: true }}
               className={`
                 group relative overflow-hidden rounded-2xl
+                border border-[var(--border)]
                 ${item.featured ? "lg:col-span-2 lg:row-span-2" : ""}
               `}
             >
@@ -77,12 +87,14 @@ export default function Portfolio() {
                 className="w-full h-full object-cover group-hover:scale-110 transition duration-700"
               />
 
-              {/* OVERLAY */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent" />
+              {/* OVERLAY DARK */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
 
-              {/* GLOW */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition
-                              bg-gradient-to-br from-blue-500/20 via-transparent to-transparent" />
+              {/* GLOW ROOT */}
+              <div className="
+                absolute inset-0 opacity-0 group-hover:opacity-100 transition
+                bg-gradient-to-br from-[var(--primary)]/30 via-transparent to-transparent
+              " />
 
               {/* CONTENT */}
               <div className="absolute bottom-6 left-6 right-6 text-white">
@@ -92,7 +104,11 @@ export default function Portfolio() {
                   {item.tags.map((tag, idx) => (
                     <span
                       key={idx}
-                      className="text-xs px-3 py-1 rounded-full bg-white/10 backdrop-blur border border-white/20"
+                      className="
+                        text-xs px-3 py-1 rounded-full
+                        bg-white/10 backdrop-blur
+                        border border-white/20
+                      "
                     >
                       {tag}
                     </span>
@@ -109,14 +125,19 @@ export default function Portfolio() {
                   {item.desc}
                 </p>
 
-                {/* 🔥 RESULT (NEW - PENTING) */}
-                <div className="mt-4 inline-block px-3 py-1 text-xs rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-200">
+                {/* RESULT */}
+                <div className="
+                  mt-4 inline-block px-3 py-1 text-xs rounded-full
+                  bg-[var(--primary)]/20
+                  border border-[var(--primary)]/30
+                  text-white
+                ">
                   {item.result}
                 </div>
 
                 {/* CTA */}
                 <p className="mt-4 text-sm opacity-0 group-hover:opacity-100 transition">
-                  Lihat studi kasus →
+                  {t("cta")} →
                 </p>
 
               </div>
@@ -130,13 +151,13 @@ export default function Portfolio() {
         <div className="text-center mt-16">
           <button className="
             px-7 py-3 rounded-xl
-            bg-gradient-to-r from-blue-500 to-blue-600
+            bg-gradient-to-r from-[var(--primary)] to-blue-600
             text-white font-medium
-            shadow-[0_10px_30px_rgba(37,99,235,0.3)]
+            shadow-[0_10px_30px_rgba(59,130,246,0.3)]
             hover:scale-[1.05]
             transition
           ">
-            Lihat Semua Portfolio →
+            {t("ctaAll")} →
           </button>
         </div>
 

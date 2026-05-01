@@ -8,64 +8,73 @@ import {
   Rocket,
   Activity,
 } from "lucide-react";
-
-const steps = [
-  {
-    icon: Search,
-    title: "Consultation",
-    desc: "Kami memahami kebutuhan bisnis dan tantangan yang dihadapi.",
-  },
-  {
-    icon: Lightbulb,
-    title: "Planning",
-    desc: "Menyusun solusi IT yang tepat dan scalable sesuai kebutuhan.",
-  },
-  {
-    icon: Rocket,
-    title: "Implementation",
-    desc: "Membangun dan mengimplementasikan sistem dengan standar tinggi.",
-  },
-  {
-    icon: Activity,
-    title: "Monitoring & Support",
-    desc: "Pemantauan sistem dan dukungan penuh 24/7.",
-  },
-];
+import { useTranslations } from "next-intl";
 
 export default function Process() {
-  return (
-    <section className="relative py-32 bg-[#0B0F14] overflow-hidden">
+  const t = useTranslations("Process");
 
-      {/* BACKGROUND DEPTH */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(37,99,235,0.2),transparent_40%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(37,99,235,0.12),transparent_50%)]" />
+  const steps = [
+    {
+      icon: Search,
+      title: t("s1Title"),
+      desc: t("s1Desc"),
+    },
+    {
+      icon: Lightbulb,
+      title: t("s2Title"),
+      desc: t("s2Desc"),
+    },
+    {
+      icon: Rocket,
+      title: t("s3Title"),
+      desc: t("s3Desc"),
+    },
+    {
+      icon: Activity,
+      title: t("s4Title"),
+      desc: t("s4Desc"),
+    },
+  ];
+
+  return (
+    <section className="relative py-32 bg-[var(--bg)] overflow-hidden">
+
+      {/* 🔥 SOFT PREMIUM BACKGROUND */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.15),transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,rgba(99,102,241,0.12),transparent_60%)]" />
 
       <Container>
 
-        {/* HEADER */}
+        {/* ================= HEADER ================= */}
         <div className="text-center max-w-2xl mx-auto mb-24">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 text-xs rounded-full bg-white/10 border border-white/20 text-white/70 mb-4">
-            How We Work
+
+          <span className="
+            inline-flex px-4 py-1.5 text-xs rounded-full
+            bg-[var(--accent-soft)]
+            text-[var(--primary)]
+          ">
+            {t("badge")}
           </span>
 
-          <h2 className="text-3xl md:text-5xl font-semibold text-white leading-tight">
-            Proses Kerja yang
-            <span className="block bg-gradient-to-r from-blue-300 to-blue-500 bg-clip-text text-transparent">
-              Terstruktur & Terbukti
+          <h2 className="mt-4 text-4xl md:text-5xl font-semibold text-[var(--text)] leading-tight">
+            {t("title1")}
+            <span className="block bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent">
+              {t("title2")}
             </span>
           </h2>
 
-          <p className="mt-4 text-white/60">
-            Setiap project kami jalankan dengan pendekatan sistematis
-            untuk memastikan hasil maksimal dan minim risiko.
+          <p className="mt-4 text-[var(--text-muted)]">
+            {t("desc")}
           </p>
+
         </div>
 
-        {/* FLOW */}
+        {/* ================= FLOW ================= */}
         <div className="relative">
 
-          {/* CONNECTOR LINE */}
-          <div className="hidden md:block absolute top-16 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+          {/* LINE */}
+          <div className="hidden md:block absolute top-14 left-0 right-0 h-[2px]
+            bg-gradient-to-r from-transparent via-[var(--border)] to-transparent" />
 
           <div className="grid md:grid-cols-4 gap-10">
 
@@ -82,19 +91,22 @@ export default function Process() {
                   className="relative group text-center"
                 >
 
-                  {/* GLOW DOT (CONNECTOR) */}
-                  <div className="hidden md:block absolute top-16 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-blue-400 shadow-[0_0_20px_rgba(37,99,235,0.9)]" />
+                  {/* DOT */}
+                  <div className="hidden md:block absolute top-14 left-1/2 -translate-x-1/2
+                    w-3 h-3 rounded-full
+                    bg-[var(--primary)]
+                    shadow-[0_0_20px_rgba(59,130,246,0.8)]
+                  " />
 
-                  {/* STEP NUMBER */}
+                  {/* NUMBER */}
                   <div className="mb-6 flex justify-center">
                     <div className="
-                      w-14 h-14
-                      rounded-full
+                      w-14 h-14 rounded-full
                       flex items-center justify-center
-                      text-white font-semibold
+                      font-semibold text-white
 
-                      bg-gradient-to-br from-blue-500 to-blue-600
-                      shadow-[0_10px_40px_rgba(37,99,235,0.5)]
+                      bg-gradient-to-br from-blue-500 to-indigo-600
+                      shadow-[0_10px_30px_rgba(59,130,246,0.4)]
 
                       group-hover:scale-110
                       transition
@@ -105,13 +117,12 @@ export default function Process() {
 
                   {/* CARD */}
                   <div className="
-                    relative
-                    p-6 rounded-2xl
-                    bg-white/5 backdrop-blur-xl
-                    border border-white/10
+                    relative p-6 rounded-2xl
+                    bg-[var(--card)]
+                    border border-[var(--border)]
+                    backdrop-blur-xl
 
-                    group-hover:bg-blue-500/10
-                    group-hover:border-blue-400/20
+                    hover:shadow-[0_20px_60px_rgba(0,0,0,0.15)]
                     transition-all duration-300
                   ">
 
@@ -119,27 +130,30 @@ export default function Process() {
                     <div className="mb-4 flex justify-center">
                       <div className="
                         w-12 h-12 rounded-xl
-                        bg-white/5 border border-white/10
+                        bg-[var(--accent-soft)]
                         flex items-center justify-center
-                        group-hover:bg-blue-500/20
-                        transition
                       ">
-                        <Icon className="w-5 h-5 text-blue-400" />
+                        <Icon className="w-5 h-5 text-[var(--primary)]" />
                       </div>
                     </div>
 
                     {/* TITLE */}
-                    <h3 className="text-white font-semibold">
+                    <h3 className="text-[var(--text)] font-semibold">
                       {step.title}
                     </h3>
 
                     {/* DESC */}
-                    <p className="text-white/50 text-sm mt-2 leading-relaxed">
+                    <p className="text-[var(--text-muted)] text-sm mt-2 leading-relaxed">
                       {step.desc}
                     </p>
 
-                    {/* subtle glow */}
-                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition" />
+                    {/* HOVER GLOW */}
+                    <div className="
+                      absolute inset-0 rounded-2xl
+                      bg-gradient-to-br from-blue-500/10 to-transparent
+                      opacity-0 group-hover:opacity-100
+                      transition
+                    " />
 
                   </div>
 

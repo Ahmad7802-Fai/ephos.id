@@ -3,55 +3,84 @@
 import { Container } from "@/components";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 const WHATSAPP_NUMBER = "6285285579492";
 
-const projects = [
-  {
-    title: "Enterprise Network Infrastructure",
-    problem: "Jaringan lambat, sering downtime, dan tidak scalable.",
-    solution: "Implementasi high-availability network dengan load balancing dan monitoring.",
-    result: "Uptime 99.9% dan peningkatan performa hingga 3x lebih cepat.",
-    tag: "Infrastructure",
-  },
-  {
-    title: "Cloud Migration System",
-    problem: "Server lokal terbatas dan tidak fleksibel.",
-    solution: "Migrasi ke cloud dengan arsitektur scalable dan auto-scaling.",
-    result: "Efisiensi biaya hingga 40% dan sistem lebih fleksibel.",
-    tag: "Cloud",
-  },
-];
-
 export default function CaseStudies() {
-  const message = encodeURIComponent(
-    "Halo Ephos Tech, saya tertarik dengan solusi seperti di portfolio Anda."
-  );
+  const t = useTranslations("Case");
 
+  const message = encodeURIComponent(t("waMessage"));
   const waLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
 
-  return (
-    <section className="relative py-32 bg-white overflow-hidden">
+  const projects = [
+    {
+      title: t("p1Title"),
+      problem: t("p1Problem"),
+      solution: t("p1Solution"),
+      result: t("p1Result"),
+      tag: t("p1Tag"),
+    },
+    {
+      title: t("p2Title"),
+      problem: t("p2Problem"),
+      solution: t("p2Solution"),
+      result: t("p2Result"),
+      tag: t("p2Tag"),
+    },
+  ];
 
-      {/* subtle glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(37,99,235,0.05),transparent_60%)]" />
+  return (
+    <section className="relative py-32 bg-[var(--bg)] overflow-hidden">
+
+      {/* 🔥 PREMIUM BACKGROUND */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+
+        {/* glow kiri */}
+        <div className="
+          absolute -top-40 -left-40
+          w-[600px] h-[600px]
+          bg-[var(--primary)]/20
+          rounded-full blur-[140px]
+        " />
+
+        {/* glow kanan */}
+        <div className="
+          absolute bottom-[-200px] right-[-150px]
+          w-[500px] h-[500px]
+          bg-indigo-500/15
+          rounded-full blur-[140px]
+        " />
+
+        {/* radial tengah */}
+        <div className="
+          absolute inset-0
+          bg-[radial-gradient(circle_at_50%_0%,rgba(59,130,246,0.15),transparent_60%)]
+        " />
+
+      </div>
 
       <Container>
         <div className="max-w-6xl mx-auto">
 
-          {/* HEADER */}
+          {/* ================= HEADER ================= */}
           <div className="text-center mb-20">
-            <h2 className="text-3xl md:text-4xl font-semibold text-gray-900">
-              Selected Case Studies
+
+            <span className="inline-flex px-4 py-1.5 text-xs rounded-full bg-[var(--accent-soft)] text-[var(--primary)] mb-4">
+              {t("badge")}
+            </span>
+
+            <h2 className="text-3xl md:text-4xl font-semibold text-[var(--text)]">
+              {t("title")}
             </h2>
 
-            <p className="mt-4 text-gray-600 max-w-xl mx-auto">
-              Studi kasus nyata bagaimana kami membantu bisnis meningkatkan
-              performa, stabilitas, dan efisiensi sistem IT mereka.
+            <p className="mt-4 text-[var(--text-muted)] max-w-xl mx-auto">
+              {t("desc")}
             </p>
+
           </div>
 
-          {/* LIST */}
+          {/* ================= LIST ================= */}
           <div className="space-y-10">
 
             {projects.map((item, i) => (
@@ -63,35 +92,38 @@ export default function CaseStudies() {
                 viewport={{ once: true }}
                 className="
                   group relative rounded-3xl
-                  border border-gray-200
-                  bg-white
+                  border border-[var(--border)]
+                  bg-[var(--card)]
+                  backdrop-blur-xl
                   overflow-hidden
-                  hover:shadow-xl
+                  hover:shadow-[0_20px_60px_rgba(59,130,246,0.2)]
                   transition-all duration-300
                 "
               >
 
-                {/* glow hover */}
+                {/* 🔥 HOVER GLOW */}
                 <div className="
                   absolute inset-0 opacity-0 group-hover:opacity-100 transition
-                  bg-[radial-gradient(circle_at_top,rgba(37,99,235,0.08),transparent)]
+                  bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.2),transparent)]
                 " />
 
                 <div className="relative z-10 grid md:grid-cols-2 gap-10 p-8 md:p-10">
 
-                  {/* LEFT */}
+                  {/* ================= LEFT ================= */}
                   <div>
 
                     {/* TAG */}
                     <span className="
                       inline-block text-xs px-3 py-1 rounded-full
-                      bg-blue-50 text-blue-600 mb-4
+                      bg-[var(--accent-soft)]
+                      text-[var(--primary)]
+                      mb-4
                     ">
                       {item.tag}
                     </span>
 
                     {/* TITLE */}
-                    <h3 className="text-xl md:text-2xl font-semibold text-gray-900">
+                    <h3 className="text-xl md:text-2xl font-semibold text-[var(--text)]">
                       {item.title}
                     </h3>
 
@@ -101,45 +133,57 @@ export default function CaseStudies() {
                       target="_blank"
                       className="
                         inline-flex items-center gap-2
-                        text-sm text-blue-600 font-medium
+                        text-sm text-[var(--primary)] font-medium
                         mt-4 hover:gap-3 transition-all
                       "
                     >
-                      Konsultasi solusi serupa
+                      {t("cta")}
                       <ArrowRight className="w-4 h-4" />
                     </a>
 
                   </div>
 
-                  {/* RIGHT */}
+                  {/* ================= RIGHT ================= */}
                   <div className="space-y-4 text-sm">
 
                     {/* PROBLEM */}
-                    <div className="p-4 rounded-xl bg-red-50 border border-red-100">
-                      <p className="font-semibold text-red-600 mb-1">
-                        Problem
+                    <div className="
+                      p-4 rounded-xl
+                      bg-red-500/10
+                      border border-red-400/20
+                    ">
+                      <p className="font-semibold text-red-400 mb-1">
+                        {t("problem")}
                       </p>
-                      <p className="text-gray-700">
+                      <p className="text-[var(--text-muted)]">
                         {item.problem}
                       </p>
                     </div>
 
                     {/* SOLUTION */}
-                    <div className="p-4 rounded-xl bg-blue-50 border border-blue-100">
-                      <p className="font-semibold text-blue-600 mb-1">
-                        Solution
+                    <div className="
+                      p-4 rounded-xl
+                      bg-blue-500/10
+                      border border-blue-400/20
+                    ">
+                      <p className="font-semibold text-blue-400 mb-1">
+                        {t("solution")}
                       </p>
-                      <p className="text-gray-700">
+                      <p className="text-[var(--text-muted)]">
                         {item.solution}
                       </p>
                     </div>
 
                     {/* RESULT */}
-                    <div className="p-4 rounded-xl bg-green-50 border border-green-100">
-                      <p className="font-semibold text-green-600 mb-1">
-                        Result
+                    <div className="
+                      p-4 rounded-xl
+                      bg-green-500/10
+                      border border-green-400/20
+                    ">
+                      <p className="font-semibold text-green-400 mb-1">
+                        {t("result")}
                       </p>
-                      <p className="text-gray-700">
+                      <p className="text-[var(--text-muted)]">
                         {item.result}
                       </p>
                     </div>

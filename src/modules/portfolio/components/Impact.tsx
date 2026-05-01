@@ -3,6 +3,7 @@
 import { Container } from "@/components";
 import { motion, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 
 function Counter({ value }: { value: string }) {
   const ref = useRef(null);
@@ -44,18 +45,37 @@ function Counter({ value }: { value: string }) {
 }
 
 export default function Impact() {
+  const t = useTranslations("Impact");
+
   const stats = [
-    { value: "99.9%", label: "System Uptime" },
-    { value: "100+", label: "Clients Served" },
-    { value: "24/7", label: "Monitoring & Support" },
+    { value: "99%", label: t("s1") },
+    { value: "100+", label: t("s2") },
+    { value: "24/7", label: t("s3") },
   ];
 
   return (
-    <section className="relative py-32 bg-[#0B0F14] text-white overflow-hidden">
+    <section className="relative py-32 bg-[var(--bg)] overflow-hidden">
 
-      {/* 🔥 BACKGROUND GLOW */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(37,99,235,0.2),transparent_60%)]" />
-      <div className="absolute w-[500px] h-[500px] bg-blue-500/20 blur-[140px] rounded-full top-[-120px] right-[-120px]" />
+      {/* 🔥 PREMIUM BACKGROUND */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+
+        {/* glow tengah */}
+        <div className="
+          absolute top-[-120px] left-1/2 -translate-x-1/2
+          w-[600px] h-[600px]
+          bg-[var(--primary)]/20
+          blur-[140px] rounded-full
+        " />
+
+        {/* glow kanan */}
+        <div className="
+          absolute bottom-[-150px] right-[-100px]
+          w-[400px] h-[400px]
+          bg-indigo-500/10
+          blur-[120px] rounded-full
+        " />
+
+      </div>
 
       <Container>
         <div className="relative z-10 max-w-5xl mx-auto text-center">
@@ -64,9 +84,9 @@ export default function Impact() {
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-3xl md:text-5xl font-semibold"
+            className="text-3xl md:text-5xl font-semibold text-[var(--text)]"
           >
-            Impact & Results
+            {t("title")}
           </motion.h2>
 
           {/* DESC */}
@@ -74,10 +94,9 @@ export default function Impact() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.1 }}
-            className="mt-4 text-white/60 max-w-xl mx-auto"
+            className="mt-4 text-[var(--text-muted)] max-w-xl mx-auto"
           >
-            Hasil nyata dari implementasi solusi IT kami terhadap performa
-            dan efisiensi bisnis klien.
+            {t("desc")}
           </motion.p>
 
           {/* STATS */}
@@ -91,34 +110,42 @@ export default function Impact() {
                 transition={{ delay: i * 0.1 }}
                 viewport={{ once: true }}
                 className="
-                  relative group p-8 rounded-2xl
-                  bg-white/5 border border-white/10
-                  backdrop-blur
+                  group relative p-8 rounded-2xl
+                  bg-[var(--card)]
+                  border border-[var(--border)]
+                  backdrop-blur-xl
+                  overflow-hidden
                   hover:scale-[1.05]
+                  hover:shadow-[0_20px_60px_rgba(59,130,246,0.2)]
                   transition-all duration-300
                 "
               >
 
-                {/* glow hover */}
+                {/* 🔥 HOVER GLOW */}
                 <div className="
                   absolute inset-0 opacity-0 group-hover:opacity-100 transition
-                  bg-[radial-gradient(circle_at_top,rgba(37,99,235,0.2),transparent)]
-                  rounded-2xl
+                  bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.25),transparent)]
                 " />
 
                 {/* VALUE */}
                 <h3 className="
                   relative z-10 text-4xl md:text-5xl font-bold
-                  bg-gradient-to-r from-blue-300 to-blue-500
+                  bg-gradient-to-r from-blue-400 to-indigo-500
                   bg-clip-text text-transparent
                 ">
                   <Counter value={item.value} />
                 </h3>
 
                 {/* LABEL */}
-                <p className="relative z-10 mt-3 text-white/60 text-sm">
+                <p className="relative z-10 mt-3 text-[var(--text-muted)] text-sm">
                   {item.label}
                 </p>
+
+                {/* subtle divider */}
+                <div className="
+                  mt-6 h-[1px]
+                  bg-gradient-to-r from-transparent via-[var(--border)] to-transparent
+                " />
 
               </motion.div>
             ))}

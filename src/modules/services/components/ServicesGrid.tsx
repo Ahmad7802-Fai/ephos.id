@@ -3,56 +3,56 @@
 import { Container } from "@/components";
 import { motion } from "framer-motion";
 import { Server, Cloud, Layers, Shield } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 const WHATSAPP_NUMBER = "6285285579492";
 
-const services = [
-  {
-    title: "IT Infrastructure",
-    desc: "Jaringan, server, dan sistem IT yang stabil dan scalable.",
-    icon: Server,
-  },
-  {
-    title: "Cloud & Managed Service",
-    desc: "Monitoring, maintenance, dan cloud infrastructure.",
-    icon: Cloud,
-  },
-  {
-    title: "Enterprise System",
-    desc: "ERP, automation, dan sistem terintegrasi.",
-    icon: Layers,
-  },
-  {
-    title: "IT Security",
-    desc: "Keamanan data dan sistem perusahaan.",
-    icon: Shield,
-  },
-];
-
 export default function ServicesGrid() {
-  const message = encodeURIComponent(
-    "Halo Ephos Tech, saya tertarik dengan layanan IT Anda."
-  );
+  const t = useTranslations("ServicesGrid");
 
+  const message = encodeURIComponent(t("waMessage"));
   const waLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
 
-  return (
-    <section className="relative py-28 bg-white overflow-hidden">
+  const services = [
+    {
+      title: t("infraTitle"),
+      desc: t("infraDesc"),
+      icon: Server,
+    },
+    {
+      title: t("cloudTitle"),
+      desc: t("cloudDesc"),
+      icon: Cloud,
+    },
+    {
+      title: t("enterpriseTitle"),
+      desc: t("enterpriseDesc"),
+      icon: Layers,
+    },
+    {
+      title: t("securityTitle"),
+      desc: t("securityDesc"),
+      icon: Shield,
+    },
+  ];
 
-      {/* subtle glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(37,99,235,0.05),transparent_60%)]" />
+  return (
+    <section className="relative py-28 bg-[var(--bg)] overflow-hidden">
+
+      {/* BACKGROUND GLOW */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(59,130,246,0.08),transparent_60%)]" />
 
       <Container>
         <div className="max-w-6xl mx-auto">
 
           {/* HEADER */}
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-semibold text-gray-900">
-              Layanan Kami
+            <h2 className="text-3xl md:text-4xl font-semibold text-[var(--text)]">
+              {t("title")}
             </h2>
 
-            <p className="mt-4 text-gray-600 max-w-xl mx-auto">
-              Solusi IT lengkap untuk mendukung transformasi digital bisnis Anda.
+            <p className="mt-4 text-[var(--text-muted)] max-w-xl mx-auto">
+              {t("desc")}
             </p>
           </div>
 
@@ -73,30 +73,29 @@ export default function ServicesGrid() {
                   viewport={{ once: true }}
                   className="
                     group relative p-6 rounded-2xl
-                    border border-gray-200
-                    bg-white
-                    hover:shadow-xl
+                    border border-[var(--border)]
+                    bg-[var(--card)] backdrop-blur-xl
+                    hover:shadow-[0_20px_50px_rgba(59,130,246,0.2)]
                     transition-all duration-300
                     overflow-hidden
                   "
                 >
 
-                  {/* hover glow */}
+                  {/* 🔥 GLOW HOVER */}
                   <div className="
-                    absolute inset-0
-                    bg-gradient-to-br from-blue-600/0 to-blue-600/0
-                    group-hover:from-blue-600/5 group-hover:to-blue-600/10
-                    transition
+                    absolute inset-0 opacity-0 group-hover:opacity-100 transition
+                    bg-gradient-to-br from-blue-500/10 via-indigo-500/10 to-transparent
                   " />
 
                   {/* ICON */}
                   <div className="
                     relative z-10
                     w-12 h-12 rounded-xl
-                    bg-blue-600 text-white
+                    bg-gradient-to-br from-blue-500 to-indigo-500
+                    text-white
                     flex items-center justify-center
                     mb-5
-                    shadow-md
+                    shadow-[0_10px_25px_rgba(59,130,246,0.4)]
                     group-hover:scale-110
                     transition
                   ">
@@ -104,21 +103,22 @@ export default function ServicesGrid() {
                   </div>
 
                   {/* TITLE */}
-                  <h3 className="relative z-10 font-semibold text-gray-900">
+                  <h3 className="relative z-10 font-semibold text-[var(--text)]">
                     {item.title}
                   </h3>
 
                   {/* DESC */}
-                  <p className="relative z-10 text-sm text-gray-600 mt-2 leading-relaxed">
+                  <p className="relative z-10 text-sm text-[var(--text-muted)] mt-2 leading-relaxed">
                     {item.desc}
                   </p>
 
                   {/* CTA MINI */}
                   <span className="
-                    relative z-10 inline-block mt-4 text-sm font-medium text-blue-600
+                    relative z-10 inline-block mt-4 text-sm font-medium
+                    text-[var(--primary)]
                     opacity-0 group-hover:opacity-100 transition
                   ">
-                    Konsultasi →
+                    {t("cta")}
                   </span>
 
                 </motion.a>

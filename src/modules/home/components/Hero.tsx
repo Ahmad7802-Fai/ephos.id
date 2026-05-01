@@ -1,106 +1,109 @@
 "use client";
 
-import Image from "next/image";
 import { Container } from "@/components";
 import { motion } from "framer-motion";
 import { Server, Cloud, Layers } from "lucide-react";
-
-const highlights = [
-  {
-    icon: Server,
-    title: "IT Infrastructure",
-    desc: "Jaringan stabil, cepat, dan scalable",
-  },
-  {
-    icon: Cloud,
-    title: "Cloud Services",
-    desc: "Operasional lebih fleksibel & efisien",
-  },
-  {
-    icon: Layers,
-    title: "Enterprise System",
-    desc: "ERP & automation terintegrasi",
-  },
-];
+import { useTranslations } from "next-intl";
+import { useRouter, useParams } from "next/navigation";
 
 export default function Hero() {
+  const router = useRouter();
+  const params = useParams();
+  const locale = params.locale as string;
+  const t = useTranslations("Hero");
+
+  const highlights = [
+    {
+      icon: Server,
+      title: t("infraTitle"),
+      desc: t("infraDesc"),
+    },
+    {
+      icon: Cloud,
+      title: t("cloudTitle"),
+      desc: t("cloudDesc"),
+    },
+    {
+      icon: Layers,
+      title: t("enterpriseTitle"),
+      desc: t("enterpriseDesc"),
+    },
+  ];
+
   return (
-    <section className="relative py-16 lg:py-24 overflow-hidden">
+    <section className="relative -mt-16 pt-32 pb-28 overflow-visible">
 
-      {/* BACKGROUND IMAGE */}
-      <Image
-        src="/assets/premium_photo-1764705618971-bf125023ac6e.avif"
-        alt="IT Infrastructure"
-        fill
-        priority
-        className="object-cover opacity-70 scale-105"
-      />
+      {/* BASE BG */}
+      <div className="absolute inset-0 bg-[var(--bg)]" />
 
-      {/* DARK OVERLAY */}
-      <div className="absolute inset-0 bg-[#0B0F14]/80" />
+      {/* PREMIUM LIGHTING */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
 
-      {/* BLUE GLOW */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(37,99,235,0.25),transparent_50%)]" />
+        <motion.div
+          animate={{ x: [0, 40, 0], y: [0, -30, 0] }}
+          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute -top-40 -left-40 w-[700px] h-[700px] bg-blue-500/30 rounded-full blur-[140px]"
+        />
+
+        <motion.div
+          animate={{ x: [0, -30, 0], y: [0, 40, 0] }}
+          transition={{ duration: 24, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute bottom-[-200px] right-[-150px] w-[600px] h-[600px] bg-indigo-500/25 rounded-full blur-[140px]"
+        />
+
+        <div className="absolute top-[30%] left-[40%] w-[300px] h-[300px] bg-cyan-400/20 rounded-full blur-[100px]" />
+
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(59,130,246,0.25),transparent_60%)]" />
+      </div>
 
       <Container className="relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 items-center min-h-[620px]">
 
           {/* ================= LEFT ================= */}
-          <div className="max-w-[560px] mx-auto lg:mx-0">
+          <div className="max-w-[560px]">
 
             {/* BADGE */}
             <motion.span
-              initial={{ y: 10, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              className="
-                inline-flex items-center gap-2
-                px-4 py-1.5 text-xs font-medium
-                rounded-full
-                bg-blue-500/15 border border-blue-400/30
-                text-blue-200
-                backdrop-blur-md
-                mb-5
-              "
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="inline-flex items-center gap-2 px-4 py-1.5 text-xs font-medium rounded-full bg-[var(--accent-soft)] text-[var(--accent)] mb-6"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
-              Enterprise IT Solution
+              <span className="w-1.5 h-1.5 rounded-full bg-[var(--primary)]" />
+              {t("badge")}
             </motion.span>
 
             {/* HEADLINE */}
             <motion.h1
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
               className="
-                text-3xl md:text-4xl lg:text-5xl
-                font-semibold text-white
-                leading-[1.2] tracking-tight
+                text-3xl sm:text-4xl lg:text-[42px]
+                font-semibold
+                leading-[1.2]
+                tracking-[-0.015em]
+                text-[var(--text)]
               "
             >
-              Bangun Infrastruktur & Sistem IT
-
-              <span className="block">
-                yang Stabil, Scalable,
-              </span>
+              {t("title1")}
+              <span className="block">{t("title2")}</span>
 
               <span className="
                 block
-                bg-gradient-to-r from-blue-300 to-blue-500
+                bg-gradient-to-r from-blue-500 to-indigo-500
                 bg-clip-text text-transparent
               ">
-                dan Siap Tumbuh
+                {t("title3")}
               </span>
             </motion.h1>
 
-            {/* DESC */}
+            {/* DESC (FIXED) */}
             <motion.p
-              initial={{ y: 10, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              className="
-                mt-5 text-white/60 text-[14px] md:text-[15px]
-                leading-relaxed max-w-[480px]
-              "
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="mt-6 text-[var(--text-muted)] text-base leading-relaxed max-w-[480px]"
             >
-              Kami membantu bisnis meningkatkan performa operasional dengan solusi IT end-to-end — dari infrastruktur, cloud, hingga sistem enterprise.
+              {t("desc")}
             </motion.p>
 
             {/* HIGHLIGHTS */}
@@ -111,18 +114,18 @@ export default function Hero() {
                 return (
                   <motion.div
                     key={i}
-                    initial={{ y: 10, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 0.2 + i * 0.1 }}
-                    className="flex items-start gap-4"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 + i * 0.1 }}
+                    className="flex gap-4"
                   >
-                    <div className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center">
-                      <Icon className="w-5 h-5 text-blue-400" />
+                    <div className="w-10 h-10 rounded-lg bg-[var(--accent-soft)] flex items-center justify-center">
+                      <Icon className="w-5 h-5 text-[var(--primary)]" />
                     </div>
 
                     <div>
-                      <p className="text-white font-medium">{item.title}</p>
-                      <p className="text-white/50 text-sm">{item.desc}</p>
+                      <p className="font-medium text-[var(--text)]">{item.title}</p>
+                      <p className="text-sm text-[var(--text-muted)]">{item.desc}</p>
                     </div>
                   </motion.div>
                 );
@@ -130,132 +133,93 @@ export default function Hero() {
             </div>
 
             {/* CTA */}
-            <div className="mt-8 flex flex-col sm:flex-row gap-4">
+            <div className="mt-10 flex gap-4">
 
-              <button className="
-                px-6 py-3 rounded-xl
-                bg-gradient-to-r from-blue-500 to-blue-600
-                text-white font-medium
-                shadow-[0_10px_30px_rgba(37,99,235,0.4)]
-                hover:scale-[1.05]
-                transition
-              ">
-                Konsultasi Gratis →
-              </button>
+              {/* PRIMARY (WA) */}
+              <motion.a
+                href="https://wa.me/6285285579492"
+                target="_blank"
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.97 }}
+                className="relative px-6 py-3 rounded-xl bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-medium shadow-[0_10px_30px_rgba(59,130,246,0.4)] hover:shadow-[0_20px_40px_rgba(59,130,246,0.5)] transition-all duration-300 overflow-hidden"
+              >
+                <span className="relative z-10">
+                  {t("cta1")} →
+                </span>
+              </motion.a>
 
-              <button className="
-                px-6 py-3 rounded-xl
-                border border-white/15
-                text-white/80
-                hover:bg-white/10
-                transition
-              ">
-                Lihat Portfolio
-              </button>
+              {/* SECONDARY (PORTFOLIO) */}
+              <motion.button
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                onClick={() => {
+                  router.push(`/${locale}/portfolio`);
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+                className="px-6 py-3 rounded-xl border border-[var(--border)] text-[var(--text)] hover:bg-[var(--accent-soft)] transition"
+              >
+                {t("cta2")}
+              </motion.button>
 
             </div>
 
-            {/* TRUST BADGE */}
+            {/* STATS */}
             <div className="mt-6 flex flex-wrap gap-3">
-              {["100+ Client", "99.9% Uptime", "24/7 Support"].map((item, i) => (
-                <span
+              {[t("stats1"), t("stats2"), t("stats3")].map((item, i) => (
+                <div
                   key={i}
                   className="
-                    flex items-center gap-2
+                    relative flex items-center gap-2
                     px-4 py-2 rounded-full text-xs font-semibold
-                    bg-gradient-to-r from-yellow-400 to-amber-500
-                    text-black
-                    shadow-[0_8px_20px_rgba(251,191,36,0.5)]
+                    text-black overflow-hidden
+                    bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500
+                    shadow-[0_10px_25px_rgba(251,191,36,0.5)]
+                    hover:scale-105 transition-all duration-300
                   "
                 >
-                  <span className="w-1.5 h-1.5 bg-black rounded-full" />
-                  {item}
-                </span>
+                  <span className="absolute inset-0 bg-gradient-to-r from-white/40 via-transparent to-white/30 opacity-0 hover:opacity-100 transition duration-700" />
+                  <span className="w-1.5 h-1.5 bg-black rounded-full relative z-10" />
+                  <span className="relative z-10">{item}</span>
+                </div>
               ))}
             </div>
 
           </div>
 
           {/* ================= RIGHT ================= */}
-          <div className="relative flex justify-center lg:justify-end mt-10 lg:mt-0">
+          <div className="flex justify-center lg:justify-end">
+            <div className="relative w-full max-w-[600px]">
 
-            <motion.div
-              initial={{ y: 40, opacity: 0 }}
-              animate={{ y: [0, -10, 0], opacity: 1 }}
-              transition={{ duration: 6, repeat: Infinity }}
-              className="relative w-full max-w-[420px] lg:max-w-[520px]"
-            >
+              <div className="absolute -inset-10 bg-gradient-to-tr from-blue-300/40 via-indigo-200/30 to-transparent blur-3xl opacity-60" />
 
-              {/* IMAGE */}
-              <img
-                src="/assets/premium_photo-1682146029185-198922bd8350.avif"
-                className="w-full rounded-2xl object-cover shadow-[0_30px_80px_rgba(0,0,0,0.8)]"
-              />
-
-              {/* OVERLAY */}
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-
-              {/* MAIN CARD */}
+              {/* MAIN */}
               <motion.div
-                animate={{ y: [0, -6, 0] }}
-                transition={{ duration: 5, repeat: Infinity }}
-                className="
-                  absolute bottom-4 left-4 right-4
-                  bg-white/10 backdrop-blur-xl
-                  border border-white/10
-                  rounded-xl p-4
-                "
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="relative z-10 bg-white/90 backdrop-blur-xl rounded-3xl overflow-hidden border border-white/40 shadow-[0_40px_100px_rgba(0,0,0,0.12)]"
               >
-                <p className="text-xs text-white/70 mb-1">
-                  Infrastruktur Aktif
-                </p>
-
-                <div className="flex justify-between text-white text-sm">
-                  <span>120 Mbps</span>
-                  <span>300+ Users</span>
-                </div>
+                <img src="/assets/pks-main.webp" className="w-full h-[300px] object-cover" />
               </motion.div>
 
-              {/* FLOAT MOBILE */}
+              {/* FLOAT LEFT */}
               <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 4, repeat: Infinity }}
-                className="
-                  absolute -bottom-6 left-2
-                  bg-white/10 backdrop-blur-md
-                  border border-white/10
-                  px-3 py-2 rounded-xl
-                "
+                animate={{ y: [0, -12, 0] }}
+                transition={{ duration: 6, repeat: Infinity }}
+                className="absolute -bottom-6 -left-8 w-[46%] z-20 bg-white/90 rounded-xl overflow-hidden shadow-lg"
               >
-                <p className="text-[10px] text-white/60">Latency</p>
-                <p className="text-white text-sm font-semibold">12 ms</p>
+                <img src="/assets/pks-1.webp" className="h-40 w-full object-cover" />
               </motion.div>
 
-              {/* FLOAT DESKTOP ONLY */}
-              <div className="hidden lg:block">
+              {/* FLOAT RIGHT */}
+              <motion.div
+                animate={{ y: [0, -16, 0] }}
+                transition={{ duration: 7, delay: 1, repeat: Infinity }}
+                className="absolute -bottom-6 -right-8 w-[46%] z-20 bg-white/90 rounded-xl overflow-hidden shadow-lg"
+              >
+                <img src="/assets/pks-2.webp" className="h-40 w-full object-cover" />
+              </motion.div>
 
-                <motion.div
-                  animate={{ y: [0, -14, 0] }}
-                  transition={{ duration: 6, repeat: Infinity }}
-                  className="absolute top-6 right-6 bg-white/10 backdrop-blur-md border border-white/10 px-4 py-3 rounded-xl"
-                >
-                  <p className="text-xs text-white/60">Uptime</p>
-                  <p className="text-white font-semibold">99.9%</p>
-                </motion.div>
-
-                <motion.div
-                  animate={{ y: [0, -8, 0] }}
-                  transition={{ duration: 5 }}
-                  className="absolute top-1/2 -right-8 bg-white/10 backdrop-blur-md border border-white/10 px-4 py-3 rounded-xl"
-                >
-                  <p className="text-xs text-white/60">Traffic</p>
-                  <p className="text-white font-semibold">+45%</p>
-                </motion.div>
-
-              </div>
-
-            </motion.div>
-
+            </div>
           </div>
 
         </div>

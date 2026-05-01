@@ -2,23 +2,47 @@
 
 import { Container } from "@/components";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 export default function PortfolioHero() {
+  const t = useTranslations("PortfolioHero");
+
   return (
-    <section className="relative py-32 overflow-hidden bg-[#020617] text-white">
+    <section className="relative -mt-16 pt-32 pb-28 overflow-visible">
 
-      {/* 🔥 BASE GRADIENT */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#020617] via-[#020617] to-black" />
+      {/* 🔥 PREMIUM BACKGROUND */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
 
-      {/* 🔥 BLUE RADIAL GLOW (EPHOS STYLE) */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(37,99,235,0.25),transparent_60%)]" />
+        {/* glow kanan */}
+        <div className="
+          absolute -top-40 -right-40
+          w-[600px] h-[600px]
+          bg-[var(--primary)]/25
+          rounded-full blur-[140px]
+        " />
 
-      {/* 🔥 FLOATING ORBS */}
-      <div className="absolute w-[500px] h-[500px] bg-blue-500/20 blur-[140px] rounded-full top-[-120px] right-[-120px]" />
-      <div className="absolute w-[400px] h-[400px] bg-blue-600/20 blur-[120px] rounded-full bottom-[-80px] left-[-80px]" />
+        {/* glow kiri */}
+        <div className="
+          absolute bottom-[-150px] left-[-150px]
+          w-[500px] h-[500px]
+          bg-indigo-500/15
+          rounded-full blur-[140px]
+        " />
 
-      {/* 🔥 GRID OVERLAY (TECH FEEL) */}
-      <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(#fff_1px,transparent_1px),linear-gradient(90deg,#fff_1px,transparent_1px)] bg-[size:40px_40px]" />
+        {/* radial center */}
+        <div className="
+          absolute inset-0
+          bg-[radial-gradient(circle_at_60%_30%,rgba(59,130,246,0.18),transparent_60%)]
+        " />
+
+        {/* grid overlay (lebih halus) */}
+        <div className="
+          absolute inset-0 opacity-[0.02]
+          bg-[linear-gradient(#fff_1px,transparent_1px),linear-gradient(90deg,#fff_1px,transparent_1px)]
+          bg-[size:50px_50px]
+        " />
+
+      </div>
 
       <Container>
         <div className="relative z-10 max-w-3xl mx-auto text-center">
@@ -30,12 +54,12 @@ export default function PortfolioHero() {
             className="
               inline-flex items-center gap-2
               px-4 py-1.5 rounded-full text-xs
-              bg-blue-500/10 border border-blue-400/20
-              text-blue-300 mb-6 backdrop-blur
+              bg-[var(--accent-soft)] border border-[var(--border)]
+              text-[var(--primary)] mb-6 backdrop-blur
             "
           >
-            <span className="w-1.5 h-1.5 bg-blue-400 rounded-full animate-pulse" />
-            Portfolio & Case Study
+            <span className="w-1.5 h-1.5 bg-[var(--primary)] rounded-full animate-pulse" />
+            {t("badge")}
           </motion.div>
 
           {/* TITLE */}
@@ -45,17 +69,18 @@ export default function PortfolioHero() {
             className="
               text-4xl md:text-6xl font-semibold
               leading-[1.2] tracking-tight
+              text-[var(--text)]
             "
           >
-            Solusi Nyata
+            {t("title1")}
 
             <span className="block">
-              yang{" "}
+              {t("title2")}{" "}
               <span className="
-                bg-gradient-to-r from-blue-300 to-blue-500
+                bg-gradient-to-r from-blue-400 to-indigo-500
                 bg-clip-text text-transparent
               ">
-                Memberikan Dampak
+                {t("titleHighlight")}
               </span>
             </span>
           </motion.h1>
@@ -66,15 +91,16 @@ export default function PortfolioHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
             className="
-              mt-5 text-white/60 text-base md:text-lg
+              mt-5 text-[var(--text-muted)]
+              text-base md:text-lg
               leading-relaxed max-w-2xl mx-auto
             "
           >
-            Kami telah membantu berbagai perusahaan dalam membangun{" "}
-            <span className="text-blue-400">
-              IT Infrastructure, Cloud System, dan Enterprise Solution
+            {t("desc1")}{" "}
+            <span className="text-[var(--primary)]">
+              {t("highlight")}
             </span>{" "}
-            yang stabil, scalable, dan siap berkembang.
+            {t("desc2")}
           </motion.p>
 
           {/* TRUST BADGE */}
@@ -84,18 +110,15 @@ export default function PortfolioHero() {
             transition={{ delay: 0.2 }}
             className="mt-8 flex justify-center flex-wrap gap-3"
           >
-            {[
-              "100+ Project Delivered",
-              "99.9% Uptime",
-              "Enterprise Ready",
-            ].map((item, i) => (
+            {[t("stat1"), t("stat2"), t("stat3")].map((item, i) => (
               <span
                 key={i}
                 className="
                   px-4 py-2 rounded-full text-xs font-semibold
-                  bg-gradient-to-r from-yellow-400 to-amber-500
+                  bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500
                   text-black
                   shadow-[0_6px_20px_rgba(251,191,36,0.5)]
+                  hover:scale-105 transition
                 "
               >
                 {item}

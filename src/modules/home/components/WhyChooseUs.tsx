@@ -7,90 +7,111 @@ import {
   Zap,
   Clock,
   Layers,
-  CheckCircle2,
 } from "lucide-react";
-
-const reasons = [
-  {
-    icon: ShieldCheck,
-    title: "Keamanan Berstandar Enterprise",
-    desc: "Firewall, monitoring, dan kontrol akses dengan praktik terbaik industri.",
-  },
-  {
-    icon: Zap,
-    title: "Performa Tinggi & Scalable",
-    desc: "Arsitektur dioptimalkan untuk traffic tinggi tanpa bottleneck.",
-  },
-  {
-    icon: Clock,
-    title: "Support Cepat & Responsif",
-    desc: "Tim teknis siap membantu dengan response time terukur.",
-  },
-  {
-    icon: Layers,
-    title: "End-to-End Solution",
-    desc: "Dari infrastruktur hingga sistem, semua dalam satu partner.",
-  },
-];
+import { useTranslations } from "next-intl";
+import WhyDashboard from "./WhyDashboard";
 
 export default function WhyChooseUs() {
-  return (
-    <section className="relative py-32 bg-[#0B0F14] overflow-hidden">
+  const t = useTranslations("Why");
 
-      {/* BACKGROUND DEPTH */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_20%,rgba(37,99,235,0.2),transparent_40%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,rgba(37,99,235,0.15),transparent_50%)]" />
+  const reasons = [
+    {
+      icon: ShieldCheck,
+      title: t("r1Title"),
+      desc: t("r1Desc"),
+    },
+    {
+      icon: Zap,
+      title: t("r2Title"),
+      desc: t("r2Desc"),
+    },
+    {
+      icon: Clock,
+      title: t("r3Title"),
+      desc: t("r3Desc"),
+    },
+    {
+      icon: Layers,
+      title: t("r4Title"),
+      desc: t("r4Desc"),
+    },
+  ];
+
+  const chips = [t("chip1"), t("chip2"), t("chip3")];
+
+  return (
+    <section className="relative py-32 bg-[var(--bg)] overflow-hidden">
+
+      {/* BACKGROUND */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_20%,rgba(59,130,246,0.15),transparent_40%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,rgba(99,102,241,0.12),transparent_50%)]" />
 
       <Container>
 
         <div className="grid lg:grid-cols-2 gap-20 items-center">
 
-          {/* LEFT */}
+          {/* ================= LEFT ================= */}
           <div>
 
             {/* BADGE */}
-            <span className="
-              inline-flex items-center gap-2
-              px-4 py-1.5 text-xs font-medium rounded-full
-              bg-blue-500/15 border border-blue-400/30 text-blue-200
-              mb-5
-            ">
-              Why Choose Us
+            <span className="inline-flex px-4 py-1.5 text-xs rounded-full bg-[var(--accent-soft)] text-[var(--primary)] mb-5">
+              {t("badge")}
             </span>
 
             {/* TITLE */}
-            <h2 className="text-4xl md:text-5xl font-semibold text-white leading-tight">
-              Partner Teknologi yang
-              <span className="block text-blue-400">
-                Deliver Hasil Nyata
+            <h2 className="text-4xl md:text-5xl font-semibold text-[var(--text)] leading-tight">
+              {t("title1")}
+              <span className="block text-[var(--primary)]">
+                {t("title2")}
               </span>
             </h2>
 
             {/* DESC */}
-            <p className="mt-5 text-white/60 max-w-md leading-relaxed">
-              Bukan sekadar implementasi IT. Kami fokus pada hasil bisnis:
-              stabilitas sistem, efisiensi biaya, dan skalabilitas jangka panjang.
+            <p className="mt-5 text-[var(--text-muted)] max-w-md leading-relaxed">
+              {t("desc")}
             </p>
 
-            {/* 🔥 PROOF CHIPS (NEW) */}
-            <div className="mt-6 flex flex-wrap gap-3 text-[11px]">
-              {[
-                "SLA jelas & terukur",
-                "Response < 5 menit",
-                "Monitoring real-time",
-              ].map((item, i) => (
-                <span
-                  key={i}
-                  className="
-                    px-3 py-1 rounded-full
-                    bg-white/5 border border-white/10
-                    text-white/60
-                  "
-                >
-                  {item}
-                </span>
-              ))}
-            </div>
+            {/* CHIPS */}
+            {/* CHIPS */}
+<div className="mt-6 flex flex-wrap gap-3">
+  {chips.map((item, i) => (
+    <motion.div
+      key={i}
+      initial={{ opacity: 0, y: 6 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ delay: i * 0.08 }}
+      viewport={{ once: true }}
+      className="
+        relative px-4 py-1.5 rounded-full
+        text-[11px] font-semibold
+        text-black overflow-hidden
+
+        bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500
+
+        shadow-[0_8px_25px_rgba(251,191,36,0.5)]
+        hover:scale-105 transition-all duration-300
+      "
+    >
+      {/* SHIMMER GLOW */}
+      <span
+        className="
+          absolute inset-0
+          bg-gradient-to-r from-white/40 via-transparent to-white/30
+          opacity-0 hover:opacity-100
+          transition duration-700
+        "
+      />
+
+      {/* DOT */}
+      <span className="w-1.5 h-1.5 bg-black rounded-full inline-block mr-2 relative z-10" />
+
+      {/* TEXT */}
+      <span className="relative z-10">
+        {item}
+      </span>
+    </motion.div>
+  ))}
+</div>
 
             {/* LIST */}
             <div className="mt-10 space-y-5">
@@ -98,118 +119,61 @@ export default function WhyChooseUs() {
                 const Icon = item.icon;
 
                 return (
-                  <div key={i} className="flex items-start gap-4 group">
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.1 }}
+                    viewport={{ once: true }}
+                    className="flex gap-4 group"
+                  >
 
                     {/* ICON */}
                     <div className="
                       w-11 h-11 rounded-xl
-                      bg-white/5 border border-white/10
+                      bg-[var(--card)]
+                      border border-[var(--border)]
                       flex items-center justify-center
-                      group-hover:bg-blue-500/10
+                      group-hover:bg-[var(--accent-soft)]
                       transition
                     ">
-                      <Icon className="w-5 h-5 text-blue-400" />
+                      <Icon className="w-5 h-5 text-[var(--primary)]" />
                     </div>
 
                     {/* TEXT */}
                     <div>
-                      <p className="text-white font-medium">
+                      <p className="text-[var(--text)] font-medium">
                         {item.title}
                       </p>
-                      <p className="text-white/50 text-sm">
+                      <p className="text-[var(--text-muted)] text-sm">
                         {item.desc}
                       </p>
                     </div>
 
-                  </div>
+                  </motion.div>
                 );
               })}
             </div>
 
-            {/* CTA (NEW) */}
-            <button className="
-              mt-10 px-6 py-3 rounded-xl
-              bg-gradient-to-r from-blue-500 to-blue-600
-              text-white text-sm font-medium
-              shadow-[0_10px_30px_rgba(37,99,235,0.4)]
-              hover:scale-[1.04]
-              transition
-            ">
-              Konsultasi Infrastruktur →
-            </button>
-
-          </div>
-
-          {/* RIGHT */}
-          <div className="relative flex justify-center">
-
-            <motion.div
-              initial={{ y: 30, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.6 }}
+            {/* CTA */}
+            <motion.button
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.97 }}
               className="
-                relative w-full max-w-[460px]
-                rounded-2xl
-                border border-white/10
-                bg-gradient-to-b from-white/10 to-white/5
-                backdrop-blur-2xl
-                p-8
-                shadow-[0_30px_100px_rgba(0,0,0,0.8)]
+                mt-10 px-6 py-3 rounded-xl
+                bg-gradient-to-r from-[var(--primary)] to-blue-600
+                text-white text-sm font-medium
+                shadow-[0_10px_30px_rgba(59,130,246,0.4)]
+                transition
               "
             >
-
-              {/* TITLE */}
-              <p className="text-sm text-white/60 mb-6">
-                Performance Overview
-              </p>
-
-              {/* BIG METRIC */}
-              <div className="mb-8">
-                <p className="text-4xl font-semibold text-white">
-                  99.9%
-                </p>
-                <p className="text-white/50 text-sm">
-                  Uptime Guarantee
-                </p>
-              </div>
-
-              {/* PROGRESS BARS (NEW) */}
-              <div className="space-y-4 text-xs">
-
-                {[
-                  { label: "System Stability", value: "99%" },
-                  { label: "Response Speed", value: "95%" },
-                  { label: "Client Satisfaction", value: "92%" },
-                ].map((item, i) => (
-                  <div key={i}>
-                    <div className="flex justify-between text-white/70 mb-1">
-                      <span>{item.label}</span>
-                      <span>{item.value}</span>
-                    </div>
-                    <div className="h-2 bg-white/10 rounded-full overflow-hidden">
-                      <div className="h-full bg-blue-500 rounded-full w-[90%]" />
-                    </div>
-                  </div>
-                ))}
-
-              </div>
-
-              {/* MINI FLOAT */}
-              <div className="
-                absolute -bottom-6 -right-6
-                bg-white/10 backdrop-blur-md
-                border border-white/10
-                px-4 py-3 rounded-xl
-              ">
-                <p className="text-xs text-white/60">Support</p>
-                <p className="text-white font-semibold text-sm">
-                  24/7 Active
-                </p>
-              </div>
-
-            </motion.div>
+              {t("cta")}
+            </motion.button>
 
           </div>
+
+          {/* ================= RIGHT (INTERACTIVE DASHBOARD) ================= */}
+          <WhyDashboard t={t} />
 
         </div>
 

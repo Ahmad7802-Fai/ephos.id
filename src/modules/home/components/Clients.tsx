@@ -2,70 +2,93 @@
 
 import { Container } from "@/components";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 const logos = [
-  "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=200",
-  "https://images.unsplash.com/photo-1629904853893-c2c8981a1dc5?w=200",
-  "https://images.unsplash.com/photo-1612810806695-30f7a8258391?w=200",
-  "https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=200",
+  "/assets/logo/telkom.svg",
+  "/assets/logo/pln.svg",
+  "/assets/logo/pertamina.svg",
+  "/assets/logo/bca.svg",
 ];
 
 export default function Clients() {
-  return (
-    <section className="relative py-32 bg-white overflow-hidden">
+  const t = useTranslations("Clients");
 
-      {/* subtle glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(37,99,235,0.08),transparent_60%)]" />
+  return (
+    <section className="relative py-32 bg-[var(--bg)] overflow-hidden">
+
+      {/* ================= BACKGROUND ================= */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(59,130,246,0.15),transparent_40%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,rgba(99,102,241,0.12),transparent_50%)]" />
 
       <Container>
 
-        {/* HEADER */}
+        {/* ================= HEADER ================= */}
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="inline-block px-4 py-1 text-xs rounded-full bg-blue-50 text-blue-600 font-medium mb-4">
-            Trusted by Businesses
+
+          <span className="
+            px-4 py-1 text-xs rounded-full
+            bg-[var(--accent-soft)]
+            text-[var(--primary)]
+          ">
+            {t("badge")}
           </span>
 
-          <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 leading-tight">
-            Dipercaya oleh Perusahaan
-            <span className="block text-blue-600">
-              yang Serius Bertumbuh
+          <h2 className="
+            mt-4 text-4xl font-semibold
+            text-[var(--text)] leading-tight
+          ">
+            {t("title1")}
+            <span className="
+              block
+              bg-gradient-to-r from-blue-500 to-indigo-500
+              bg-clip-text text-transparent
+            ">
+              {t("title2")}
             </span>
           </h2>
 
-          <p className="mt-4 text-gray-600">
-            Infrastruktur dan sistem IT yang kami bangun digunakan oleh bisnis
-            dengan kebutuhan tinggi akan stabilitas dan performa.
+          <p className="mt-4 text-[var(--text-muted)]">
+            {t("desc")}
           </p>
+
         </div>
 
-        {/* 🔥 TRUST LINE */}
-        <div className="text-center mb-12">
-          <p className="text-sm text-gray-500">
-            Digunakan oleh tim IT, startup, hingga perusahaan enterprise
-          </p>
-        </div>
+        {/* ================= LOGO MARQUEE ================= */}
+        <div className="relative overflow-hidden mb-24">
 
-        {/* 🔥 FLOATING LOGOS (UPGRADE) */}
-        <div className="relative mb-20">
+          {/* blur kiri */}
+          <div className="absolute left-0 top-0 h-full w-32 bg-gradient-to-r from-[var(--bg)] to-transparent z-10" />
+
+          {/* blur kanan */}
+          <div className="absolute right-0 top-0 h-full w-32 bg-gradient-to-l from-[var(--bg)] to-transparent z-10" />
 
           <motion.div
-            animate={{ y: [0, -10, 0] }}
-            transition={{ duration: 6, repeat: Infinity }}
-            className="flex flex-wrap justify-center gap-8"
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+            className="flex gap-16 w-max will-change-transform"
           >
-            {logos.map((logo, i) => (
+            {[...logos, ...logos].map((logo, i) => (
               <div
                 key={i}
                 className="
-                  w-32 h-16
-                  flex items-center justify-center
-                  opacity-60 hover:opacity-100
-                  transition
+                  px-6 py-3 rounded-xl
+                  bg-[var(--card)]
+                  border border-[var(--border)]
+                  backdrop-blur
+                  hover:bg-[var(--accent-soft)]
+                  transition-all duration-300
                 "
               >
                 <img
                   src={logo}
-                  className="max-h-10 object-contain grayscale hover:grayscale-0 transition"
+                  alt="client logo"
+                  className="
+                    h-8 object-contain
+                    opacity-50 grayscale
+                    hover:opacity-100 hover:grayscale-0
+                    transition-all duration-500
+                  "
                 />
               </div>
             ))}
@@ -73,74 +96,86 @@ export default function Clients() {
 
         </div>
 
-        {/* 🔥 STATS (DARK CONTRAST BIAR NAIK) */}
-        <div className="bg-[#0B0F14] rounded-3xl p-10 mb-20">
+        {/* ================= STATS ================= */}
+        <div className="grid md:grid-cols-3 gap-6 mb-24">
 
-          <div className="grid md:grid-cols-3 gap-8 text-center">
+          {[
+            { value: "100+", label: t("stat1") },
+            { value: "99%", label: t("stat2") },
+            { value: "24/7", label: t("stat3") },
+          ].map((item, i) => (
+            <motion.div
+              key={i}
+              whileHover={{ y: -6 }}
+              className="
+                relative p-8 rounded-2xl text-center
+                bg-[var(--card)]
+                border border-[var(--border)]
+                backdrop-blur-xl
+                overflow-hidden
+                transition
+              "
+            >
 
-            {[
-              { value: "100+", label: "Clients" },
-              { value: "99.9%", label: "Uptime" },
-              { value: "24/7", label: "Support" },
-            ].map((item, i) => (
-              <div key={i}>
-                <p className="text-3xl font-semibold text-white">
-                  {item.value}
-                </p>
-                <p className="text-white/50 text-sm mt-1">
-                  {item.label}
-                </p>
-              </div>
-            ))}
+              {/* glow hover */}
+              <div className="
+                absolute inset-0 opacity-0 hover:opacity-100 transition
+                bg-gradient-to-br from-blue-500/20 to-indigo-500/10 blur-xl
+              " />
 
-          </div>
+              <p className="relative text-3xl font-semibold text-[var(--text)]">
+                {item.value}
+              </p>
+
+              <p className="relative text-sm text-[var(--text-muted)] mt-1">
+                {item.label}
+              </p>
+
+            </motion.div>
+          ))}
 
         </div>
 
-        {/* 🔥 TESTIMONIAL (CENTER HERO) */}
-        <div className="max-w-3xl mx-auto text-center">
+        {/* ================= TESTIMONIAL ================= */}
+        <div className="relative max-w-4xl mx-auto">
+
+          {/* glow background */}
+          <div className="absolute inset-0 bg-blue-500/20 blur-[120px] opacity-40" />
 
           <motion.div
             initial={{ scale: 0.95, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.5 }}
             className="
-              relative
-              rounded-3xl
-              bg-gradient-to-br from-blue-600 to-blue-700
-              p-10
+              relative z-10
+              p-12 rounded-3xl
+              bg-gradient-to-br from-blue-600 to-indigo-600
               text-white
-              shadow-[0_30px_100px_rgba(37,99,235,0.4)]
+              shadow-[0_40px_120px_rgba(59,130,246,0.5)]
             "
           >
 
             {/* quote */}
-            <p className="text-lg leading-relaxed">
-              “Ephos membantu kami meningkatkan stabilitas sistem secara signifikan.
-              Downtime hampir tidak ada, dan timnya sangat responsif.”
+            <p className="text-xl leading-relaxed text-white/90 text-center">
+              {t("testimonial")}
             </p>
 
             {/* user */}
-            <div className="mt-8 flex items-center justify-center gap-4">
+            <div className="mt-8 flex items-center gap-4 justify-center">
 
               <img
-                src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=100"
-                className="w-12 h-12 rounded-full object-cover border border-white/30"
+                src="/assets/avatar.jpg"
+                className="
+                  w-14 h-14 rounded-full object-cover
+                  border-2 border-white/30
+                "
               />
 
-              <div className="text-left">
-                <p className="text-sm font-medium">
-                  Budi Santoso
-                </p>
-                <p className="text-xs text-white/70">
-                  IT Manager, Enterprise Company
-                </p>
+              <div className="text-center">
+                <p className="font-medium">{t("name")}</p>
+                <p className="text-sm text-white/70">{t("role")}</p>
               </div>
 
             </div>
-
-            {/* glow */}
-            <div className="absolute inset-0 rounded-3xl bg-white/10 blur-2xl opacity-20" />
 
           </motion.div>
 

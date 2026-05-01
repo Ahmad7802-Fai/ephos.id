@@ -109,7 +109,7 @@ export default function Footer() {
         <div className="mt-14 border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
 
           <p className="text-sm text-white/50">
-            © {new Date().getFullYear()} ephostech.id — PT EPHOS INDONESIA SEJAHTERA
+            © {new Date().getFullYear()} EphosTech — PT EPHOS INDONESIA SEJAHTERA
           </p>
 
           {/* RIGHT SIDE */}

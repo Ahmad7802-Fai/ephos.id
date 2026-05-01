@@ -2,23 +2,38 @@
 
 import { Container } from "@/components";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 const WA = "6285285579492";
 
 export default function PortfolioCTA() {
-  const message = encodeURIComponent(
-    "Halo Ephos Tech, saya ingin konsultasi terkait IT Infrastructure, Cloud, dan Enterprise System."
-  );
+  const t = useTranslations("PortfolioCTA");
+
+  const message = encodeURIComponent(t("waMessage"));
 
   return (
-    <section className="relative py-32 bg-[#020617] text-white overflow-hidden">
+    <section className="relative py-32 bg-[var(--bg)] overflow-hidden">
 
-      {/* 🔥 BACKGROUND */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#020617] via-[#020617] to-black" />
+      {/* 🔥 PREMIUM BACKGROUND */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
 
-      {/* 🔥 GLOW */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(37,99,235,0.25),transparent_60%)]" />
-      <div className="absolute w-[500px] h-[500px] bg-blue-500/20 blur-[140px] rounded-full top-[-120px] left-[-120px]" />
+        {/* glow center */}
+        <div className="
+          absolute top-[-120px] left-1/2 -translate-x-1/2
+          w-[600px] h-[600px]
+          bg-[var(--primary)]/20
+          blur-[140px] rounded-full
+        " />
+
+        {/* glow kiri */}
+        <div className="
+          absolute bottom-[-120px] left-[-120px]
+          w-[400px] h-[400px]
+          bg-indigo-500/10
+          blur-[120px] rounded-full
+        " />
+
+      </div>
 
       <Container>
         <div className="relative z-10 max-w-3xl mx-auto text-center">
@@ -27,26 +42,26 @@ export default function PortfolioCTA() {
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-3xl md:text-5xl font-semibold leading-tight"
+            className="text-3xl md:text-5xl font-semibold leading-tight text-[var(--text)]"
           >
-            Siap Upgrade
-            <span className="block bg-gradient-to-r from-blue-300 to-blue-500 bg-clip-text text-transparent">
-              Infrastruktur IT Anda?
+            {t("title1")}
+            <span className="block bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">
+              {t("title2")}
             </span>
           </motion.h2>
 
-          {/* DESC (SEO KEYWORDS MASUK) */}
+          {/* DESC */}
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.1 }}
-            className="mt-5 text-white/60 text-base md:text-lg leading-relaxed"
+            className="mt-5 text-[var(--text-muted)] text-base md:text-lg leading-relaxed"
           >
-            Konsultasikan kebutuhan{" "}
-            <span className="text-blue-400">
-              IT Infrastructure, Cloud Computing, Network System, dan Enterprise Solution
+            {t("desc1")}{" "}
+            <span className="text-[var(--primary)] font-medium">
+              {t("descHighlight")}
             </span>{" "}
-            untuk meningkatkan performa, keamanan, dan skalabilitas bisnis Anda.
+            {t("desc2")}
           </motion.p>
 
           {/* CTA */}
@@ -70,24 +85,21 @@ export default function PortfolioCTA() {
                 transition-all duration-300
               "
             >
-              Konsultasi Gratis via WhatsApp →
+              {t("cta")} →
             </a>
           </motion.div>
 
           {/* TRUST BADGE */}
           <div className="mt-8 flex justify-center flex-wrap gap-3">
-            {[
-              "100+ Project",
-              "99.9% Uptime",
-              "Enterprise Ready",
-            ].map((item, i) => (
+            {[t("b1"), t("b2"), t("b3")].map((item, i) => (
               <span
                 key={i}
                 className="
                   px-4 py-2 rounded-full text-xs font-semibold
-                  bg-gradient-to-r from-yellow-400 to-amber-500
+                  bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500
                   text-black
                   shadow-[0_6px_20px_rgba(251,191,36,0.5)]
+                  hover:scale-105 transition
                 "
               >
                 {item}

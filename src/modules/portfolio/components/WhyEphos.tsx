@@ -8,56 +8,84 @@ import {
   Rocket,
   Users,
 } from "lucide-react";
-
-const items = [
-  {
-    icon: ShieldCheck,
-    title: "Reliable & Secure",
-    desc: "Sistem IT dengan standar keamanan tinggi dan stabilitas enterprise.",
-  },
-  {
-    icon: Cpu,
-    title: "Scalable Architecture",
-    desc: "Dirancang untuk tumbuh bersama bisnis Anda tanpa bottleneck.",
-  },
-  {
-    icon: Rocket,
-    title: "Fast Implementation",
-    desc: "Deploy cepat dengan metode terstruktur dan minim risiko.",
-  },
-  {
-    icon: Users,
-    title: "Business-Oriented",
-    desc: "Kami tidak hanya fokus teknologi, tapi juga dampak bisnis.",
-  },
-];
+import { useTranslations } from "next-intl";
 
 export default function WhyEphos() {
-  return (
-    <section className="relative py-32 bg-gray-50 overflow-hidden">
+  const t = useTranslations("WhyEphos");
 
-      {/* subtle glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(37,99,235,0.06),transparent_60%)]" />
+  const items = [
+    {
+      icon: ShieldCheck,
+      title: t("i1Title"),
+      desc: t("i1Desc"),
+    },
+    {
+      icon: Cpu,
+      title: t("i2Title"),
+      desc: t("i2Desc"),
+    },
+    {
+      icon: Rocket,
+      title: t("i3Title"),
+      desc: t("i3Desc"),
+    },
+    {
+      icon: Users,
+      title: t("i4Title"),
+      desc: t("i4Desc"),
+    },
+  ];
+
+  return (
+    <section className="relative py-32 bg-[var(--bg)] overflow-hidden">
+
+      {/* 🔥 PREMIUM BACKGROUND */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+
+        {/* glow kiri */}
+        <div className="
+          absolute -top-40 -left-40
+          w-[600px] h-[600px]
+          bg-[var(--primary)]/15
+          blur-[140px] rounded-full
+        " />
+
+        {/* glow kanan */}
+        <div className="
+          absolute bottom-[-120px] right-[-100px]
+          w-[500px] h-[500px]
+          bg-indigo-500/10
+          blur-[120px] rounded-full
+        " />
+
+      </div>
 
       <Container>
         <div className="max-w-6xl mx-auto">
 
-          {/* HEADER */}
+          {/* ================= HEADER ================= */}
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-semibold text-gray-900">
-              Why Ephos?
+
+            <span className="
+              inline-flex px-4 py-1.5 text-xs rounded-full
+              bg-[var(--accent-soft)]
+              text-[var(--primary)]
+              mb-4
+            ">
+              {t("badge")}
+            </span>
+
+            <h2 className="text-3xl md:text-4xl font-semibold text-[var(--text)]">
+              {t("title")}
             </h2>
 
-            <p className="mt-4 text-gray-600 max-w-xl mx-auto">
-              Kami menghadirkan solusi{" "}
-              <span className="text-blue-600 font-medium">
-                IT Infrastructure, Cloud, dan Enterprise System
-              </span>{" "}
-              yang tidak hanya berjalan, tapi benar-benar memberikan dampak.
+            <p className="mt-4 text-[var(--text-muted)] max-w-xl mx-auto">
+              {t("desc")}
             </p>
+
           </div>
 
-          {/* GRID */}
+          {/* ================= GRID ================= */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
 
             {items.map((item, i) => {
@@ -68,40 +96,44 @@ export default function WhyEphos() {
                   key={i}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.1 }}
+                  transition={{ delay: i * 0.08 }}
                   viewport={{ once: true }}
                   className="
                     group relative p-6 rounded-2xl
-                    bg-white border border-gray-200
-                    hover:shadow-xl
+                    bg-[var(--card)]
+                    border border-[var(--border)]
+                    backdrop-blur-xl
+                    overflow-hidden
+                    hover:shadow-[0_20px_60px_rgba(59,130,246,0.2)]
+                    hover:-translate-y-1
                     transition-all duration-300
                   "
                 >
 
-                  {/* glow hover */}
+                  {/* 🔥 HOVER GLOW */}
                   <div className="
                     absolute inset-0 opacity-0 group-hover:opacity-100 transition
-                    bg-[radial-gradient(circle_at_top,rgba(37,99,235,0.08),transparent)]
-                    rounded-2xl
+                    bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.2),transparent)]
                   " />
 
                   {/* ICON */}
                   <div className="
                     relative z-10 w-12 h-12 rounded-xl
-                    bg-blue-50 border border-blue-100
+                    bg-[var(--accent-soft)]
+                    border border-[var(--border)]
                     flex items-center justify-center mb-4
-                    group-hover:bg-blue-100 transition
+                    group-hover:scale-110 transition
                   ">
-                    <Icon className="w-5 h-5 text-blue-600" />
+                    <Icon className="w-5 h-5 text-[var(--primary)]" />
                   </div>
 
                   {/* TITLE */}
-                  <h3 className="relative z-10 font-semibold text-gray-900">
+                  <h3 className="relative z-10 font-semibold text-[var(--text)]">
                     {item.title}
                   </h3>
 
                   {/* DESC */}
-                  <p className="relative z-10 text-sm text-gray-600 mt-2 leading-relaxed">
+                  <p className="relative z-10 text-sm text-[var(--text-muted)] mt-2 leading-relaxed">
                     {item.desc}
                   </p>
 
@@ -111,12 +143,13 @@ export default function WhyEphos() {
 
           </div>
 
-          {/* 🔥 TRUST LINE */}
+          {/* ================= TRUST LINE ================= */}
           <div className="mt-16 text-center">
-            <p className="text-gray-500 text-sm">
-              Dipercaya oleh berbagai perusahaan untuk membangun sistem IT yang stabil,
-              aman, dan scalable.
+
+            <p className="text-[var(--text-muted)] text-sm">
+              {t("trust")}
             </p>
+
           </div>
 
         </div>

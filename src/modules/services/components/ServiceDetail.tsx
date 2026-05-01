@@ -3,80 +3,63 @@
 import { Container } from "@/components";
 import { motion } from "framer-motion";
 import { Server, Cloud, ShieldCheck, Zap } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 const WHATSAPP_NUMBER = "6285285579492";
 
-const services = [
-  {
-    title: "IT Infrastructure",
-    icon: Server,
-    desc: "Kami membangun sistem jaringan dan server yang stabil, scalable, dan siap mendukung pertumbuhan bisnis.",
-    points: [
-      "Design & setup network enterprise",
-      "Server & virtualization",
-      "High availability & redundancy",
-    ],
-  },
-  {
-    title: "Cloud & Managed Service",
-    icon: Cloud,
-    desc: "Monitoring 24/7, maintenance, dan optimasi performa sistem cloud untuk bisnis Anda.",
-    points: [
-      "Cloud deployment (AWS, GCP, Azure)",
-      "Monitoring & alert system",
-      "Auto scaling & cost optimization",
-    ],
-  },
-  {
-    title: "Security & Compliance",
-    icon: ShieldCheck,
-    desc: "Keamanan sistem menjadi prioritas utama untuk melindungi data dan operasional bisnis.",
-    points: [
-      "Firewall & network security",
-      "Backup & disaster recovery",
-      "Security audit & hardening",
-    ],
-  },
-  {
-    title: "System Optimization",
-    icon: Zap,
-    desc: "Meningkatkan performa sistem dan efisiensi operasional dengan teknologi yang tepat.",
-    points: [
-      "Performance tuning",
-      "Automation system",
-      "Infrastructure scaling",
-    ],
-  },
-];
-
 export default function ServiceDetail() {
-  const message = encodeURIComponent(
-    "Halo Ephos Tech, saya ingin konsultasi terkait layanan IT."
-  );
+  const t = useTranslations("ServiceDetail");
 
+  const message = encodeURIComponent(t("waMessage"));
   const waLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
 
-  return (
-    <section className="relative py-32 bg-gray-50 overflow-hidden">
+  const services = [
+    {
+      title: t("infraTitle"),
+      desc: t("infraDesc"),
+      icon: Server,
+      points: [t("infraPoints1"), t("infraPoints2"), t("infraPoints3")],
+    },
+    {
+      title: t("cloudTitle"),
+      desc: t("cloudDesc"),
+      icon: Cloud,
+      points: [t("cloudPoints1"), t("cloudPoints2"), t("cloudPoints3")],
+    },
+    {
+      title: t("securityTitle"),
+      desc: t("securityDesc"),
+      icon: ShieldCheck,
+      points: [t("securityPoints1"), t("securityPoints2"), t("securityPoints3")],
+    },
+    {
+      title: t("optTitle"),
+      desc: t("optDesc"),
+      icon: Zap,
+      points: [t("optPoints1"), t("optPoints2"), t("optPoints3")],
+    },
+  ];
 
-      {/* subtle glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(37,99,235,0.06),transparent_60%)]" />
+  return (
+    <section className="relative py-32 bg-[var(--bg)] overflow-hidden">
+
+      {/* BACKGROUND GLOW */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(59,130,246,0.08),transparent_60%)]" />
 
       <Container>
         <div className="max-w-6xl mx-auto">
 
           {/* HEADER */}
           <div className="text-center mb-20">
-            <h2 className="text-3xl md:text-4xl font-semibold text-gray-900">
-              Detail Layanan
-              <span className="block text-blue-600">
-                yang Kami Tawarkan
+            <h2 className="text-3xl md:text-4xl font-semibold text-[var(--text)]">
+              {t("title1")}
+              <span className="block text-[var(--primary)]">
+                {t("title2")}
               </span>
             </h2>
 
-            <p className="mt-4 text-gray-600 max-w-xl mx-auto">
-              Solusi lengkap untuk memastikan sistem IT Anda berjalan optimal,
-              aman, dan siap berkembang.
+            <p className="mt-4 text-[var(--text-muted)] max-w-xl mx-auto">
+              {t("desc")}
             </p>
           </div>
 
@@ -94,23 +77,30 @@ export default function ServiceDetail() {
                   transition={{ delay: i * 0.1 }}
                   viewport={{ once: true }}
                   className="
-                    group
+                    group relative
                     p-8 rounded-2xl
-                    bg-white
-                    border border-gray-200
-                    shadow-sm
-                    hover:shadow-xl
+                    bg-[var(--card)] backdrop-blur-xl
+                    border border-[var(--border)]
+                    hover:shadow-[0_25px_60px_rgba(59,130,246,0.2)]
                     transition-all duration-300
+                    overflow-hidden
                   "
                 >
 
+                  {/* GLOW */}
+                  <div className="
+                    absolute inset-0 opacity-0 group-hover:opacity-100 transition
+                    bg-gradient-to-br from-blue-500/10 via-indigo-500/10 to-transparent
+                  " />
+
                   {/* ICON */}
                   <div className="
+                    relative z-10
                     w-12 h-12 rounded-xl
-                    bg-blue-600 text-white
-                    flex items-center justify-center
+                    bg-gradient-to-br from-blue-500 to-indigo-500
+                    text-white flex items-center justify-center
                     mb-5
-                    shadow-md
+                    shadow-[0_10px_25px_rgba(59,130,246,0.4)]
                     group-hover:scale-110
                     transition
                   ">
@@ -118,20 +108,20 @@ export default function ServiceDetail() {
                   </div>
 
                   {/* TITLE */}
-                  <h3 className="text-lg font-semibold text-gray-900">
+                  <h3 className="text-lg font-semibold text-[var(--text)]">
                     {item.title}
                   </h3>
 
                   {/* DESC */}
-                  <p className="text-gray-600 mt-3 text-sm leading-relaxed">
+                  <p className="text-[var(--text-muted)] mt-3 text-sm leading-relaxed">
                     {item.desc}
                   </p>
 
                   {/* POINTS */}
-                  <ul className="mt-4 space-y-2 text-sm text-gray-600">
+                  <ul className="mt-5 space-y-2 text-sm text-[var(--text-muted)]">
                     {item.points.map((point, idx) => (
                       <li key={idx} className="flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 bg-blue-500 rounded-full" />
+                        <span className="w-1.5 h-1.5 bg-[var(--primary)] rounded-full" />
                         {point}
                       </li>
                     ))}
@@ -142,11 +132,12 @@ export default function ServiceDetail() {
                     href={waLink}
                     target="_blank"
                     className="
-                      inline-block mt-6 text-sm font-medium text-blue-600
-                      hover:underline
+                      inline-block mt-6 text-sm font-medium
+                      text-[var(--primary)]
+                      opacity-0 group-hover:opacity-100 transition
                     "
                   >
-                    Konsultasi →
+                    {t("cta")}
                   </a>
 
                 </motion.div>

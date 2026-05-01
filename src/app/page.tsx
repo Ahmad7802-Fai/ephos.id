@@ -1,5 +1,5 @@
-import HomePage from "@/modules/home/pages/HomePage";
+import { redirect } from "next/navigation";
 
-export default function Page() {
-  return <HomePage />;
+export default function RootPage() {
+  redirect("/id");
 }

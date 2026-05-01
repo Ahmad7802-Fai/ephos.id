@@ -5,7 +5,7 @@ import EphosVisual from "../components/EphosVisual";
 // import ValuesSplit from "../components/ValuesSplit";
 // import ImpactSection from "../components/ImpactSection";
 import Organization from "../components/Organization";
-import OrganizationStructure from "../components/OrganizationStructure";
+// import OrganizationStructure from "../components/OrganizationStructure";
 
 export default function AboutPage() {
   return (
@@ -17,26 +17,8 @@ export default function AboutPage() {
       {/* <ValuesSplit /> */}
       {/* <ImpactSection /> */}
       <Organization />
-      <OrganizationStructure />
+      {/* <OrganizationStructure /> */}
       <EphosVisual />
     </>
   );
 }
-
-
-
-// import AboutHero from "../components/AboutHero";
-// import ExecutiveSummary from "../components/ExecutiveSummary";
-// import Organization from "../components/Organization";
-// import OrganizationStructure from "../components/OrganizationStructure";
-
-// export default function AboutPage() {
-//   return (
-//     <>
-//       <AboutHero />
-//       <ExecutiveSummary />
-//       <Organization />
-//       <OrganizationStructure />
-//     </>
-//   );
-// }
