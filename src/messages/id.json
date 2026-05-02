@@ -33,93 +33,51 @@
 
 
   "Services": {
-
     "badge": "Layanan Kami",
-
     "title1": "Solusi End-to-End untuk",
-
     "title2": "Infrastruktur & Sistem Bisnis",
-
     "desc": "Dari infrastruktur hingga sistem enterprise, kami membantu bisnis berkembang lebih cepat, efisien, dan scalable.",
-
     "infraTitle": "IT Infrastructure",
-
     "infraDesc": "Bangun jaringan stabil & scalable untuk operasional bisnis tanpa downtime.",
-
     "infraImpact": "99.9% uptime • Zero bottleneck",
-
     "cloudTitle": "Cloud & Managed Services",
-
     "cloudDesc": "Optimasi cloud dengan monitoring & management penuh.",
-
     "cloudImpact": "Lebih hemat biaya hingga 40%",
-
     "enterpriseTitle": "Enterprise System",
-
     "enterpriseDesc": "ERP, CRM, dan automation untuk efisiensi bisnis.",
-
     "enterpriseImpact": "Operasional lebih cepat & terstruktur",
-
     "learnMore": "Pelajari lebih lanjut →",
-
     "sec1": "Security & Compliance",
-
     "sec2": "Collaboration Tools",
-
     "sec3": "IT Consulting"
-
   },
 
 
 
   "Why": {
-
     "badge": "Kenapa Pilih Kami",
-
     "title1": "Partner Teknologi yang",
-
     "title2": "Deliver Hasil Nyata",
-
     "desc": "Bukan sekadar implementasi IT. Kami fokus pada hasil bisnis: stabilitas sistem, efisiensi biaya, dan skalabilitas jangka panjang.",
-
     "chip1": "SLA jelas & terukur",
-
     "chip2": "Response < 5 menit",
-
     "chip3": "Monitoring real-time",
-
     "r1Title": "Keamanan Berstandar Enterprise",
-
     "r1Desc": "Firewall, monitoring, dan kontrol akses dengan praktik terbaik industri",
-
     "r2Title": "Performa Tinggi & Scalable",
-
     "r2Desc": "Arsitektur dioptimalkan untuk traffic tinggi tanpa bottleneck",
-
     "r3Title": "Support Cepat & Responsif",
-
     "r3Desc": "Tim teknis siap membantu dengan response time terukur",
-
     "r4Title": "End-to-End Solution",
-
     "r4Desc": "Dari infrastruktur hingga sistem, semua dalam satu partner",
-
     "cta": "Konsultasi Infrastruktur →",
-
     "perf": "Ringkasan Performa",
-
     "uptime": "Jaminan Uptime",
-
     "p1": "Stabilitas Sistem",
-
     "p2": "Kecepatan Respon",
-
     "p3": "Kepuasan Klien",
-
     "support": "Support",
-
     "active": "24/7 Aktif"
-
   },
 
   "Portfolio": {
@@ -136,7 +94,7 @@
     "p2Desc": "Migrasi sistem ke cloud tanpa gangguan operasional.",
     "p2Result": "0% downtime • -40% biaya",
 
-    "p3Title": "Sistem ERP Automation",
+    "p3Title": "ERP, AIHCM Software",
     "p3Desc": "Automasi proses bisnis untuk efisiensi maksimal.",
     "p3Result": "+60% efisiensi",
 

@@ -27,7 +27,7 @@ export default function Portfolio() {
       title: t("p3Title"),
       desc: t("p3Desc"),
       result: t("p3Result"),
-      image: "/assets/premium_photo-1764695549917-da546c7254a2.avif",
+      image: "/assets/ephostech-1.jpeg",
       tags: [t("tagERP"), t("tagAutomation")],
     },
   ];
