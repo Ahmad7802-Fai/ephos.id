@@ -45,9 +45,10 @@ export async function generateMetadata({
       siteName: "EphosTech",
       images: [
         {
-          url: `${baseUrl}/og-home.png`, // 🔥 FULL URL (WAJIB)
+          url: `${baseUrl}/og-home.png`,
           width: 1200,
           height: 630,
+          alt: "EphosTech - IT Solutions",
         },
       ],
       locale: isID ? "id_ID" : "en_US",

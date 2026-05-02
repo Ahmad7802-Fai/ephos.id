@@ -19,9 +19,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/${locale}${route}`,
       lastModified: new Date(),
 
-      // SEO upgrade
       changeFrequency: route === "" ? "daily" : "weekly",
       priority: route === "" ? 1 : 0.7,
+
+      // 🔥 SEO multilingual
+      alternates: {
+        languages: {
+          id: `${baseUrl}/id${route}`,
+          en: `${baseUrl}/en${route}`,
+        },
+      },
     }))
   );
 }

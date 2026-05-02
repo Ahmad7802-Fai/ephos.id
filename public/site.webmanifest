@@ -3,6 +3,19 @@
   "short_name": "EphosTech",
   "description": "Solusi IT Infrastructure, Cloud, dan Enterprise System untuk bisnis modern.",
 
+  "id": "/",
+  "start_url": "/id",
+  "scope": "/",
+
+  "display": "standalone",
+  "orientation": "portrait",
+
+  "lang": "id",
+  "categories": ["technology", "business"],
+
+  "theme_color": "#020617",
+  "background_color": "#020617",
+
   "icons": [
     {
       "src": "/favicon-192x192.png",
@@ -18,9 +31,16 @@
     }
   ],
 
-  "theme_color": "#020617",
-  "background_color": "#020617",
-  "display": "standalone",
-  "start_url": "/",
-  "scope": "/"
+  "shortcuts": [
+    {
+      "name": "Services",
+      "url": "/id/services",
+      "icons": [{ "src": "/favicon-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Contact",
+      "url": "/id/contact",
+      "icons": [{ "src": "/favicon-192x192.png", "sizes": "192x192" }]
+    }
+  ]
 }

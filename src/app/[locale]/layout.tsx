@@ -6,131 +6,116 @@ import { Poppins } from "next/font/google";
 
 const baseUrl = "https://ephostech.id";
 
-// 🔥 FONT OPTIMIZED (ANTI RENDER BLOCKING)
+// 🔥 FONT OPTIMIZED
 const font = Poppins({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600"],
   display: "swap",
 });
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
-  const { locale } = await params;
-  const isID = locale === "id";
+// 🔥 GLOBAL METADATA (LEVEL ROOT)
+export const metadata: Metadata = {
+  metadataBase: new URL(baseUrl),
 
-  const url = `${baseUrl}/${locale}`;
+  title: {
+    default: "EphosTech - IT Infrastructure & Cloud Solutions",
+    template: "%s | EphosTech",
+  },
 
-  return {
-    metadataBase: new URL(baseUrl),
+  description:
+    "EphosTech provides IT Infrastructure, Cloud Computing, and Enterprise System solutions for modern businesses.",
 
-    title: {
-      default: isID
-        ? "EphosTech - Solusi IT Infrastructure & Cloud"
-        : "EphosTech - IT Infrastructure & Cloud Solutions",
-      template: "%s | EphosTech",
-    },
+  applicationName: "EphosTech",
+  creator: "EphosTech",
+  publisher: "EphosTech",
+  category: "technology",
 
-    description: isID
-      ? "EphosTech menyediakan solusi IT Infrastructure, Cloud, dan Enterprise System untuk bisnis modern."
-      : "EphosTech provides IT Infrastructure, Cloud, and Enterprise System solutions for modern businesses.",
-
-    keywords: [
-      "IT Infrastructure",
-      "Cloud Computing",
-      "Enterprise System",
-      "IT Consultant Indonesia",
-      "DevOps",
-      "Networking",
-    ],
-
-    // 🔥 OPEN GRAPH
-    openGraph: {
-      title: "EphosTech",
-      description: isID
-        ? "Solusi IT Infrastructure & Cloud untuk bisnis scalable."
-        : "IT Infrastructure & Cloud solutions for scalable businesses.",
-      url,
-      siteName: "EphosTech",
-      images: [
-        {
-          url: `${baseUrl}/og-image.jpg`,
-          width: 1200,
-          height: 630,
-        },
-      ],
-      locale: isID ? "id_ID" : "en_US",
-      type: "website",
-    },
-
-    // 🔥 TWITTER
-    twitter: {
-      card: "summary_large_image",
-      title: "EphosTech",
-      description: isID
-        ? "Solusi IT modern untuk bisnis Anda"
-        : "Modern IT solutions for your business",
-      images: [`${baseUrl}/og-image.jpg`],
-    },
-
-    // 🔥 MULTI LANGUAGE SEO
-    alternates: {
-      canonical: url,
-      languages: {
-        id: `${baseUrl}/id`,
-        en: `${baseUrl}/en`,
+  openGraph: {
+    title: "EphosTech",
+    description:
+      "IT Infrastructure & Cloud solutions for scalable businesses.",
+    url: baseUrl,
+    siteName: "EphosTech",
+    images: [
+      {
+        url: `${baseUrl}/og-home.png`,
+        width: 1200,
+        height: 630,
+        alt: "EphosTech",
       },
+    ],
+    locale: "id_ID",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "EphosTech",
+    description:
+      "IT Infrastructure & Cloud solutions for scalable businesses.",
+    images: [`${baseUrl}/og-home.png`],
+  },
+
+  alternates: {
+    canonical: baseUrl,
+    languages: {
+      id: `${baseUrl}/id`,
+      en: `${baseUrl}/en`,
+      "x-default": `${baseUrl}/id`,
     },
+  },
 
-    // 🔥 FAVICON
-    icons: {
-      icon: [
-        { url: "/favicon.ico" },
-        { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-        { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      ],
-      apple: "/apple-touch-icon.png",
-    },
+  robots: {
+    index: true,
+    follow: true,
+  },
 
-    manifest: "/site.webmanifest",
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
 
-    // 🔥 SEO INDEXING
-    robots: {
-      index: true,
-      follow: true,
-    },
+  manifest: "/site.webmanifest",
+};
 
-    // 🔥 EXTRA (BOOST TRUST)
-    category: "technology",
-  };
-}
-
+// 🔥 ROOT LAYOUT
 export default async function RootLayout({
   children,
   params,
 }: {
   children: React.ReactNode;
-  params: Promise<{ locale: string }>;
+  params: { locale: string };
 }) {
-  const { locale } = await params;
-  const messages = (await import(`@/messages/${locale}.json`)).default;
+  const { locale } = params;
+
+  // 🔥 SAFE IMPORT (ANTI ERROR)
+  const messages = (
+    await import(`@/messages/${locale}.json`).catch(() =>
+      import(`@/messages/id.json`)
+    )
+  ).default;
 
   return (
-    <html lang={locale} data-scroll-behavior="smooth">
-      <body className={`${font.className} overflow-x-hidden bg-[var(--bg)] text-[var(--text)]`}>
-
+    <html lang={locale} dir="ltr">
+      <body
+        className={`${font.className} antialiased overflow-x-hidden bg-[var(--bg)] text-[var(--text)]`}
+      >
         <NextIntlClientProvider locale={locale} messages={messages}>
+          {/* 🔥 NAVBAR */}
           <Navbar />
 
+          {/* 🔥 CONTENT */}
           <main className="pt-16 md:pt-20 overflow-x-hidden">
             {children}
           </main>
 
+          {/* 🔥 FOOTER */}
           <Footer />
         </NextIntlClientProvider>
-
       </body>
     </html>
   );
