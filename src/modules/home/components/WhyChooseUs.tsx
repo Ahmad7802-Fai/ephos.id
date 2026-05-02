@@ -40,7 +40,7 @@ export default function WhyChooseUs() {
   const chips = [t("chip1"), t("chip2"), t("chip3")];
 
   return (
-    <section className="relative py-32 bg-[var(--bg)] overflow-hidden">
+    <section className="relative py-32 bg-[var(--bg)] overflow-visible">
 
       {/* BACKGROUND */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_20%,rgba(59,130,246,0.15),transparent_40%)]" />
@@ -71,7 +71,6 @@ export default function WhyChooseUs() {
               {t("desc")}
             </p>
 
-            {/* CHIPS */}
             {/* CHIPS */}
 <div className="mt-6 flex flex-wrap gap-3">
   {chips.map((item, i) => (

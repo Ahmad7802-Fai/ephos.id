@@ -10,25 +10,26 @@ export default function Organization() {
 
   const [active, setActive] = useState(0);
   const isPaused = useRef(false);
+  const scrollRef = useRef<HTMLDivElement>(null);
 
-  // 🔥 DATA (SUDAH MULTI LANG)
+  // 🔥 DATA
   const team = [
     {
       name: t("ceoName"),
       role: t("ceoRole"),
-      image: "/assets/team/ceo.jpg", // nanti tinggal ganti asset
+      image: "/assets/team/ceo.webp",
       desc: t("ceoDesc"),
     },
     {
       name: t("dirName"),
       role: t("dirRole"),
-      image: "/assets/team/director.jpg",
+      image: "/assets/team/director.webp",
       desc: t("dirDesc"),
     },
     {
       name: t("cfoName"),
       role: t("cfoRole"),
-      image: "/assets/team/cfo.jpg",
+      image: "/assets/team/cfo.webp",
       desc: t("cfoDesc"),
     },
   ];
@@ -43,6 +44,25 @@ export default function Organization() {
 
     return () => clearInterval(interval);
   }, [team.length]);
+
+  // 🔥 AUTO CENTER ACTIVE CARD (MOBILE)
+  useEffect(() => {
+    const container = scrollRef.current;
+    if (!container) return;
+
+    const child = container.children[active] as HTMLElement;
+    if (!child) return;
+
+    const containerCenter = container.offsetWidth / 2;
+    const childCenter = child.offsetLeft + child.offsetWidth / 2;
+
+    const scrollTo = childCenter - containerCenter;
+
+    container.scrollTo({
+      left: scrollTo,
+      behavior: "smooth",
+    });
+  }, [active]);
 
   return (
     <section className="relative py-32 bg-[var(--bg)] overflow-hidden">
@@ -71,14 +91,23 @@ export default function Organization() {
             </p>
           </div>
 
-          {/* COVERFLOW */}
+          {/* 🔥 COVERFLOW / CAROUSEL */}
           <div
-            className="relative flex justify-center items-center"
+            className="relative"
             onMouseEnter={() => (isPaused.current = true)}
             onMouseLeave={() => (isPaused.current = false)}
           >
-            <div className="flex items-center justify-center gap-6">
 
+            <div
+              ref={scrollRef}
+              className="
+                flex gap-6 overflow-x-auto px-6
+                snap-x snap-mandatory
+                scroll-smooth
+                scrollbar-hide
+                md:justify-center md:overflow-visible
+              "
+            >
               {team.map((item, i) => {
                 const isActive = i === active;
 
@@ -90,12 +119,13 @@ export default function Organization() {
                       isPaused.current = true;
                     }}
                     animate={{
-                      scale: isActive ? 1 : 0.82,
-                      opacity: isActive ? 1 : 0.4,
+                      scale: isActive ? 1 : 0.85,
+                      opacity: isActive ? 1 : 0.5,
                       y: isActive ? 0 : 30,
                     }}
-                    transition={{ duration: 0.45 }}
+                    transition={{ duration: 0.4 }}
                     className={`
+                      snap-center shrink-0
                       relative cursor-pointer
                       rounded-2xl p-6 w-[260px]
                       text-center transition-all
@@ -142,8 +172,8 @@ export default function Organization() {
                   </motion.div>
                 );
               })}
-
             </div>
+
           </div>
 
           {/* DOT NAV */}
