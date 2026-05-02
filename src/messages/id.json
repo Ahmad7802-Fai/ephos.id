@@ -4,6 +4,7 @@
     "about": "Tentang",
     "services": "Layanan",
     "portfolio": "Portfolio",
+    "gallery": "Gallery",
     "contact": "Kontak",
     "cta": "Konsultasi"
   },
@@ -191,7 +192,7 @@
     "title2": "Sering Ditanyakan",
     "desc": "Temukan jawaban sebelum memulai project bersama kami.",
 
-    "q1": "Berapa biaya layanan IT di Ephos?",
+    "q1": "Berapa biaya layanan IT di EphosTech?",
     "a1": "Biaya tergantung kebutuhan dan kompleksitas sistem.",
 
     "q2": "Apakah bisa custom sesuai kebutuhan bisnis?",
@@ -357,7 +358,7 @@
 
     "enterpriseTitle": "Enterprise System",
 
-    "enterpriseDesc": "ERP & AI-HCM Software automation terintegrasi",
+    "enterpriseDesc": "ERP & AIHCM Software automation terintegrasi",
 
     "securityTitle": "IT Security",
 
@@ -694,6 +695,61 @@
 
     "micro": "Respon cepat • Konsultasi gratis • Tanpa komitmen"
 
+  },
+
+
+
+  "Footer": {
+
+    "company": "PT EPHOS INDONESIA SEJAHTERA",
+
+    "desc": "Solusi digital untuk membantu bisnis berkembang melalui infrastruktur IT, cloud, dan sistem enterprise yang scalable.",
+
+    "navigation": "Navigasi",
+
+    "consult": "Konsultasi Gratis",
+
+    "consultDesc": "Diskusikan kebutuhan IT bisnis Anda bersama tim kami.",
+
+    "cta": "Mulai Konsultasi",
+
+    "email": "Email",
+
+    "phone": "Telepon",
+
+    "privacy": "Privasi",
+
+    "terms": "Syarat & Ketentuan",
+
+    "crafted": "Dibuat oleh",
+
+    "menu": {
+
+      "home": "Beranda",
+
+      "services": "Layanan",
+
+      "portfolio": "Portfolio",
+
+      "about": "Tentang",
+
+      "contact": "Kontak"
+
+    }
+
+  },
+
+  "Gallery": {
+    "badge": "Gallery",
+    "title": "Dokumentasi & Proyek Kami",
+    "desc": "Kumpulan proyek IT Infrastructure, Cloud, dan Enterprise yang telah kami implementasikan.",
+    "chip1": "Cloud Deployment",
+    "chip2": "Infrastructure Setup",
+    "chip3": "Enterprise System",
+    "filterAll": "Semua",
+    "filterCloud": "Cloud",
+    "filterNetwork": "Network",
+    "filterInfra": "Infrastructure"
   }
   
 }

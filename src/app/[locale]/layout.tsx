@@ -2,8 +2,16 @@ import "../globals.css";
 import { Navbar, Footer } from "@/components";
 import { NextIntlClientProvider } from "next-intl";
 import type { Metadata } from "next";
+import { Poppins } from "next/font/google";
 
 const baseUrl = "https://ephostech.id";
+
+// 🔥 FONT OPTIMIZED (ANTI RENDER BLOCKING)
+const font = Poppins({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  display: "swap",
+});
 
 export async function generateMetadata({
   params,
@@ -11,8 +19,9 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-
   const isID = locale === "id";
+
+  const url = `${baseUrl}/${locale}`;
 
   return {
     metadataBase: new URL(baseUrl),
@@ -37,16 +46,17 @@ export async function generateMetadata({
       "Networking",
     ],
 
+    // 🔥 OPEN GRAPH
     openGraph: {
       title: "EphosTech",
       description: isID
         ? "Solusi IT Infrastructure & Cloud untuk bisnis scalable."
         : "IT Infrastructure & Cloud solutions for scalable businesses.",
-      url: baseUrl,
+      url,
       siteName: "EphosTech",
       images: [
         {
-          url: `${baseUrl}/og-image.jpg`, // ✅ FIX (FULL URL)
+          url: `${baseUrl}/og-image.jpg`,
           width: 1200,
           height: 630,
         },
@@ -55,23 +65,26 @@ export async function generateMetadata({
       type: "website",
     },
 
+    // 🔥 TWITTER
     twitter: {
       card: "summary_large_image",
       title: "EphosTech",
       description: isID
         ? "Solusi IT modern untuk bisnis Anda"
         : "Modern IT solutions for your business",
-      images: [`${baseUrl}/og-image.jpg`], // ✅ FIX konsisten
+      images: [`${baseUrl}/og-image.jpg`],
     },
 
+    // 🔥 MULTI LANGUAGE SEO
     alternates: {
-      canonical: baseUrl,
+      canonical: url,
       languages: {
         id: `${baseUrl}/id`,
         en: `${baseUrl}/en`,
       },
     },
 
+    // 🔥 FAVICON
     icons: {
       icon: [
         { url: "/favicon.ico" },
@@ -83,10 +96,14 @@ export async function generateMetadata({
 
     manifest: "/site.webmanifest",
 
+    // 🔥 SEO INDEXING
     robots: {
       index: true,
       follow: true,
     },
+
+    // 🔥 EXTRA (BOOST TRUST)
+    category: "technology",
   };
 }
 
@@ -102,7 +119,7 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} data-scroll-behavior="smooth">
-      <body className="overflow-x-hidden bg-[var(--bg)] text-[var(--text)]">
+      <body className={`${font.className} overflow-x-hidden bg-[var(--bg)] text-[var(--text)]`}>
 
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Navbar />

@@ -77,7 +77,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               className="
-                text-3xl sm:text-4xl lg:text-[42px]
+                text-[26px] sm:text-[28px] lg:text-[32px]
                 font-semibold
                 leading-[1.2]
                 tracking-[-0.015em]
