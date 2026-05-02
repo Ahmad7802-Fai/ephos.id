@@ -10,21 +10,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/about",
     "/services",
     "/portfolio",
+    "/gallery",
     "/contact",
   ];
 
-  const sitemap: MetadataRoute.Sitemap = [];
+  return locales.flatMap((locale) =>
+    routes.map((route) => ({
+      url: `${baseUrl}/${locale}${route}`,
+      lastModified: new Date(),
 
-  locales.forEach((locale) => {
-    routes.forEach((route) => {
-      sitemap.push({
-        url: `${baseUrl}/${locale}${route}`,
-        lastModified: new Date(),
-        changeFrequency: "weekly",
-        priority: route === "" ? 1 : 0.7,
-      });
-    });
-  });
-
-  return sitemap;
+      // SEO upgrade
+      changeFrequency: route === "" ? "daily" : "weekly",
+      priority: route === "" ? 1 : 0.7,
+    }))
+  );
 }
