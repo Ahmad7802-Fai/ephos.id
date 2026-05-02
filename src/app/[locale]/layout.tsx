@@ -3,6 +3,8 @@ import { Navbar, Footer } from "@/components";
 import { NextIntlClientProvider } from "next-intl";
 import type { Metadata } from "next";
 
+const baseUrl = "https://ephostech.id";
+
 export async function generateMetadata({
   params,
 }: {
@@ -10,23 +12,21 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
 
-  const baseUrl = "https://ephostech.id";
+  const isID = locale === "id";
 
   return {
     metadataBase: new URL(baseUrl),
 
     title: {
-      default:
-        locale === "id"
-          ? "EphosTech - Solusi IT Infrastructure & Cloud"
-          : "EphosTech - IT Infrastructure & Cloud Solutions",
+      default: isID
+        ? "EphosTech - Solusi IT Infrastructure & Cloud"
+        : "EphosTech - IT Infrastructure & Cloud Solutions",
       template: "%s | EphosTech",
     },
 
-    description:
-      locale === "id"
-        ? "EphosTech menyediakan solusi IT Infrastructure, Cloud, dan Enterprise System untuk bisnis modern."
-        : "EphosTech provides IT Infrastructure, Cloud, and Enterprise System solutions for modern businesses.",
+    description: isID
+      ? "EphosTech menyediakan solusi IT Infrastructure, Cloud, dan Enterprise System untuk bisnis modern."
+      : "EphosTech provides IT Infrastructure, Cloud, and Enterprise System solutions for modern businesses.",
 
     keywords: [
       "IT Infrastructure",
@@ -39,31 +39,29 @@ export async function generateMetadata({
 
     openGraph: {
       title: "EphosTech",
-      description:
-        locale === "id"
-          ? "Solusi IT Infrastructure & Cloud untuk bisnis scalable."
-          : "IT Infrastructure & Cloud solutions for scalable businesses.",
+      description: isID
+        ? "Solusi IT Infrastructure & Cloud untuk bisnis scalable."
+        : "IT Infrastructure & Cloud solutions for scalable businesses.",
       url: baseUrl,
       siteName: "EphosTech",
       images: [
         {
-          url: "/og-image.jpg",
+          url: `${baseUrl}/og-image.jpg`, // ✅ FIX (FULL URL)
           width: 1200,
           height: 630,
         },
       ],
-      locale: locale === "id" ? "id_ID" : "en_US",
+      locale: isID ? "id_ID" : "en_US",
       type: "website",
     },
 
     twitter: {
       card: "summary_large_image",
       title: "EphosTech",
-      description:
-        locale === "id"
-          ? "Solusi IT modern untuk bisnis Anda"
-          : "Modern IT solutions for your business",
-      images: ["/og-image.png"],
+      description: isID
+        ? "Solusi IT modern untuk bisnis Anda"
+        : "Modern IT solutions for your business",
+      images: [`${baseUrl}/og-image.jpg`], // ✅ FIX konsisten
     },
 
     alternates: {
@@ -74,7 +72,6 @@ export async function generateMetadata({
       },
     },
 
-    // 🔥 FAVICON FULL SET
     icons: {
       icon: [
         { url: "/favicon.ico" },
@@ -85,6 +82,11 @@ export async function generateMetadata({
     },
 
     manifest: "/site.webmanifest",
+
+    robots: {
+      index: true,
+      follow: true,
+    },
   };
 }
 
@@ -99,7 +101,7 @@ export default async function RootLayout({
   const messages = (await import(`@/messages/${locale}.json`)).default;
 
   return (
-    <html lang={locale}>
+    <html lang={locale} data-scroll-behavior="smooth">
       <body className="overflow-x-hidden bg-[var(--bg)] text-[var(--text)]">
 
         <NextIntlClientProvider locale={locale} messages={messages}>

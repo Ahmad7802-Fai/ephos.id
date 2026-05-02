@@ -1,4 +1,14 @@
 {
+
+  "Navbar": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "contact": "Contact",
+    "cta": "Consultation"
+  },
+  
   "Hero": {
     "badge": "Enterprise IT Solution",
     "title1": "Build IT Infrastructure & Systems",

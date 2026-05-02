@@ -1,18 +1,21 @@
 import ContactPage from "@/modules/contact/ContactPage";
 import type { Metadata } from "next";
 
+const baseUrl = "https://ephostech.id";
+
 export async function generateMetadata({
   params,
 }: {
-  params: { locale: string };
+  params: Promise<{ locale: string }>; // ✅ FIX
 }): Promise<Metadata> {
-  const { locale } = params;
+  const { locale } = await params; // ✅ WAJIB await
 
   const isID = locale === "id";
-  const baseUrl = "https://ephostech.id";
   const url = `${baseUrl}/${locale}/contact`;
 
   return {
+    metadataBase: new URL(baseUrl),
+
     title: isID
       ? "Kontak Kami - EphosTech"
       : "Contact Us - EphosTech",
@@ -30,38 +33,30 @@ export async function generateMetadata({
     ],
 
     openGraph: {
-      title: isID
-        ? "Hubungi EphosTech"
-        : "Contact EphosTech",
-
+      title: isID ? "Hubungi EphosTech" : "Contact EphosTech",
       description: isID
         ? "Konsultasi IT gratis untuk bisnis Anda."
         : "Free IT consultation for your business.",
-
       url,
       siteName: "EphosTech",
-
       images: [
         {
-          url: "/og-contact.jpg", // buat di public
+          url: `${baseUrl}/og-contact.jpg`, // ✅ FULL URL (WAJIB)
           width: 1200,
           height: 630,
         },
       ],
-
       locale: isID ? "id_ID" : "en_US",
       type: "website",
     },
 
     twitter: {
       card: "summary_large_image",
-      title: isID
-        ? "Kontak EphosTech"
-        : "Contact EphosTech",
+      title: isID ? "Kontak EphosTech" : "Contact EphosTech",
       description: isID
         ? "Konsultasi IT gratis sekarang."
         : "Start your IT consultation today.",
-      images: ["/og-contact.jpg"],
+      images: [`${baseUrl}/og-contact.jpg`], // ✅ FIX
     },
 
     alternates: {
@@ -70,6 +65,11 @@ export async function generateMetadata({
         id: `${baseUrl}/id/contact`,
         en: `${baseUrl}/en/contact`,
       },
+    },
+
+    robots: {
+      index: true,
+      follow: true,
     },
   };
 }

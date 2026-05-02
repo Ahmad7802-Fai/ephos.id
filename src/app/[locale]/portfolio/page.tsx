@@ -1,18 +1,21 @@
 import PortfolioPage from "@/modules/portfolio";
 import type { Metadata } from "next";
 
+const baseUrl = "https://ephostech.id";
+
 export async function generateMetadata({
   params,
 }: {
-  params: { locale: string };
+  params: Promise<{ locale: string }>; // ✅ FIX WAJIB
 }): Promise<Metadata> {
-  const { locale } = params;
+  const { locale } = await params; // ✅ FIX WAJIB
 
   const isID = locale === "id";
-  const baseUrl = "https://ephostech.id";
   const url = `${baseUrl}/${locale}/portfolio`;
 
   return {
+    metadataBase: new URL(baseUrl),
+
     title: isID
       ? "Portfolio & Case Study - EphosTech"
       : "Portfolio & Case Studies - EphosTech",
@@ -43,7 +46,7 @@ export async function generateMetadata({
 
       images: [
         {
-          url: "/og-portfolio.jpg",
+          url: `${baseUrl}/og-portfolio.jpg`, // ✅ FIX (FULL URL)
           width: 1200,
           height: 630,
         },
@@ -58,10 +61,12 @@ export async function generateMetadata({
       title: isID
         ? "Portfolio EphosTech"
         : "EphosTech Portfolio",
+
       description: isID
         ? "Lihat hasil nyata implementasi solusi IT kami."
         : "See real results from our IT solutions.",
-      images: ["/og-portfolio.jpg"],
+
+      images: [`${baseUrl}/og-portfolio.jpg`], // ✅ FIX
     },
 
     alternates: {
@@ -70,6 +75,11 @@ export async function generateMetadata({
         id: `${baseUrl}/id/portfolio`,
         en: `${baseUrl}/en/portfolio`,
       },
+    },
+
+    robots: {
+      index: true,
+      follow: true,
     },
   };
 }

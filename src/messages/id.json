@@ -1,4 +1,13 @@
 {
+  "Navbar": {
+    "home": "Home",
+    "about": "Tentang",
+    "services": "Layanan",
+    "portfolio": "Portfolio",
+    "contact": "Kontak",
+    "cta": "Konsultasi"
+  },
+
   "Hero": {
     "badge": "Enterprise IT Solution",
     "title1": "Bangun Infrastruktur & Sistem IT",

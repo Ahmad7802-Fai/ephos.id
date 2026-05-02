@@ -1,16 +1,21 @@
 import AboutPage from "@/modules/about/pages/AboutPage";
 import type { Metadata } from "next";
 
+const baseUrl = "https://ephostech.id";
+
 export async function generateMetadata({
   params,
 }: {
-  params: { locale: string };
+  params: Promise<{ locale: string }>; // ✅ FIX
 }): Promise<Metadata> {
-  const { locale } = params;
+  const { locale } = await params; // ✅ WAJIB
 
   const isID = locale === "id";
+  const url = `${baseUrl}/${locale}/about`;
 
   return {
+    metadataBase: new URL(baseUrl),
+
     title: isID
       ? "Tentang Kami - EphosTech"
       : "About Us - EphosTech",
@@ -20,31 +25,47 @@ export async function generateMetadata({
       : "Learn more about EphosTech, our vision, mission, and professional team delivering IT solutions.",
 
     openGraph: {
-      title: isID
-        ? "Tentang EphosTech"
-        : "About EphosTech",
+      title: isID ? "Tentang EphosTech" : "About EphosTech",
 
       description: isID
         ? "Perusahaan IT Infrastructure, Cloud, dan Enterprise System terpercaya."
         : "Trusted IT Infrastructure, Cloud, and Enterprise System company.",
 
-      url: `https://ephostech.id/${locale}/about`,
+      url,
+      siteName: "EphosTech",
 
       images: [
         {
-          url: "/og-about.jpg", // bikin khusus about (lebih bagus)
+          url: `${baseUrl}/og-about.jpg`, // ✅ FULL URL (WAJIB)
           width: 1200,
           height: 630,
         },
       ],
+
+      locale: isID ? "id_ID" : "en_US",
+      type: "website",
+    },
+
+    twitter: {
+      card: "summary_large_image",
+      title: isID ? "Tentang EphosTech" : "About EphosTech",
+      description: isID
+        ? "Kenali lebih dalam tentang EphosTech."
+        : "Get to know EphosTech better.",
+      images: [`${baseUrl}/og-about.jpg`],
     },
 
     alternates: {
-      canonical: `https://ephostech.id/${locale}/about`,
+      canonical: url,
       languages: {
-        id: "https://ephostech.id/id/about",
-        en: "https://ephostech.id/en/about",
+        id: `${baseUrl}/id/about`,
+        en: `${baseUrl}/en/about`,
       },
+    },
+
+    robots: {
+      index: true,
+      follow: true,
     },
   };
 }

@@ -1,25 +1,40 @@
 import HomePage from "@/modules/home/pages/HomePage";
 import type { Metadata } from "next";
 
+const baseUrl = "https://ephostech.id";
+
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
-  const { locale } = await params; // ✅ FIX ERROR
+  const { locale } = await params;
 
-  const baseUrl = "https://ephostech.id";
-  const url = `${baseUrl}/${locale}`;
   const isID = locale === "id";
+  const url = `${baseUrl}/${locale}`;
 
   return {
-    title: isID
-      ? "EphosTech - IT Infrastructure, Cloud & Enterprise System"
-      : "EphosTech - IT Infrastructure, Cloud & Enterprise Systems",
+    metadataBase: new URL(baseUrl),
+
+    title: {
+      default: isID
+        ? "EphosTech - IT Infrastructure, Cloud & Enterprise System"
+        : "EphosTech - IT Infrastructure, Cloud & Enterprise Systems",
+      template: "%s | EphosTech",
+    },
 
     description: isID
       ? "EphosTech menyediakan solusi IT Infrastructure, Cloud Computing, dan Enterprise System untuk bisnis modern."
       : "EphosTech provides IT Infrastructure, Cloud Computing, and Enterprise System solutions.",
+
+    keywords: [
+      "IT Infrastructure",
+      "Cloud Computing",
+      "Enterprise System",
+      "IT Consultant Indonesia",
+      "DevOps",
+      "Networking",
+    ],
 
     openGraph: {
       title: "EphosTech",
@@ -30,7 +45,7 @@ export async function generateMetadata({
       siteName: "EphosTech",
       images: [
         {
-          url: "/og-home.png",
+          url: `${baseUrl}/og-home.png`, // 🔥 FULL URL (WAJIB)
           width: 1200,
           height: 630,
         },
@@ -45,7 +60,7 @@ export async function generateMetadata({
       description: isID
         ? "Solusi IT modern untuk bisnis Anda"
         : "Modern IT solutions for your business",
-      images: ["/og-home.png"],
+      images: [`${baseUrl}/og-home.png`],
     },
 
     alternates: {
@@ -54,6 +69,11 @@ export async function generateMetadata({
         id: `${baseUrl}/id`,
         en: `${baseUrl}/en`,
       },
+    },
+
+    robots: {
+      index: true,
+      follow: true,
     },
   };
 }
@@ -64,42 +84,41 @@ export default async function Page({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-
-  const baseUrl = "https://ephostech.id";
   const url = `${baseUrl}/${locale}`;
 
-  // 🔥 STRUCTURED DATA (CLEAN)
-  const schema = [
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      name: "EphosTech",
-      url: baseUrl,
-      logo: `${baseUrl}/logo.png`,
-      contactPoint: {
-        "@type": "ContactPoint",
-        telephone: "+6285285579492",
-        contactType: "customer service",
-        areaServed: "ID",
+  // 🔥 STRUCTURED DATA (OPTIMIZED)
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        name: "EphosTech",
+        url: baseUrl,
+        logo: `${baseUrl}/logo.png`,
+        contactPoint: {
+          "@type": "ContactPoint",
+          telephone: "+6285285579492",
+          contactType: "customer service",
+          areaServed: "ID",
+          availableLanguage: ["Indonesian", "English"],
+        },
       },
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      name: "EphosTech",
-      url: baseUrl,
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      name: "EphosTech Homepage",
-      url,
-    },
-  ];
+      {
+        "@type": "WebSite",
+        name: "EphosTech",
+        url: baseUrl,
+      },
+      {
+        "@type": "WebPage",
+        name: "EphosTech Homepage",
+        url,
+      },
+    ],
+  };
 
   return (
     <>
-      {/* 🔥 SEO STRUCTURED DATA */}
+      {/* 🔥 JSON-LD (NO WARNING) */}
       <script
         type="application/ld+json"
         suppressHydrationWarning
