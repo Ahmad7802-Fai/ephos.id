@@ -664,44 +664,37 @@
   },
 
   "Footer": {
+  "company": "PT EPHOS INDONESIA SEJAHTERA",
+  "desc": "Digital solutions to help businesses grow through scalable IT infrastructure, cloud, and enterprise systems.",
 
-    "company": "PT EPHOS INDONESIA SEJAHTERA",
+  "navigation": "Navigation",
+  "consult": "Free Consultation",
+  "consultDesc": "Discuss your IT needs with our team.",
+  "cta": "Start Consultation",
 
-    "desc": "Digital solutions to help businesses grow through scalable IT infrastructure, cloud, and enterprise systems.",
+  "email": "Email",
+  "phone": "Phone",
 
-    "navigation": "Navigation",
+  "whatsapp": "WhatsApp",
+  "waNumber": "+62 852 8557 9492",
+  "waLink": "https://wa.me/6285285579492?text=Hello%20EphosTech,%20I%20want%20to%20consult",
 
-    "consult": "Free Consultation",
+  "qrText": "Scan to chat via WhatsApp",
 
-    "consultDesc": "Discuss your IT needs with our team.",
+  "privacy": "Privacy",
+  "terms": "Terms",
+  "crafted": "Crafted by",
 
-    "cta": "Start Consultation",
+  "menu": {
+    "home": "Home",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "about": "About",
+    "Gallery": "Gallery",
+    "contact": "Contact"
+  }
+},
 
-    "email": "Email",
-
-    "phone": "Phone",
-
-    "privacy": "Privacy",
-
-    "terms": "Terms",
-
-    "crafted": "Crafted by",
-
-    "menu": {
-
-      "home": "Home",
-
-      "services": "Services",
-
-      "portfolio": "Portfolio",
-
-      "about": "About",
-
-      "contact": "Contact"
-
-    }
-
-  },
   "Gallery": {
 
     "badge": "Gallery",

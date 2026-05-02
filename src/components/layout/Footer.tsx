@@ -7,9 +7,8 @@ import { useParams, useRouter } from "next/navigation";
 import { QRCodeSVG } from "qrcode.react";
 
 /* ================= QR COMPONENT ================= */
-function WhatsAppQR() {
-  const waLink =
-    "https://wa.me/6285285579492?text=Halo%20EphosTech,%20saya%20ingin%20konsultasi";
+function WhatsAppQR({ t }: any) {
+  const waLink = t("waLink");
 
   return (
     <div className="hidden md:flex flex-col items-center gap-3 mt-6">
@@ -24,7 +23,7 @@ function WhatsAppQR() {
       </div>
 
       <p className="text-[11px] text-white/40 text-center">
-        Scan untuk chat WhatsApp
+        {t("qrText")}
       </p>
 
     </div>
@@ -66,7 +65,7 @@ export default function Footer() {
   return (
     <footer className="relative bg-[#0B0F14] text-white overflow-hidden">
 
-      {/* BG LIGHT */}
+      {/* BG */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(59,130,246,0.12),transparent_60%)]" />
 
       <Container className="relative z-10 py-20">
@@ -95,13 +94,7 @@ export default function Footer() {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="
-                    group w-10 h-10 rounded-xl
-                    bg-white/5 border border-white/10
-                    flex items-center justify-center
-                    hover:bg-blue-500 hover:border-blue-400
-                    transition
-                  "
+                  className="group w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-blue-500 hover:border-blue-400 transition"
                 >
                   <img
                     src={item.icon}
@@ -111,7 +104,6 @@ export default function Footer() {
               ))}
             </div>
 
-            {/* TRUST */}
             <div className="mt-6 flex gap-3 text-xs text-white/40">
               <span>✔ 100+ Client</span>
               <span>✔ 99% Uptime</span>
@@ -150,14 +142,9 @@ export default function Footer() {
 
             {/* BUTTON WA */}
             <a
-              href="https://wa.me/6285285579492"
+              href={t("waLink")}
               target="_blank"
-              className="
-                inline-block mt-5 px-6 py-3 rounded-xl
-                bg-gradient-to-r from-blue-500 to-blue-600
-                text-white text-sm
-                shadow-lg hover:scale-105 transition
-              "
+              className="inline-block mt-5 px-6 py-3 rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 text-white text-sm shadow-lg hover:scale-105 transition"
             >
               {t("cta")} →
             </a>
@@ -173,27 +160,23 @@ export default function Footer() {
 
               {/* WHATSAPP */}
               <a
-                href="https://wa.me/6285285579492"
+                href={t("waLink")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="
-                  flex items-center gap-2
-                  hover:text-green-400
-                  transition
-                "
+                className="flex items-center gap-2 hover:text-green-400 transition"
               >
                 <img
                   src="/icons/whatsapp.svg"
                   className="w-[14px] h-[14px]"
                   alt="WhatsApp"
                 />
-                <span>+62 852 8557 9492</span>
+                <span>{t("waNumber")}</span>
               </a>
 
             </div>
 
-            {/* QR CODE */}
-            <WhatsAppQR />
+            {/* QR */}
+            <WhatsAppQR t={t} />
 
           </div>
 
