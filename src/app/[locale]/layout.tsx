@@ -6,7 +6,6 @@ import { Poppins } from "next/font/google";
 
 const baseUrl = "https://ephostech.id";
 
-// 🔥 FONT OPTIMIZED (ANTI RENDER BLOCKING)
 const font = Poppins({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600"],
@@ -16,11 +15,11 @@ const font = Poppins({
 export async function generateMetadata({
   params,
 }: {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
-  const { locale } = params;
-  const isID = locale === "id";
+  const { locale } = await params;
 
+  const isID = locale === "id";
   const url = `${baseUrl}/${locale}`;
 
   return {
@@ -46,7 +45,7 @@ export async function generateMetadata({
       siteName: "EphosTech",
       images: [
         {
-          url: `${baseUrl}/og-home.png`, // ← pakai yang pasti ada
+          url: `${baseUrl}/og-home.png`,
           width: 1200,
           height: 630,
           alt: "EphosTech",
@@ -85,22 +84,21 @@ export default async function RootLayout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const messages = (await import(`@/messages/${locale}.json`)).default;
+
+  const messages = (
+    await import(`@/messages/${locale}.json`).catch(() =>
+      import(`@/messages/id.json`)
+    )
+  ).default;
 
   return (
-    <html lang={locale} data-scroll-behavior="smooth">
-      <body className={`${font.className} overflow-x-hidden bg-[var(--bg)] text-[var(--text)]`}>
-
+    <html lang={locale}>
+      <body className={`${font.className} bg-[var(--bg)] text-[var(--text)]`}>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Navbar />
-
-          <main className="pt-16 md:pt-20 overflow-x-hidden">
-            {children}
-          </main>
-
+          <main className="pt-16 md:pt-20">{children}</main>
           <Footer />
         </NextIntlClientProvider>
-
       </body>
     </html>
   );

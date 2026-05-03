@@ -1,5 +1,5 @@
-import { redirect } from "next/navigation";
 import type { Metadata } from "next";
+import HomePage from "@/modules/home/pages/HomePage";
 
 const baseUrl = "https://ephostech.id";
 
@@ -7,10 +7,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
 
   title: "EphosTech - IT Infrastructure & Cloud Solutions",
-  description: "Solusi IT Infrastructure, Cloud, dan Enterprise System untuk bisnis modern.",
+  description:
+    "Solusi IT Infrastructure, Cloud, dan Enterprise System untuk bisnis modern.",
 
   alternates: {
-    canonical: `${baseUrl}/id`,
+    canonical: baseUrl,
   },
 
   openGraph: {
@@ -40,5 +41,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootPage() {
-  redirect("/id");
+  return <HomePage />;
 }
