@@ -3,10 +3,10 @@ import { locales, defaultLocale } from "./src/i18n";
 
 export default createMiddleware({
   locales,
-  defaultLocale, // 🔥 WAJIB ADA
-  localePrefix: "always"
+  defaultLocale,
+  localePrefix: "as-needed",
 });
 
 export const config = {
-  matcher: ["/((?!api|_next|.*\\..*).*)"]
+  matcher: ["/((?!api|_next|.*\\..*).*)"],
 };

@@ -42,10 +42,8 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootPage() {
-  return (
-    <NextIntlClientProvider locale="id" messages={messages}>
-      <HomePage />
-    </NextIntlClientProvider>
-  );
+export default function Page() {
+
+  return null;
+
 }
