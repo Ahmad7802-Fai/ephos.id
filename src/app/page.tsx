@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import HomePage from "@/modules/home/pages/HomePage";
+import { NextIntlClientProvider } from "next-intl";
+import messages from "@/messages/id.json";
 
 const baseUrl = "https://ephostech.id";
 
@@ -41,5 +43,9 @@ export const metadata: Metadata = {
 };
 
 export default function RootPage() {
-  return <HomePage />;
+  return (
+    <NextIntlClientProvider locale="id" messages={messages}>
+      <HomePage />
+    </NextIntlClientProvider>
+  );
 }
