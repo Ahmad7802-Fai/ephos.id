@@ -34,11 +34,11 @@ function WhatsAppQR({ t }: any) {
 const socials = [
   {
     icon: "/icons/instagram.svg",
-    href: "https://instagram.com/yourbrand",
+    href: "https://instagram.com/ephostech",
   },
   {
     icon: "/icons/linkedin.svg",
-    href: "https://linkedin.com/company/yourcompany",
+    href: "https://linkedin.com/in/ephos-tech-b4a466408/",
   },
 ];
 
